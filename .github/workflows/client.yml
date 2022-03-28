@@ -18,12 +18,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
     
-      - name: Build
+      - name: Install dependencies and build
         run: |
           cd tharzy-client
-          npm i next
-          npm run build
+          npm i
           npm run export
           cd ..
       
