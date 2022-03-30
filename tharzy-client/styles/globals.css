@@ -21,7 +21,7 @@ body, input, textarea, select {
 }
 
 h1, h2, h3, p, div {
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 h2 {
@@ -29,7 +29,10 @@ h2 {
 }
 
 select, input[type='text'], input[type='search'] textarea {
-  -webkit-appearance: none;
+  background: none !important;
+  -webkit-appearance: none !important;
+  -webkit-background-composite: none !important;
+  -webkit-text-fill-color: rgb(0, 0, 0) !important;
 }
 
 select, input[type='text'], textarea {
