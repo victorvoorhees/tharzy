@@ -6,73 +6,23 @@
     padding-top: 5rem;
 }
 
-.options {
+.filters {
     align-items: flex-end;
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
 }
 
-.filters {
+.options {
     display: grid;
     gap: 0.6rem;
     grid-template-columns: 1fr 1fr 0.5fr;
     width: 100%;
 }
 
-.filter label {
-    color: var(--slate-500);
-    display: block;
-}
-
-.filter select {
-    display: block;
-    margin-top: 0.2rem;
-    padding: 0.5em;
-    width: 100%;
-}
-
 .search {
-    align-items: center;
-    background-color: var(--slate-100);
-    border: 1px solid var(--slate-100);
-    border-radius: 0.4em;
-    display: flex;
-    margin-bottom: 3rem;
-    outline: 2px solid rgb(255, 255, 255);
-    outline-offset: 2px;
+    margin-bottom: 2rem;
     width: 100%;
-    transition: background-color 0.2s, border-color 0.2s, outline-color 0.2s;
-}
-
-.search i {
-    padding-left: 0.8rem;
-}
-
-.search i::before {
-    color: var(--slate-400);
-}
-
-.search input {
-    background: none;
-    border: none;
-    font-size: 1rem;
-    outline: none;
-    padding: 0.8rem;
-    width: 100%;
-}
-
-.search input::placeholder {
-    color: var(--slate-400);
-}
-
-.search:hover {
-    border-color: var(--blue);
-}
-
-.search:focus-within {
-    border-color: var(--blue);
-    outline-color: var(--blue);
 }
 
 .post {
@@ -170,12 +120,12 @@
 
 
 @media screen and (min-width: 768px) {
-    .options {
+    .filters {
         flex-direction: row;
         gap: initial;
     }
 
-    .filters {
+    .options {
         width: 22rem;
     }
 

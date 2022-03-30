@@ -1,0 +1,41 @@
+.wrapper {
+    align-items: center;
+    background-color: var(--slate-100);
+    border: 1px solid var(--slate-100);
+    border-radius: 0.4em;
+    display: flex;
+    outline: 2px solid rgb(255, 255, 255);
+    outline-offset: 2px;
+    width: 100%;
+    transition: background-color 0.2s, border-color 0.2s, outline-color 0.2s;
+}
+
+.wrapper i {
+    padding-left: 0.8rem;
+}
+
+.wrapper i::before {
+    color: var(--slate-400);
+}
+
+.wrapper input {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.wrapper input::placeholder {
+    color: var(--slate-400);
+}
+
+.wrapper:hover {
+    border-color: var(--blue);
+}
+
+.wrapper:focus-within {
+    border-color: var(--blue);
+    outline-color: var(--blue);
+}

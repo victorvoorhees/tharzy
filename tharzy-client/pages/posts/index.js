@@ -1,9 +1,11 @@
+import Search from '../../components/Search';
+import Select from '../../components/Select';
 import Styles from '../../styles/Posts.module.css';
 
 export default function Posts() {
     const data = [
         {
-            uploadedBy: 'TheOneTrueBasedChad',
+            uploadedBy: 'South China Morning Post',
             title: `Junta forces beat and arrested a teenager in Palatwa`,
             time: '23min',
             tag: 'Atrocities',
@@ -35,7 +37,7 @@ export default function Posts() {
             comments: '3'
         },
     ];
-    const filterOptions = ['All', 'Atrocities', 'Resistance', 'World', 'General', 'Opinion', 'Other'];
+    const tagOptions = ['All', 'Atrocities', 'Resistance', 'World', 'General', 'Opinion', 'Other'];
     const sortOptions = ['Title', 'Time', 'Reps', 'Comments'];
     const pageSizes = [20, 40, 80];
     const pages = [1, 2, 3];
@@ -44,30 +46,14 @@ export default function Posts() {
 
     return (
         <>
-        <div className={Styles.options}>
-            <div className={Styles.filters}>
-                <div className={Styles.filter}>
-                    <label htmlFor='filter'>Tag</label>
-                    <select name='filter' id='filter'>
-                        {filterOptions.map((option, index) => <option key={index}>{option}</option>)}
-                    </select>
-                </div>
-                <div className={Styles.filter}>
-                    <label htmlFor='sort'>Sort by</label>
-                    <select name='sort' id='sort'>
-                        {sortOptions.map((option, index) => <option key={index}>{option}</option>)}
-                    </select>
-                </div>
-                <div className={Styles.filter}>
-                    <label htmlFor='pageSize'>Items</label>
-                    <select name='pageSize' id='pageSize'>
-                        {pageSizes.map((option, index) => <option key={index}>{option}</option>)}
-                    </select>
-                </div>
+        <div className={Styles.filters}>
+            <div className={Styles.options}>
+                <Select name='tag' options={tagOptions} />
+                <Select label='Sort by' name='sortBy' options={sortOptions} />
+                <Select label='Items' name='pageSizes' options={pageSizes} />
             </div>
             <div className={Styles.search}>
-                <i className='fa-solid fa-lg fa-magnifying-glass'></i>
-                <input type='text' name='search' placeholder='Type a keyword' />
+                <Search />
             </div>
         </div>
         <div className={Styles.container}>
