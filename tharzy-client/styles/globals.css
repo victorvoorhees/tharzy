@@ -1,16 +1,62 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mada:wght@400;600;700&display=swap');
+
+@font-face {
+  font-family: 'Halyard';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../public//fonts/halyard-text-regular.woff2') format('woff2');
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+:root {
+  --blue: rgb(0, 105, 255);
+  --slate-50: rgb(248 250 252);
+  --slate-100: rgb(241 245 249);
+  --slate-200: rgb(226 232 240);
+  --slate-300: rgb(203 213 225);
+  --slate-400: rgb(148 163 184);
+  --slate-500: rgb(100 116 139);
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, input, textarea, select {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+h1, h2, h3, p, div {
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+select, input[type='text'], textarea {
+  border: 1px solid var(--slate-400);
+  
+  cursor: pointer;
+  font-size: 1rem;
+  outline: 2px solid rgb(255, 255, 255);
+  outline-offset: 2px;
+  transition: border-color 0.2s, outline-color 0.2s;
+}
+
+select:hover, input[type='text']:hover, textarea:hover {
+    border-color: var(--blue);
+}
+
+select:focus, input[type='text']:hover, textarea:hover {
+    border-color: var(--blue);
+    outline-color: var(--blue);
 }
