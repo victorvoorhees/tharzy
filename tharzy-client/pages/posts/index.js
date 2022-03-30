@@ -67,7 +67,7 @@ export default function Posts() {
             </div>
             <div className={Styles.search}>
                 <i className='fa-solid fa-lg fa-magnifying-glass'></i>
-                <input type='search' name='search' placeholder='Type a keyword' />
+                <input type='text' name='search' placeholder='Type a keyword' />
             </div>
         </div>
         <div className={Styles.container}>
