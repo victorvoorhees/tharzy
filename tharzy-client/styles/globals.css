@@ -36,10 +36,8 @@ h2 {
 }
 
 select {
-  
   background: none !important;
   color: rgb(0, 0, 0) !important;
-
   border: 1px solid var(--slate-300);
   border-radius: 0.3em;
   cursor: pointer;
