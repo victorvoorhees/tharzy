@@ -5,7 +5,27 @@ For Lenin's sake, I can never make that final decision on which font to use. If 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap');
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+
+@font-face {
+  font-family: 'sora';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../public/fonts/sora-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'sora';
+  font-weight: 600;
+  font-style: normal;
+  src: url('../public/fonts/sora-semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'sora';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../public/fonts/sora-bold.woff2') format('woff2');
+}
 
 :root {
   --blue: rgb(0, 105, 255);
@@ -24,7 +44,7 @@ For Lenin's sake, I can never make that final decision on which font to use. If 
 }
 
 body, input, textarea, select {
-  font-family: 'Sora', sans-serif;
+  font-family: 'sora', sans-serif;
 }
 
 h1, h2, h3, p, div {
