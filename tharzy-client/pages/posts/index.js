@@ -22,7 +22,7 @@ export default function Posts() {
             uploadedBy: 'Ye Htut',
             title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
             time: '3h',
-            tag: 'International',
+            tag: 'World',
             reps: '-22',
             comments: '39'
         },
@@ -30,7 +30,7 @@ export default function Posts() {
             uploadedBy: 'commie lay',
             title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
             time: '15h',
-            tag: 'News',
+            tag: 'General',
             reps: '78',
             comments: '3'
         },
@@ -98,7 +98,7 @@ export default function Posts() {
             ))}
         </div>
         <div className={Styles.pagination}>
-            {pages.map((num, index) => <div key={index} className={num === 1 && Styles.currentPage}>{num}</div>)}
+            {pages.map((num, index) => <div key={index} className={num === 1 ? Styles.currentPage : ''}>{num}</div>)}
         </div>
         </>
     );

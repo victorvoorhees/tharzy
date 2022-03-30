@@ -76,12 +76,11 @@
 
 .post {
     border: 1px solid var(--slate-300);
-    
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 1.5rem;
     transition: border-color 0.2s, transform 0.2s;
 }
 
@@ -103,7 +102,7 @@
 .profile {
     align-items: center;
     display: flex;
-    gap: 0.6rem;
+    gap: 0.4rem;
 }
 
 .circle {
@@ -133,14 +132,14 @@
 
 .interact {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     margin-top: 5rem;
 }
 
 .interact > div {
     align-items: center;
     display: flex;
-    gap: 0.6rem;
+    gap: 0.4rem;
 }
 
 .pagination {

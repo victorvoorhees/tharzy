@@ -21,16 +21,19 @@ body, input, textarea, select {
 }
 
 h1, h2, h3, p, div {
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 h2 {
   font-size: 1.6rem;
 }
 
+select, input[type='text'], input[type='search'] textarea {
+  -webkit-appearance: none;
+}
+
 select, input[type='text'], textarea {
   border: 1px solid var(--slate-400);
-  
   cursor: pointer;
   font-size: 1rem;
   outline: 2px solid rgb(255, 255, 255);
