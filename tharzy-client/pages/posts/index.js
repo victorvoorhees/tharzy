@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Search from '../../components/Search';
 import Select from '../../components/Select';
 import Styles from '../../styles/Posts.module.css';
@@ -46,6 +47,10 @@ export default function Posts() {
     const pageSizes = [20, 40, 80];
     const pages = [1, 2, 3];
 
+    const [ popUpVisible, setPopUpVisible ] = useState(true);
+
+    if (popUpVisible) setTimeout(() => setPopUpVisible(false), 3000)
+
 
 
     return (
@@ -59,24 +64,26 @@ export default function Posts() {
                 <Select label='Sort by' name='sortBy' options={sortOptions} />
                 <Select label='Items' name='pageSizes' options={pageSizes} />
             </div>
-            
         </div>
+        {popUpVisible && (
+            <div className={Styles.found}>
+                <div className={Styles.iconWrapper}><i className={`fa-solid fa-lg fa-circle-check`}></i></div>
+                <div>Found {data.length} posts that match the criteria.</div>
+            </div>
+        )}
         <div className={Styles.container}>
             {data.map((item, index) => (
                 <div key={index} className={Styles.post}>
-                    <div>
-                        <div className={Styles.info}>
-                            <div className={Styles.profile}>
-                                <div className={Styles.circle}></div>
-                                <div className={Styles.username}>{item.uploadedBy}</div>
-                            </div>
-                            <div className={Styles.time}>{item.time}</div>
+                    <div className={Styles.info}>
+                        <div className={Styles.profile}>
+                            <div className={Styles.circle}></div>
+                            <div className={Styles.username}>{item.uploadedBy}</div>
                         </div>
-                        <div className={Styles.tag}>{item.tag}</div>
-                        <h2>{item.title}</h2>
-                        
-                        <p>{item.short}</p>
+                        <div className={Styles.time}>{item.time}</div>
                     </div>
+                    <div className={Styles.tag}>{item.tag}</div>
+                    <h2>{item.title}</h2>
+                    <p>{item.short}</p>
                     <div className={Styles.interact}>
                         <div>
                             <i className={`fa-solid fa-lg fa-star`}></i>
