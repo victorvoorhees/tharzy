@@ -10,7 +10,8 @@ export default function Posts() {
             time: '23min',
             tag: 'Atrocities',
             reps: '-158',
-            comments: '9'
+            comments: '9',
+            short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum ipsum quis est maximus mollis. Fusce finibus velit id mollis varius. Duis sagittis dui non odio eleifend pharetra. Mauris vel condimentum ante. Sed fringilla massa pharetra, efficitur erat volutpat, volutpat nisl. Proin molestie, odio eu auctor eleifend, nibh dolor vestibulum velit, tempus posuere nunc nulla non felis.'
         },
         {
             uploadedBy: 'Mutual Aid Myanmar',
@@ -18,7 +19,8 @@ export default function Posts() {
             time: '47min',
             tag: 'Resistance',
             reps: '211',
-            comments: '2'
+            comments: '2',
+            short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum ipsum quis est maximus mollis. Fusce finibus velit id mollis varius. Duis sagittis dui non odio eleifend pharetra. Mauris vel condimentum ante. Sed fringilla massa pharetra, efficitur erat volutpat, volutpat nisl. Proin molestie, odio eu auctor eleifend, nibh dolor vestibulum velit, tempus posuere nunc nulla non felis.'
         },
         {
             uploadedBy: 'Ye Htut',
@@ -26,7 +28,8 @@ export default function Posts() {
             time: '3h',
             tag: 'World',
             reps: '-22',
-            comments: '39'
+            comments: '39',
+            short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum ipsum quis est maximus mollis. Fusce finibus velit id mollis varius. Duis sagittis dui non odio eleifend pharetra. Mauris vel condimentum ante. Sed fringilla massa pharetra, efficitur erat volutpat, volutpat nisl. Proin molestie, odio eu auctor eleifend, nibh dolor vestibulum velit, tempus posuere nunc nulla non felis.'
         },
         {
             uploadedBy: 'commie lay',
@@ -34,7 +37,8 @@ export default function Posts() {
             time: '15h',
             tag: 'General',
             reps: '78',
-            comments: '3'
+            comments: '3',
+            short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum ipsum quis est maximus mollis. Fusce finibus velit id mollis varius. Duis sagittis dui non odio eleifend pharetra. Mauris vel condimentum ante. Sed fringilla massa pharetra, efficitur erat volutpat, volutpat nisl. Proin molestie, odio eu auctor eleifend, nibh dolor vestibulum velit, tempus posuere nunc nulla non felis.'
         },
     ];
     const tagOptions = ['All', 'Atrocities', 'Resistance', 'World', 'General', 'Opinion', 'Other'];
@@ -47,14 +51,15 @@ export default function Posts() {
     return (
         <>
         <div className={Styles.filters}>
+            <div className={Styles.search}>
+                <Search />
+            </div>
             <div className={Styles.options}>
                 <Select name='tag' options={tagOptions} />
                 <Select label='Sort by' name='sortBy' options={sortOptions} />
                 <Select label='Items' name='pageSizes' options={pageSizes} />
             </div>
-            <div className={Styles.search}>
-                <Search />
-            </div>
+            
         </div>
         <div className={Styles.container}>
             {data.map((item, index) => (
@@ -67,8 +72,10 @@ export default function Posts() {
                             </div>
                             <div className={Styles.time}>{item.time}</div>
                         </div>
-                        <h2>{item.title}</h2>
                         <div className={Styles.tag}>{item.tag}</div>
+                        <h2>{item.title}</h2>
+                        
+                        <p>{item.short}</p>
                     </div>
                     <div className={Styles.interact}>
                         <div>

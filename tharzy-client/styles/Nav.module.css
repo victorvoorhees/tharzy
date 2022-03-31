@@ -25,11 +25,11 @@
     display: none;
 }
 
-.links div {
+.links a {
     margin-right: 2rem;
 }
 
-.links div:last-of-type {
+.links a:last-of-type {
     margin-right: 0;
 }
 
@@ -42,7 +42,7 @@
     background-color: var(--blue);
     border-radius: 0.4em;
     color: rgb(255, 255, 255);
-    margin-left: 1.2rem;
+    margin-left: 1rem;
     padding: 0.7em 1em;
 }
 

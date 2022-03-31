@@ -1,18 +1,18 @@
 .label {
-    color: var(--slate-500);
+    color: var(--slate-400);
     display: block;
-    text-transform: capitalize;
+}
+
+.label::first-letter {
+    text-transform: uppercase;
 }
 
 .wrapper {
     align-items: center;
     border: 1px solid var(--slate-300);
-    border-radius: 0.3em;
     display: flex;
     margin-top: 0.2rem;
-    outline: 2px solid rgb(255, 255, 255);
-    outline-offset: 2px;
-    transition: border-color 0.2s, outline-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .wrapper:hover {
@@ -21,24 +21,23 @@
 
 .wrapper:focus-within {
     border-color: var(--blue);
-    outline-color: var(--blue);
+    box-shadow: var(--blue-opaque) 0px 0px 8px;
 }
 
 .wrapper select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    
 
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1rem;
     outline: none;
-    padding: 0.5em 0.7em;
+    padding: 0.6em 0.8em;
     width: 100%;
 }
 
 .wrapper i {
-    margin-left: -1.2rem;
+    margin-left: -1.8rem;
 }

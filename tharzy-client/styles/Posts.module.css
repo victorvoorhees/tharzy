@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    gap: 2rem;
+    
     grid-template-columns: 1fr;
     padding-bottom: 5rem;
     padding-top: 5rem;
@@ -9,14 +9,14 @@
 .filters {
     align-items: flex-end;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: space-between;
 }
 
 .options {
     display: grid;
-    gap: 0.6rem;
-    grid-template-columns: 1fr 1fr 0.5fr;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 0.6fr;
     width: 100%;
 }
 
@@ -26,28 +26,23 @@
 }
 
 .post {
-    border: 1px solid var(--slate-300);
-    border-radius: 1rem;
-    cursor: pointer;
+    border-bottom: 1px solid var(--slate-300);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
     transition: border-color 0.2s, transform 0.2s;
 }
 
-.post:hover {
-    border-color: var(--blue);
-}
-
-.post:active {
-    transform: translateY(1rem);
+.post:first-of-type {
+    border-top: 1px solid var(--slate-300);
 }
 
 .info {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .profile {
@@ -77,14 +72,18 @@
     border-radius: 50em;
     color: rgb(100 116 139);
     font-weight: 600;
-    margin-top: 1rem;
     padding: 0.4em 1em;
     width: fit-content;
 }
 
+.container h2 {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
 .interact {
     display: flex;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .interact > div {
@@ -99,7 +98,6 @@
 
 .pagination > div {
     border: 1px solid var(--slate-300);
-    border-radius: 0.3em;
     display: inline-block;
     cursor: pointer;
     margin-right: 0.4rem;
@@ -119,30 +117,25 @@
 }
 
 
+
+
+
+@media screen and (min-width: 640px) {
+    .filters {
+        margin-left: auto;
+        margin-right: auto;
+        width: 540px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .filters {
-        flex-direction: row;
-        gap: initial;
-    }
-
-    .options {
-        width: 22rem;
-    }
-
-    .search {
-        margin-bottom: 0;
-        width: 17rem;
+        width: 640px;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .container {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media screen and (min-width: 1400px) {
-    .container {
-        grid-template-columns: 1fr 1fr 1fr;
+    .filters {
+        width: 768px;
     }
 }
