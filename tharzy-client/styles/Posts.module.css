@@ -1,6 +1,6 @@
 .container {
     margin-bottom: 4rem;
-    margin-top: 4rem;
+    margin-top: 5rem;
 }
 
 .filters {
@@ -14,8 +14,13 @@
     background-color: var(--green-200);
     color: var(--green-800);
     display: flex;
-    margin-top: 4rem;
+    margin-top: 2rem;
     padding: 1rem;
+
+    left: 20px;
+    right: 20px;
+
+    position: absolute;
 }
 
 .iconWrapper {
@@ -142,16 +147,34 @@
     .options {
         grid-template-columns: 1fr 1fr 0.6fr;
     }
+
+    .found {
+        margin-left: auto;
+        margin-right: auto;
+        width: 540px;
+    }
 }
 
 @media screen and (min-width: 768px) {
-    .filters {
+    .filters, .found {
         width: 640px;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .filters {
+    .filters, .found {
         width: 768px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .found {
+        width: 1024px;
+    }
+}
+
+@media screen and (min-width: 1536px) {
+    .found {
+        width: 1280px;
     }
 }

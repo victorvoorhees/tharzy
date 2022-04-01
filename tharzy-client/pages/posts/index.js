@@ -49,8 +49,10 @@ export default function Posts() {
 
     const [ popUpVisible, setPopUpVisible ] = useState(true);
 
+    
     if (popUpVisible) setTimeout(() => setPopUpVisible(false), 3000)
-
+    
+    
 
 
     return (
