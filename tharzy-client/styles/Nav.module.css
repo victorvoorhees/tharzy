@@ -3,6 +3,7 @@
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
     position: fixed;
     width: 100%;
+    z-index: 1000;
 }
 
 .header nav {
@@ -16,8 +17,12 @@
     padding-right: 20px;
 }
 
-.header img {
-    height: 1.6rem;
+.logo {
+    display: flex;
+}
+
+.logo img {
+    height: 1.4rem;
 }
 
 .links {
@@ -27,10 +32,15 @@
 
 .links a {
     margin-right: 2rem;
+    transition: color 0.3s;
 }
 
 .links a:last-of-type {
     margin-right: 0;
+}
+
+.links a:hover {
+    color: var(--blue);
 }
 
 .user {
@@ -38,11 +48,15 @@
     display: flex;
 }
 
+.user i {
+    margin-left: 1rem;
+}
+
 .register {
     background-color: var(--blue);
     color: rgb(255, 255, 255);
-    margin-left: 1rem;
-    padding: 0.6em 1em;
+    margin-left: 0.8rem;
+    padding: 0.5em 0.8em;
 }
 
 
@@ -66,15 +80,19 @@
     .header nav {
         width: 768px;
     }
-
-    .links {
-        display: flex;
-    }
 }
 
 @media screen and (min-width: 1280px) {
     .header nav {
         width: 1024px;
+    }
+
+    .links {
+        display: flex;
+    }
+
+    .user i {
+        display: none;
     }
 }
 

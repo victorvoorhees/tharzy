@@ -5,7 +5,7 @@ export default function Nav() {
     return (
         <header className={Styles.header}>
             <nav>
-                <Link href='/'><img src='tharzy-logo.svg'/></Link>
+                <Link href='/'><a className={Styles.logo}><img src='tharzy-logo.svg'/></a></Link>
                 <div className={Styles.links}>
                     <Link href='/about'><a>About</a></Link>
                     <Link href='/posts'><a>Posts</a></Link>
@@ -16,6 +16,7 @@ export default function Nav() {
                 <div className={Styles.user}>
                     <Link href='/login'><a>Log in</a></Link>
                     <Link href='/register'><a className={Styles.register}>Register</a></Link>
+                    <i className='fa-solid fa-lg fa-bars'></i>
                 </div>
             </nav>
         </header>

@@ -1,8 +1,8 @@
 .wrapper {
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 10rem;
-    padding-top: 10rem;
+    padding-bottom: 8rem;
+    padding-top: calc(8rem + 70px);
     width: 100%;
 }
 

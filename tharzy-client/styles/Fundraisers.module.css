@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    margin-bottom: 8rem;
 }
 
 .options {
@@ -12,10 +12,15 @@
     width: 100%;
 }
 
+.contentGrid {
+    display: grid;
+    grid-gap: 1.8rem;
+}
+
 .pagination {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3rem;
+    margin-top: 8rem;
     width: fit-content;
 }
 
@@ -64,5 +69,15 @@
 @media screen and (min-width: 1024px) {
     .filters {
         width: 768px;
+    }
+
+    .contentGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1536px) {
+    .contentGrid {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }

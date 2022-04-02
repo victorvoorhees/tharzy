@@ -1,0 +1,26 @@
+.popUp {
+    margin-top: 2rem;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+}
+
+.block {
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.label {
+    align-items: flex-start;
+    background-color: var(--green-200);
+    color: var(--green-700);
+    display: flex;
+    padding: 1rem;
+}
+
+.iconWrapper {
+    height: 100%;
+    margin-right: 0.6rem;
+}
