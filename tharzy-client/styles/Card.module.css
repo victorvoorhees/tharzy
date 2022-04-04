@@ -1,5 +1,5 @@
 .post {
-    border: 1px solid var(--slate-300);
+    border: 2px solid var(--slate-200);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -10,6 +10,10 @@
 
 .post:hover {
     border-color: var(--blue);
+}
+
+.post:active {
+    transform: translateY(1rem);
 }
 
 .info {
@@ -50,7 +54,7 @@
 }
 
 .title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin-bottom: 0.8rem;
     margin-top: 0.8rem;
     transition: color 0.3s;

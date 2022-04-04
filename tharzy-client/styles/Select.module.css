@@ -9,7 +9,7 @@
 
 .wrapper {
     align-items: center;
-    border: 1px solid var(--slate-300);
+    border: 2px solid var(--slate-300);
     display: flex;
     margin-top: 0.2rem;
     transition: border-color 0.2s, box-shadow 0.2s;

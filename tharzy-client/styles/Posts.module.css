@@ -20,7 +20,7 @@
 }
 
 .pagination > div {
-    border: 1px solid var(--slate-300);
+    border: 2px solid var(--slate-300);
     display: inline-block;
     cursor: pointer;
     margin-right: 0.4rem;
@@ -35,7 +35,7 @@
 .currentPage {
     background-color: var(--blue);
     border-color: var(--blue) !important;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     cursor: initial !important;
 }
 

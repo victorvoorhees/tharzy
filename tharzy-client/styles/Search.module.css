@@ -1,6 +1,6 @@
 .wrapper {
     align-items: center;
-    border: 1px solid var(--slate-100);
+    border: 2px solid var(--slate-100);
     background-color: var(--slate-100);
     display: flex;
     width: 100%;
