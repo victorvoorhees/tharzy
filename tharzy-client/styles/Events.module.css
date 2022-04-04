@@ -12,87 +12,7 @@
     width: 100%;
 }
 
-.selectDate {
-    align-items: center;
-    display: flex;
-    margin-bottom: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-}
 
-.selectDate i {
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.selectDate i:hover {
-    color: var(--blue);
-}
-
-.selectDate div {
-    font-size: 1.2rem;
-    font-weight: bold;
-    width: 11rem;
-    text-align: center;
-}
-
-.calendar {
-    display: grid;
-    font-size: 9px;
-    grid-gap: 0.4em;
-    grid-template-columns: repeat(7, 1fr);
-}
-
-.header {
-    color: var(--slate-400);
-    display: flex;
-    height: 2.6em;
-    justify-content: center;
-    padding: 0.5em;
-}
-
-.day {
-    align-items: center;
-    background-color: var(--slate-100);
-    border: 2px solid var(--slate-100);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    padding: 0.5em;
-    transition: border-color 0.3s, background-color 0.3s;
-}
-
-.day:hover {
-    border-color: var(--blue);
-}
-
-.day:focus {
-    background-color: var(--blue-100);
-    border-color: var(--blue);
-}
-
-.today {
-    font-weight: 800;
-}
-
-.eventCount {
-    align-items: center;
-    display: flex;
-    background-color: var(--slate-400);
-    border-radius: 50%;
-    color: rgb(255, 255, 255);
-    height: 2em;
-    justify-content: center;
-    margin-top: 0.2em;
-    width: 2em;
-}
-
-.blank {
-    height: 2em;
-    margin-top: 0.2em;
-    width: 2em;
-}
 
 
 
@@ -113,23 +33,6 @@
 @media screen and (min-width: 768px) {
     .filters {
         width: 640px;
-    }
-
-    .calendar {
-        font-size: 18px;
-        grid-template-columns: repeat(7, max-content);
-        margin-left: auto;
-        margin-right: auto;
-        width: fit-content;
-    }
-
-    .day {
-        height: 5em;
-        width: 5em;
-    }
-
-    .header {
-        width: 5em;
     }
 }
 
