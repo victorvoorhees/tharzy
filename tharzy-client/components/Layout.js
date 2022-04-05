@@ -9,7 +9,7 @@ export default function Layout({ children }) {
         <>
             <Nav />
             <AnimatePresence exitBeforeEnter onExitComplete={() => window.scrollTo(0, 0)}>
-                <motion.main className={Styles.wrapper}
+                <motion.main
                     key={router.asPath}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

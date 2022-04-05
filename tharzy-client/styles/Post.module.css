@@ -1,80 +1,29 @@
 .post {
-    border-bottom: 1px solid var(--slate-300);
-    padding-bottom: 4rem;
-    padding-top: 4rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.6rem;
     transition: border-color 0.2s, transform 0.2s;
 }
 
-.post:last-of-type {
-    border-bottom: 0;
-}
-
-.info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 3rem;
-}
-
-.profile {
-    align-items: center;
-    display: flex;
-}
-
-.circle {
-    background-color: var(--blue);
-    border-radius: 50%;
-    height: 1.6rem;
-    margin-right: 0.4rem;
-    min-width: 1.6rem;
-}
-
-.username {
-    word-break: break-all;
-}
-
-.time {
-    color: var(--slate-400);
-    margin-left: 2rem;
-}
-
 .tag {
-    background-color: rgb(226 232 240);
-    border-radius: 50em;
-    color: rgb(100 116 139);
-    font-weight: 600;
-    padding: 0.4em 1em;
-    width: fit-content;
+    color: var(--blue-600);
 }
 
 .title {
-    margin-bottom: 0.8rem;
-    margin-top: 0.8rem;
-}
-
-.read {
-    display: block;
-    font-weight: bold;
-    margin-top: 0.8rem;
-    text-decoration: underline;
+    font-size: 1.6rem;
+    margin-top: 0.4rem;
     transition: color 0.3s;
-    width: fit-content;
 }
 
-.read:hover {
-    color: var(--blue);
+.title:hover {
+    color: var(--sky-700);
 }
 
-.interact {
-    display: flex;
-    margin-top: 3rem;
-}
-
-.interact > div {
-    align-items: center;
-    display: flex;
-    margin-right: 2rem;
-}
-
-.interact > div > i {
-    margin-right: 0.4rem;
+.name {
+    color: var(--gray-400);
+    margin-bottom: 3rem;
+    margin-top: 0.6rem;
 }

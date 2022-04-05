@@ -1,3 +1,7 @@
+.container {
+    background-color: var(--gray-100);
+}
+
 .filters {
     display: flex;
     flex-direction: column;
@@ -7,23 +11,29 @@
 
 .options {
     display: grid;
-    gap: 0.8rem;
-    margin-top: 1rem;
+    grid-gap: 0.7rem;
+    margin-top: 0.8rem;
     width: 100%;
 }
 
+.posts {
+    display: grid;
+    grid-gap: 2.2rem;
+}
+
 .pagination {
+    background-color: var(--gray-200);
+    border-radius: 100rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3rem;
+    margin-top: 4rem;
     width: fit-content;
 }
 
 .pagination > div {
-    border: 2px solid var(--slate-300);
-    display: inline-block;
+    border-radius: 50%;
     cursor: pointer;
-    margin-right: 0.4rem;
+    display: inline-block;
     padding: 0.3em 0.8em;
     transition: border-color 0.2s;
 }
@@ -62,7 +72,13 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .filters {
-        width: 768px;
+    .posts {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1536px) {
+    .posts {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
