@@ -53,10 +53,11 @@
 }
 
 .register {
-    background-color: var(--blue);
+    background-color: var(--blue-600);
+    border-radius: 100rem;
     color: rgb(255, 255, 255);
     margin-left: 0.8rem;
-    padding: 0.5em 0.8em;
+    padding: 0.4em 1em;
 }
 
 
