@@ -1,7 +1,7 @@
-import Post from '../../components/Post'
 import Search from '../../components/Search'
 import Select from '../../components/Select'
-
+import Post from '../../components/Post'
+import Pagination from '../../components/Pagination';
 import Styles from '../../styles/Posts.module.css'
 
 export default function Posts() {
@@ -11,7 +11,6 @@ export default function Posts() {
             time: '23min',
             tag: 'Atrocities',
             title: `Junta forces violently arrested an innocent teenager in Palatwa`,
-            short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum ipsum quis est maximus mollis. Fusce finibus velit id mollis varius. Duis sagittis dui non odio eleifend pharetra. Mauris vel condimentum ante. Sed fringilla massa pharetra, efficitur erat volutpat, volutpat nisl. Proin molestie, odio eu auctor eleifend, nibh dolor vestibulum velit, tempus posuere nunc nulla non felis.',
             likes: '231',
             dislikes: '3',
             comments: '9',
@@ -21,7 +20,6 @@ export default function Posts() {
             time: '47min',
             tag: 'Resistance',
             title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
-            short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum ipsum quis est maximus mollis. Fusce finibus velit id mollis varius. Duis sagittis dui non odio eleifend pharetra. Mauris vel condimentum ante. Sed fringilla massa pharetra, efficitur erat volutpat, volutpat nisl. Proin molestie, odio eu auctor eleifend, nibh dolor vestibulum velit, tempus posuere nunc nulla non felis.',
             likes: '158',
             dislikes: '3',
             comments: '2'
@@ -31,7 +29,6 @@ export default function Posts() {
             time: '3h',
             tag: 'International',
             title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
-            short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum ipsum quis est maximus mollis. Fusce finibus velit id mollis varius. Duis sagittis dui non odio eleifend pharetra. Mauris vel condimentum ante. Sed fringilla massa pharetra, efficitur erat volutpat, volutpat nisl. Proin molestie, odio eu auctor eleifend, nibh dolor vestibulum velit, tempus posuere nunc nulla non felis.',
             likes: '58',
             dislikes: '43',
             comments: '39'
@@ -41,7 +38,6 @@ export default function Posts() {
             time: '15h',
             tag: 'General',
             title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
-            short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum ipsum quis est maximus mollis. Fusce finibus velit id mollis varius. Duis sagittis dui non odio eleifend pharetra. Mauris vel condimentum ante. Sed fringilla massa pharetra, efficitur erat volutpat, volutpat nisl. Proin molestie, odio eu auctor eleifend, nibh dolor vestibulum velit, tempus posuere nunc nulla non felis.',
             likes: '98',
             dislikes: '73',
             comments: '3'
@@ -77,9 +73,7 @@ export default function Posts() {
                         />
                     ))}
                 </div>
-                <div className={Styles.pagination}>
-                    {pages.map((num, index) => <div key={index} className={num === 1 ? Styles.currentPage : ''}>{num}</div>)}
-                </div>
+                <Pagination array={pages} />
             </div>
         </div>
     )

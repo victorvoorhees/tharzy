@@ -1,7 +1,7 @@
-import Card from '../../components/Card';
 import Search from '../../components/Search'
 import Select from '../../components/Select'
-
+import Post from '../../components/Post';
+import Pagination from '../../components/Pagination';
 import Styles from '../../styles/Fundraisers.module.css'
 
 export default function Fundraisers() {
@@ -29,8 +29,8 @@ export default function Fundraisers() {
         {
             uploadedBy: 'Aung Htoo Win',
             time: '3h',
-            tag: 'Resistance',
-            title: 'Zomi expat community in Argentina raising funds for Burmese refugees',
+            tag: 'General',
+            title: 'Help a Zomi asylum seeker in United States go to college',
             deadline: '44 days left',
             likes: '58',
             dislikes: '43',
@@ -39,7 +39,7 @@ export default function Fundraisers() {
         {
             uploadedBy: 'basedrevolutionary',
             time: '15h',
-            tag: 'General',
+            tag: 'Resistance',
             title: `Contribute to the revolutionary efforts of the people's liberation army`,
             deadline: 'Ongoing',
             likes: '58',
@@ -53,33 +53,33 @@ export default function Fundraisers() {
     const pages = [1, 2, 3]
 
     return (
-        <>
-            <div className={Styles.filters}>
-                <Search />
-                <div className={Styles.options}>
-                    <Select name='tag' options={tagOptions} />
-                    <Select label='Sort by' name='sortBy' options={sortOptions} />
-                    <Select label='Items' name='pageSizes' options={pageSizes} />
+        <div className={Styles.container}>
+            <div className='wrapper'>
+                <div className={Styles.filters}>
+                    <Search />
+                    <div className={Styles.options}>
+                        <Select name='tag' options={tagOptions} />
+                        <Select label='Sort by' name='sortBy' options={sortOptions} />
+                        <Select label='Items' name='pageSizes' options={pageSizes} />
+                    </div>
                 </div>
+                <div className={Styles.contentGrid}>
+                    {data.map((item, index) => (
+                        <Post
+                            key={index}
+                            uploadedBy={item.uploadedBy}
+                            time={item.time}
+                            tag={item.tag}
+                            title={item.title}
+                            deadline={item.deadline}
+                            likes={item.likes}
+                            dislikes={item.dislikes}
+                            comments={item.comments}
+                        />
+                    ))}
+                </div>
+                <Pagination array={pages} />
             </div>
-            <div className={Styles.contentGrid}>
-                {data.map((item, index) => (
-                    <Card
-                        key={index}
-                        uploadedBy={item.uploadedBy}
-                        time={item.time}
-                        tag={item.tag}
-                        title={item.title}
-                        deadline={item.deadline}
-                        likes={item.likes}
-                        dislikes={item.dislikes}
-                        comments={item.comments}
-                    />
-                ))}
-            </div>
-            <div className={Styles.pagination}>
-                {pages.map((num, index) => <div key={index} className={num === 1 ? Styles.currentPage : ''}>{num}</div>)}
-            </div>
-        </>
+        </div>
     )
 }

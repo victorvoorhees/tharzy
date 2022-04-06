@@ -18,35 +18,7 @@
 
 .posts {
     display: grid;
-    grid-gap: 1.5rem;
-}
-
-.pagination {
-    background-color: var(--gray-200);
-    border-radius: 100rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5rem;
-    width: fit-content;
-}
-
-.pagination > div {
-    border-radius: 50%;
-    cursor: pointer;
-    display: inline-block;
-    padding: 0.3em 0.8em;
-    transition: border-color 0.2s;
-}
-
-.pagination > div:hover {
-    border-color: var(--blue);
-}
-
-.currentPage {
-    background-color: var(--blue);
-    border-color: var(--blue) !important;
-    color: rgb(255, 255, 255);
-    cursor: initial !important;
+    grid-gap: 1.4rem;
 }
 
 
@@ -71,7 +43,7 @@
     }
 
     .posts {
-        grid-gap: 2.4rem;
+        grid-gap: 2.2rem;
     }
 }
 

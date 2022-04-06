@@ -29,5 +29,5 @@
 
 .wrapper:focus-within {
     border-color: var(--blue-600);
-    box-shadow: 0 0 0 4px var(--blue-400);
+    box-shadow: 0 0 0 3px var(--blue-500);
 }

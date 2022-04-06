@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import { AnimatePresence, motion } from 'framer-motion'
 import Nav from './Nav'
-import Styles from "../styles/Layout.module.css"
 
 export default function Layout({ children }) {
     const router = useRouter()

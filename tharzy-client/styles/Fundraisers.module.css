@@ -1,47 +1,24 @@
+.container {
+    background-color: var(--gray-100);
+}
+
 .filters {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
 }
 
 .options {
     display: grid;
-    gap: 0.8rem;
-    margin-top: 1rem;
+    grid-gap: 0.7rem;
+    margin-top: 0.8rem;
     width: 100%;
 }
 
 .contentGrid {
     display: grid;
-    grid-gap: 1.8rem;
-}
-
-.pagination {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8rem;
-    width: fit-content;
-}
-
-.pagination > div {
-    border: 2px solid var(--slate-300);
-    display: inline-block;
-    cursor: pointer;
-    margin-right: 0.4rem;
-    padding: 0.3em 0.8em;
-    transition: border-color 0.2s;
-}
-
-.pagination > div:hover {
-    border-color: var(--blue);
-}
-
-.currentPage {
-    background-color: var(--blue);
-    border-color: var(--blue) !important;
-    color:rgb(255, 255, 255);
-    cursor: initial !important;
+    grid-gap: 1.4rem;
 }
 
 
@@ -64,13 +41,13 @@
     .filters {
         width: 640px;
     }
+
+    .contentGrid {
+        grid-gap: 2.2rem;
+    }
 }
 
 @media screen and (min-width: 1024px) {
-    .filters {
-        width: 768px;
-    }
-
     .contentGrid {
         grid-template-columns: 1fr 1fr;
     }
