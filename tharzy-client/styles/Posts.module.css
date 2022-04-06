@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
 }
 
 .options {
@@ -18,7 +18,7 @@
 
 .posts {
     display: grid;
-    grid-gap: 2.2rem;
+    grid-gap: 1.5rem;
 }
 
 .pagination {
@@ -26,7 +26,7 @@
     border-radius: 100rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 4rem;
+    margin-top: 5rem;
     width: fit-content;
 }
 
@@ -68,6 +68,10 @@
 @media screen and (min-width: 768px) {
     .filters {
         width: 640px;
+    }
+
+    .posts {
+        grid-gap: 2.4rem;
     }
 }
 
