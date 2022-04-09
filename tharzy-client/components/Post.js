@@ -2,13 +2,13 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Styles from '../styles/Post.module.css'
 
-export default function Post({ date, duration, uploadedBy, time, tag, title, deadline, country, likes, dislikes, comments }) {
+export default function Post({ date, duration, uploadedBy, time, tag, title, deadline, country, likes, dislikes, comments, className }) {
     return (
         <motion.div className={Styles.post}
-            initial={{opacity: 0}}
-            whileInView={{opacity: 1}}
-            viewport={{once: true, amount: 0.5}}
-            transition={{duration: 0.5}}
+                    initial={{opacity: 0}}
+                    whileInView={{opacity: 1}}
+                    viewport={{once: true, amount: 0.5}}
+                    transition={{duration: 0.5}}
         >
             <div>
                 {(date && duration) && <div className={Styles.date}>{date} · {duration.start} - {duration.end}</div>}
