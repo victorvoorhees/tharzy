@@ -19,7 +19,7 @@
 
 .posts {
     display: grid;
-    grid-row-gap: 1.6rem;
+    grid-row-gap: 2.4rem;
 }
 
 
@@ -50,7 +50,7 @@
 @media screen and (min-width: 768px) {
     .posts {
         grid-column-gap: 2.8rem;
-        grid-row-gap: 2.4rem;
+        grid-row-gap: 4rem;
     }
 }
 

@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 1.6rem;
+    padding-top: 1.2rem;
     transition: border-color 0.2s, transform 0.2s;
 }
 
@@ -38,5 +38,5 @@
 
 .userData {
     line-height: 1;
-    margin-top: 3rem;
+    margin-top: 2.6rem;
 }

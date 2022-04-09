@@ -8,6 +8,7 @@
 
 .submit {
     background-color: var(--blue-600);
+    border-radius: 0;
     color: rgb(255, 255, 255);
     font-size: 1rem;
     margin-top: 1.4rem;
