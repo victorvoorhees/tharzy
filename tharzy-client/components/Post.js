@@ -13,7 +13,7 @@ export default function Post({ date, duration, uploadedBy, time, tag, title, dea
             <div>
                 {(date && duration) && <div className={Styles.date}>{date} · {duration.start} - {duration.end}</div>}
                 <div className={Styles.tag}>{tag}{deadline && ` · ${deadline}`}{country && ` · ${country}`}</div>
-                <Link href='/'><a><h2 className={Styles.title}>{title}</h2></a></Link>
+                <Link href='/'><a><h2 className={Styles.title}>{title} ></h2></a></Link>
                 <div className={Styles.name}>By {uploadedBy} · {time}</div>
             </div>
             <div className={Styles.userData}>{likes} likes · {dislikes} dislikes · {comments} comments</div>

@@ -1,0 +1,30 @@
+.label {
+    color: var(--gray-400);
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.input, .wrapper {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid var(--gray-400);
+}
+
+.wrapper {
+    align-items: center;
+    display: flex;
+}
+
+.wrapper i {
+    color: var(--gray-400);
+    margin-left: 0.8rem;
+}
+
+.wrapper input, .input {
+    font-size: 1rem;
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+    width: 100%;
+}

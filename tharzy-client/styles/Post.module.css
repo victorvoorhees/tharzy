@@ -1,25 +1,25 @@
 .post {
-    background-color: rgb(255, 255, 255);
-    border-radius: 1rem;
+    border-top: 1px solid var(--gray-400);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding-top: 1.6rem;
     transition: border-color 0.2s, transform 0.2s;
 }
 
 .date {
-    background-color: var(--blue-600);
-    border-radius: 100rem;
+    background-color: var(--gray-500);
     color: rgb(255, 255, 255);
     margin-bottom: 1.2rem;
-    padding: 0.4rem 1rem;
+    padding: 0.6rem;
     width: fit-content;
 }
 
 .tag {
     color: var(--blue-600);
+    font-size: 0.9rem;
     line-height: 1;
+    text-transform: uppercase;
 }
 
 .title {
@@ -38,5 +38,5 @@
 
 .userData {
     line-height: 1;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
