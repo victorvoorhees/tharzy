@@ -1,25 +1,24 @@
 .post {
-    border-top: 1px solid var(--gray-400);
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 1.2rem;
+    padding: 1.6rem;
     transition: border-color 0.2s, transform 0.2s;
 }
 
 .date {
     background-color: var(--gray-500);
+    border-radius: 100rem;
     color: rgb(255, 255, 255);
     margin-bottom: 1.2rem;
-    padding: 0.6rem;
+    padding: 0.6rem 1rem;
     width: fit-content;
 }
 
 .tag {
     color: var(--blue-600);
-    font-size: 0.9rem;
     line-height: 1;
-    text-transform: uppercase;
 }
 
 .title {
@@ -38,5 +37,5 @@
 
 .userData {
     line-height: 1;
-    margin-top: 2.6rem;
+    margin-top: 3.6rem;
 }

@@ -1,27 +1,27 @@
 .pagination {
-    background-color: var(--gray-200);
-    border-radius: 100rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 6rem;
     width: fit-content;
 }
 
 .pagination > div {
-    border-radius: 50%;
+    align-items: center;
     cursor: pointer;
-    display: inline-block;
-    padding: 0.3em 0.8em;
-    transition: border-color 0.2s;
+    display: inline-flex;
+    height: 2rem;
+    justify-content: center;
+    width: 2rem;
+    transition: background-color 0.3s;
 }
 
 .pagination > div:hover {
-    border-color: var(--blue);
+    background-color: var(--gray-200);
 }
 
 .currentPage {
     background-color: var(--blue);
-    border-color: var(--blue) !important;
-    color: rgb(255, 255, 255);
+    color: var(--white);
     cursor: initial !important;
+}
+
+.currentPage:hover {
+    background-color: var(--blue) !important;
 }

@@ -1,9 +1,10 @@
 .wrapper {
     align-items: center;
+    background-color: var(--white);
     border: 1px solid var(--gray-400);
     display: flex;
     width: 100%;
-    transition: border-color 0.3s, box-shadow 0.2s;
+    transition: border-color 0.3s;
 }
 
 .wrapper i {
@@ -27,5 +28,4 @@
 
 .wrapper:focus-within {
     border-color: var(--blue-600);
-    box-shadow: 0 0 0 3px var(--blue-500);
 }

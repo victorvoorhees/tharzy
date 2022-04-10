@@ -74,34 +74,39 @@ export default function Events() {
     const pages = [1, 2, 3]
 
     return (
-        <div className='wrapper'>
-            <div className={Styles.filters}>
-                <Search />
-                <div className={Styles.options}>
-                    <Select name='category' options={tagOptions} className={Styles.select} />
-                    <Select name='country' options={countryOptions} className={Styles.select} />
-                    <Select label='sort by' name='sortBy' options={sortOptions} className={Styles.select} />
-                    <Select label='items' name='pageSizes' options={pageSizes} className={Styles.select} />
+        <div className={Styles.container}>
+            <div className='wrapper'>
+                <div className={Styles.filters}>
+                    <Search />
+                    <div className={Styles.options}>
+                        <Select name='category' options={tagOptions} />
+                        <Select name='country' options={countryOptions} />
+                        <Select label='sort by' name='sortBy' options={sortOptions} />
+                        <Select label='items' name='pageSizes' options={pageSizes} />
+                    </div>
+                </div>
+                <div className={Styles.found}>Found {data.length} items matching the criteria.</div>
+                <div className={Styles.posts}>
+                    {data.map((item, index) => (
+                        <Post
+                            key={index}
+                            date={item.date}
+                            duration={item.duration}
+                            uploadedBy={item.uploadedBy}
+                            time={item.time}
+                            tag={item.tag}
+                            country={item.country}
+                            title={item.title}
+                            likes={item.likes}
+                            dislikes={item.dislikes}
+                            comments={item.comments}
+                        />
+                    ))}
+                </div>
+                <div className={Styles.pg}>
+                    <Pagination array={pages} />
                 </div>
             </div>
-            <div className={Styles.posts}>
-                {data.map((item, index) => (
-                    <Post
-                        key={index}
-                        date={item.date}
-                        duration={item.duration}
-                        uploadedBy={item.uploadedBy}
-                        time={item.time}
-                        tag={item.tag}
-                        country={item.country}
-                        title={item.title}
-                        likes={item.likes}
-                        dislikes={item.dislikes}
-                        comments={item.comments}
-                    />
-                ))}
-            </div>
-            <Pagination array={pages} />
         </div>
     )
 }
