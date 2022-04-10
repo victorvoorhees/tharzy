@@ -10,8 +10,8 @@
 
 .options {
     display: grid;
-    grid-row-gap: 1rem;
-    margin-top: 1rem;
+    grid-row-gap: 0.8rem;
+    margin-top: 0.8rem;
     width: 100%;
 }
 
