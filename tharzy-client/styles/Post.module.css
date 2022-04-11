@@ -20,6 +20,7 @@
 }
 
 .title {
+    font-size: 1.6rem;
     margin-top: 0.5rem;
     transition: color 0.3s;
 }
