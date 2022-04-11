@@ -71,12 +71,10 @@ export default function NotFound() {
     const n = Math.floor(Math.random() * (quotes.length - 1))
 
     return (
-        <div className='wrapper'>
-            <div className={Styles.wrapper}>
-                <h1>Page doesn't exist (yet).</h1>
-                <p className={Styles.quote}>{quotes[n].quote}</p>
-                <p className={Styles.name}>- {quotes[n].name}</p>
-            </div>
+        <div className={Styles.wrapper}>
+            <h1>Page doesn't exist.</h1>
+            <p className={Styles.quote}>{quotes[n].quote}</p>
+            <p className={Styles.name}>- {quotes[n].name}</p>
         </div>
     )
 }

@@ -4,7 +4,7 @@ export default function About() {
     return (
         <div className='wrapper'>
             <div className={Styles.content}>
-                <h2>What is this app?</h2>
+                <h2>What is this app for?</h2>
                 <p>Tharzy is an app where you can look for, and post if you want, news, fundraisers, and events about the current conflict in Myanmar.</p>
             </div>
             <div className={Styles.content}>
