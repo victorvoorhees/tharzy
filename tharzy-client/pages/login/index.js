@@ -9,7 +9,7 @@ export default function Login() {
                 <h1 className={Styles.title}>Log in to Tharzy</h1>
                 <InputText name='email' className={Styles.input} />
                 <InputText type='password' name='password' />
-                <input type='submit' value='Log in' className={Styles.submit} />
+                <input type='submit' value='Log in' className={`btn main md ${Styles.submit}`} />
             </form>
         </div>
     )

@@ -12,7 +12,7 @@ export default function Register() {
                 <InputText name='email' className={Styles.input} />
                 <InputText type='password' name='password' className={Styles.input} />
                 <InputCheckbox label={<>I'm aware of the <Link href='/about#risks'><a className='styled'>risks</a></Link>.</>} />
-                <input type='submit' value='Register' className={Styles.submit} />
+                <input type='submit' value='Register' className={`btn md main ${Styles.submit}`} />
             </form>
         </div>
     )
