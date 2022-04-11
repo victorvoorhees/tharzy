@@ -121,6 +121,9 @@ button, input, textarea, select {
 
 
 
+html {
+  font-size: 15px;
+}
 
 h1, h2, h3 {
   font-family: 'Lora', serif;
@@ -169,4 +172,19 @@ p {
 .btn.sm {
   border-radius: 0.6rem;
   padding: 0.7em;
+}
+
+
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1408px) {
+  html {
+    font-size: 17px;
+  }
 }

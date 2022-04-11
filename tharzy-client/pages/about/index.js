@@ -2,7 +2,7 @@ import Styles from '../../styles/About.module.css'
 
 export default function About() {
     return (
-        <div>
+        <div className='wrapper'>
             <div className={Styles.content}>
                 <h2>What is this app?</h2>
                 <p>Tharzy is an app where you can look for, and post if you want, news, fundraisers, and events about the current conflict in Myanmar.</p>

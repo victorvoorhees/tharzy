@@ -10,9 +10,10 @@
 
 .options {
     display: grid;
-    grid-gap: 0.9rem;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
-    margin-top: 0.9rem;
+    margin-top: 1rem;
     width: 100%;
 }
 
