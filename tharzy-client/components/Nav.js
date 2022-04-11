@@ -15,9 +15,9 @@ export default function Nav() {
                 </div>
                 <div className={Styles.user}>
                     <Link href='/login' scroll={false}><a>Log in</a></Link>
-                    <Link href='/register' scroll={false}><a className={Styles.register}>Register</a></Link>
-                    <i className='fa-solid fa-lg fa-bars'></i>
+                    <Link href='/register' scroll={false}><a className={`btn main sm ${Styles.register}`}>Register</a></Link>
                 </div>
+                <button className={Styles.burger}><i className='fa-solid fa-lg fa-bars'></i></button>
             </nav>
         </header>
     )

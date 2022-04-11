@@ -1,18 +1,50 @@
 @font-face {
-  font-family: 'europa';
-  font-weight: 400;
+  font-family: 'Lora';
+  font-weight: 700;
   font-style: normal;
-  src: url('../public/fonts/europa-regular.woff2') format('woff');
+  font-display: swap;
+  src: url('../public/fonts/Lora-Bold.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'europa';
-  font-weight: 700;
+  font-family: 'Inter';
+  font-weight: 400;
   font-style: normal;
-  src: url('../public/fonts/europa-bold.woff2') format('woff');
+  font-display: swap;
+  src: url('../public/fonts/Inter-Regular.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('../public/fonts/Inter-Medium.woff2') format('woff2');
+}
 
+@font-face {
+  font-family: 'Inter';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('../public/fonts/Inter-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../public/fonts/Inter-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('../public/fonts/Inter-Extrabold.woff2') format('woff2');
+}
 
 
 
@@ -49,8 +81,10 @@
   padding: 0;
 }
 
-html {
-  font-size: 15px;
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -67,13 +101,15 @@ a.styled:hover {
   color: var(--blue-600);
 }
 
-input, select {
+button, input, textarea, select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   background: none;
   border: none;
   outline: none;
+
+  font-size: 1rem;
 }
 
 
@@ -81,73 +117,50 @@ input, select {
 
 
 h1, h2, h3 {
-  font-family: 'europa', sans-serif;
+  font-family: 'Lora', serif;
 }
 
 body, input, textarea, select {
-  font-family: 'europa', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 h1, h2, h3 {
-  line-height: 1.3em;
+  line-height: 1.4em;
 }
 
 p {
-  line-height: 1.5em;
+  line-height: 1.6em;
 }
 
 
 
 
 
-/* WRAPPER */
+/* CUSTOM COMPONENTS */
 
 .wrapper {
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 6rem;
   padding-top: calc(6rem + 70px);
-  width: 100%;
+  width: 90vw;
 }
 
-@media screen and (min-width: 640px) {
-  .wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0;
-    padding-right: 0;
-    width: 540px;
-  }
+.btn {
+  cursor: pointer;
 }
 
-@media screen and (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-
-  .wrapper {
-    width: 640px;
-  }
+.btn.main {
+  background-color: var(--blue-600);
+  color: var(--white);
+  transition: background-color 0.3s;
 }
 
-@media screen and (min-width: 1024px) {
-  .wrapper {
-    width: 768px;
-  }
+.btn.main:hover {
+  background-color: var(--blue-700);
 }
 
-@media screen and (min-width: 1280px) {
-  .wrapper {
-    width: 1024px;
-  }
-}
-
-@media screen and (min-width: 1536px) {
-  html {
-    font-size: 17px;
-  }
-
-  .wrapper {
-    width: 1280px;
-  }
+.btn.sm {
+  border-radius: 0.6rem;
+  padding: 0.7em;
 }

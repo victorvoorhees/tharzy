@@ -2,6 +2,7 @@
     align-items: center;
     background-color: var(--white);
     border: 1px solid var(--gray-400);
+    border-radius: 0.6rem;
     display: flex;
     width: 100%;
     transition: border-color 0.3s;

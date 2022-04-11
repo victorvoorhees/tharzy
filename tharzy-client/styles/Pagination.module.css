@@ -4,6 +4,7 @@
 
 .pagination > div {
     align-items: center;
+    border-radius: 0.5rem;
     cursor: pointer;
     display: inline-flex;
     height: 2rem;

@@ -3,15 +3,16 @@
 }
 
 .filters {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 768px;
 }
 
 .options {
     display: grid;
-    grid-row-gap: 0.8rem;
-    margin-top: 0.8rem;
+    grid-gap: 0.9rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+    margin-top: 0.9rem;
     width: 100%;
 }
 
@@ -24,6 +25,8 @@
 .posts {
     display: grid;
     grid-gap: 1.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 25rem), 1fr));
+    justify-content: center;
     margin-bottom: 3.6rem;
 }
 
@@ -31,33 +34,4 @@
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
-}
-
-
-
-
-
-@media screen and (min-width: 640px) {
-    .options {
-        grid-column-gap: 0.6rem;
-        grid-template-columns: 1fr 1fr 1fr 0.6fr;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .filters {
-        margin-left: auto;
-        margin-right: auto;
-        width: 640px;
-    }
-
-    .posts {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media screen and (min-width: 1536px) {
-    .posts {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
 }
