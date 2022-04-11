@@ -149,15 +149,17 @@ html {
 
 h1, h2, h3 {
   font-family: 'lora', serif;
-  font-variation-settings: 'wght' 500;
+  font-weight: normal;
+  font-variation-settings: 'wght' 700;
 }
 
 body, input, textarea, select {
   font-family: 'inter', sans-serif;
+  font-weight: normal;
 }
 
 h1, h2, h3 {
-  line-height: 1.5em;
+  line-height: 1.45em;
 }
 
 p {
