@@ -1,8 +1,7 @@
 .label {
     display: block;
     color: var(--slate-400);
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-variation-settings: 'wght' 450;
     margin-bottom: 0.3rem;
     width: fit-content;
 }

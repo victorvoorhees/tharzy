@@ -9,7 +9,7 @@
 }
 
 .date {
-    font-weight: bold;
+    font-variation-settings: 'wght' 700;
     margin-bottom: 3rem;
     width: fit-content;
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@700&display=swap');
+
 
 /*
 
@@ -51,6 +51,17 @@
 }
 
  */
+
+
+@font-face {
+  font-family: 'lora';
+  src: url('../asset/fonts/lora-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'inter';
+  src: url('../asset/fonts/inter-var.woff2') format('woff2');
+}
 
 
 
@@ -137,15 +148,16 @@ html {
 }
 
 h1, h2, h3 {
-  font-family: 'Lora', serif;
+  font-family: 'lora', serif;
+  font-variation-settings: 'wght' 500;
 }
 
 body, input, textarea, select {
-  font-family: 'Inter', sans-serif;
+  font-family: 'inter', sans-serif;
 }
 
 h1, h2, h3 {
-  line-height: 1.4em;
+  line-height: 1.5em;
 }
 
 p {
