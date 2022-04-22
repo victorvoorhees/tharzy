@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import { AnimatePresence, motion } from 'framer-motion'

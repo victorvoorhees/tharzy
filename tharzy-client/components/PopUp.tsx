@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Styles from '../styles/PopUp.module.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import {useState} from 'react';
