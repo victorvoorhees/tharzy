@@ -1,72 +1,44 @@
-
-
-/*
-
 @font-face {
-  font-family: 'Lora';
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-  src: url('../public/fonts/lora-bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter';
+  font-family: 'akkurat';
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
-  src: url('../public/fonts/inter-regular.woff2') format('woff2');
+  src: url('../asset/fonts/akkurat-regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Inter';
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  src: url('../public/fonts/inter-medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-  src: url('../public/fonts/inter-semibold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter';
+  font-family: 'akkurat';
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
-  src: url('../public/fonts/inter-bold.woff2') format('woff2');
+  src: url('../asset/fonts/akkurat-bold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Inter';
-  font-weight: 800;
+  font-family: 'foundersgrotesk';
+  font-weight: 400;
   font-style: normal;
-  font-display: swap;
-  src: url('../public/fonts/inter-extrabold.woff2') format('woff2');
-}
-
- */
-
-
-@font-face {
-  font-family: 'lora';
-  src: url('../asset/fonts/lora-var.woff2') format('woff2');
+  src: url('../asset/fonts/foundersgrotesk-bold.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'inter';
-  src: url('../asset/fonts/inter-var.woff2') format('woff2');
+  font-family: 'foundersgrotesk-mono';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../asset/fonts/foundersgrotesk-mono-webfont.woff2') format('woff2');
 }
+
+
+
 
 
 
 :root {
+  --header-nav-height: 3.8rem;
+  --footer-height: 3rem;
+  --site-max-width: 1280px;
+
+  --black: rgb(0, 0, 0);
   --white: rgb(255, 255, 255);
+  --trans: rgba(0, 0, 0, 0);
 
   --blue: rgb(0, 105, 255);
   --blue-50: rgb(239 246 255);
@@ -79,13 +51,24 @@
   --blue-700: rgb(29 78 216);
   --blue-800: rgb(30 64 175);
   --blue-900: rgb(30 58 138);
-  --blue-1000: rgb(16, 37, 94);
 
-  --sky-500: rgb(14 165 233);
-  --sky-600: rgb(2 132 199);
-  --sky-700: rgb(3 105 161);
-  --sky-800: rgb(7 89 133);
-  --sky-900: rgb(12 74 110);
+  --green-200: rgb(187 247 208);
+  --green-300: rgb(134 239 172);
+  --green-400: rgb(74 222 128);
+  --green-500: rgb(34 197 94);
+  --green-700: rgb(21 128 61);
+  --green-800: rgb(22 101 52);
+
+  --yellow-100: rgb(254 249 195);
+  --yellow-200: rgb(254 240 138);
+  --yellow-300: rgb(253 224 71);
+  --yellow-700: rgb(161 98 7);
+  --yellow-800: rgb(133 77 14);
+
+  --red-200: rgb(254 202 202);
+  --red-300: rgb(252 165 165);
+  --red-700: rgb(185 28 28);
+  --red-800: rgb(153 27 27);
 
   --slate-50: rgb(248 250 252);
   --slate-100: rgb(242 245 248);
@@ -106,33 +89,11 @@
 
 
 
-* {
+*, *:before, *:after {
   box-sizing: border-box;
-  line-height: 1;
+  line-height: 1em;
   margin: 0;
   padding: 0;
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-
-  color: var(--slate-800);
-}
-
-a {
-  color: unset;
-  text-decoration: none;
-}
-
-a.styled {
-  text-decoration: underline;
-  transition: color 0.3s;
-}
-
-a.styled:hover {
-  color: var(--blue-600);
 }
 
 button, input, textarea, select {
@@ -146,35 +107,75 @@ button, input, textarea, select {
   font-size: 1rem;
 }
 
-
-
-
-html {
-  font-size: 15px;
+a {
+  color: unset;
+  text-decoration: none;
 }
+
+
+
+
+
+
+
 
 h1, h2, h3 {
-  font-family: 'lora', serif;
+  font-family: 'foundersgrotesk', sans-serif;
   font-weight: normal;
-  font-variation-settings: 'wght' 700;
+  line-height: 1.2em;
+
 }
 
-body, input, textarea, select {
-  font-family: 'inter', sans-serif;
+body, input, textarea, select, button {
+  font-family: 'akkurat', sans-serif;
   font-weight: normal;
-}
-
-h1, h2, h3 {
-  line-height: 1.4em;
 }
 
 p {
-  line-height: 1.6em;
+  line-height: 1.5em;
 }
 
 h1 {
   font-size: 2.4rem;
 }
+
+header {
+  background-color: var(--white);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+header nav {
+  border-bottom: 1px solid var(--black);
+  height: var(--header-nav-height);
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: min(100%, var(--site-max-width));
+}
+
+main {
+  min-height: calc(100vh - var(--footer-height));
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: var(--header-nav-height);
+  width: min(100%, var(--site-max-width));
+}
+
+footer {
+  align-items: center;
+  border-top: 1px solid var(--black);
+  display: flex;
+  height: var(--footer-height);
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: min(100%, var(--site-max-width));
+}
+
 
 
 
@@ -182,50 +183,43 @@ h1 {
 
 /* CUSTOM COMPONENTS */
 
-.wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 6rem;
-  padding-top: calc(6rem + 4.4rem);
-  width: 90vw;
+a.styled {
+  text-decoration: underline;
+  transition: color 0.3s;
 }
 
-.btn {
+a.styled:hover {
+  color: var(--blue-600);
+}
+
+button {
   cursor: pointer;
-  width: fit-content;
 }
 
-.btn.main {
-  background-color: var(--blue-600);
+button.outline {
+  border: 1px solid var(--black);
+  padding: 0.8rem;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+button.outline:hover {
+  background-color: var(--black);
   color: var(--white);
-  transition: background-color 0.3s;
 }
 
-.btn.main:hover {
-  background-color: var(--blue-700);
-}
-
-.btn.sm {
-  border-radius: 0.6rem;
-  padding: 0.7em;
-}
-
-.btn.md {
-  border-radius: 0.6rem;
-  padding: 0.9em;
+button:active {
+  background-color: var(--yellow-200) !important;
+  border-color: var(--yellow-200);
+  color: var(--black) !important;
+  transition: none;
 }
 
 
 
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
+@media (min-width: 640px) {
 
-@media (min-width: 1408px) {
-  html {
-    font-size: 17px;
+  :root {
+    --header-nav-height: 7rem;
   }
 }

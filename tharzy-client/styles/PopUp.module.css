@@ -1,26 +1,50 @@
 .popUp {
-    margin-top: 2rem;
-    position: absolute;
-    left: 20px;
-    right: 20px;
+    position: relative;
 }
 
 .block {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white);
     height: 100%;
     position: absolute;
     width: 100%;
+    z-index: 1000;
 }
 
 .label {
     align-items: flex-start;
-    background-color: var(--green-200);
-    color: var(--green-700);
     display: flex;
+    justify-content: space-between;
     padding: 1rem;
 }
 
-.iconWrapper {
-    height: 100%;
-    margin-right: 0.6rem;
+.label i {
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.2rem;
+    height: 1.6rem;
+    justify-content: center;
+    margin-left: 2rem;
+    width: 1.6rem;
+    transition: background-color 0.3s;
+}
+
+.label i:hover {
+    background-color: var(--green-500);
+}
+
+.label i:active {
+    background-color: unset;
+    transition: none;
+}
+
+.success {
+    background-color: var(--green-300);
+    color: var(--green-800);
+}
+
+.warning {
+    background-color: var(--yellow-200);
+    color: var(--yellow-700);
 }

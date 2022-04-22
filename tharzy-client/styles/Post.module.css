@@ -1,27 +1,31 @@
 .post {
     background-color: white;
-    border-radius: 1.6rem;
+    border-bottom: 2px dotted var(--black);
     display: flex;
     flex-direction: column;
+    height: 100%;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding-bottom: 1.2rem;
     transition: border-color 0.2s, transform 0.2s;
 }
 
 .date {
-    font-variation-settings: 'wght' 700;
-    margin-bottom: 3rem;
+    color: var(--blue-600);
+    margin-bottom: 2.2rem;
     width: fit-content;
 }
 
-.tag {
-    color: var(--blue-600);
-    line-height: 1;
+.category {
+    font-family: 'foundersgrotesk-mono', sans-serif;
+    text-transform: uppercase;
+}
+
+.category:first-letter {
+    text-transform: uppercase;
 }
 
 .title {
-    font-size: 1.6rem;
-    margin-top: 0.5rem;
+    margin-top: 0.6rem;
     transition: color 0.3s;
 }
 
@@ -31,10 +35,10 @@
 
 .name {
     color: var(--slate-400);
-    margin-top: 0.6rem;
+    margin-top: 0.2rem;
 }
 
 .userData {
     line-height: 1;
-    margin-top: 3.2rem;
+    margin-top: 2.2rem;
 }

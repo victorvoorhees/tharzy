@@ -1,15 +1,20 @@
+.label {
+    font-family: 'foundersgrotesk', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.2em;
+}
+
 .wrapper {
     align-items: center;
-    background-color: var(--white);
-    border: 1px solid var(--slate-400);
-    border-radius: 0.6rem;
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-100);
     display: flex;
     width: 100%;
     transition: border-color 0.3s;
 }
 
 .wrapper i {
-    color: var(--slate-400);
+    color: var(--gray-400);
     margin-right: 0.6rem;
 }
 
@@ -20,7 +25,7 @@
 }
 
 .wrapper input::placeholder {
-    color: var(--slate-400);
+    color: var(--gray-400);
 }
 
 .wrapper:hover {

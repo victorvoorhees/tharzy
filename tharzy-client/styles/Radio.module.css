@@ -1,0 +1,46 @@
+.label {
+    font-family: 'foundersgrotesk', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.2em;
+}
+
+.radio {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.4rem;
+}
+
+.radio label {
+    text-transform: capitalize;
+}
+
+.radio input {
+    height: 0.7rem;
+    width: 0.7rem;
+    position: relative;
+}
+
+.radio input:before {
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    content: '';
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.radio input:hover:before {
+    background-color: var(--gray-300);
+}
+
+.radio input:checked:before {
+    background-color: var(--black);
+    border-radius: 50%;
+    content: '';
+}
