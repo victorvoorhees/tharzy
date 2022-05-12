@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import {useEffect, useState} from 'react'
 import Styles from '../../styles/Encyclopedia.module.css'
 import RadioAlphabet from '../../components/RadioAlphabet'
