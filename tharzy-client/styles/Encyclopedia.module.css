@@ -1,0 +1,49 @@
+.master {
+    display: grid;
+    grid-gap: 2rem;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+}
+
+.master > div:first-of-type {
+    align-content: start;
+    border: 1px solid var(--black);
+    display: grid;
+    grid-row-gap: 1.2rem;
+    height: fit-content;
+    padding: 1rem;
+}
+
+.option {
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 1.2rem;
+}
+
+.description > h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.description > div > p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.description > div > p:first-of-type, .description > div > p:nth-of-type(2), .description > div > p:nth-of-type(3) {
+    margin-top: 0;
+}
+
+
+
+
+
+
+@media (min-width: 768px) {
+    .master {
+        grid-template-columns: 16rem auto;
+    }
+
+    .description > h1 {
+        font-size: 3.4rem;
+    }
+}

@@ -1,35 +1,29 @@
-import { useState } from 'react'
+import {useEffect, useState} from 'react'
 import Search from '../../components/Search'
 import Select from '../../components/Select'
 import Post from '../../components/Post'
 import Radio from '../../components/Radio'
 import PopUp from '../../components/PopUp'
-import { sortObject, returnPosts } from '../../utilities/utilities'
 import Styles from '../../styles/Posts.module.css'
+import { PostCategory, IPost } from '../../utilities/types'
+import { sortObject, returnPosts } from '../../utilities/utilities'
+import SkeletonPost from "../../components/SkeletonPost";
 
-type Category = 'all' | 'atrocities' | 'resistance' | 'international' | 'opinion' | 'other'
 type SortOption = 'title' | 'time' | 'engagement'
 
-interface IPost {
-    uploadedBy: string,
-    time: number,
-    category: Category,
-    title: string,
-    engagement: number,
-    likes: number,
-    dislikes: number,
-    comments: number
-}
-
-const categories: Category[] = ['all', 'atrocities', 'resistance', 'international', 'opinion', 'other']
+const categories: PostCategory[] = ['all', 'atrocities', 'resistance', 'international', 'opinion', 'other']
 const sortOptions: SortOption[] = ['title', 'time', 'engagement']
 
 export default function Posts() {
-    const data: IPost[] = returnPosts()
+    const [data, setData] = useState<IPost[]>(null)
 
     const [searchFor, setSearchFor] = useState<string>('')
-    const [category, setCategory] = useState<Category>('all')
+    const [category, setCategory] = useState<PostCategory>('all')
     const [sortBy, setSortBy] = useState<SortOption>('title')
+
+    useEffect(() => {
+        setData(returnPosts())
+    }, [])
 
     function resetFilters() {
         setSearchFor('')
@@ -37,18 +31,21 @@ export default function Posts() {
         setSortBy('title')
     }
 
-    let results: IPost[] = data
-    if (searchFor.length > 0) {
-        results = results.filter(item => item.title.toLowerCase().includes(searchFor.toLowerCase()))
+    let a: JSX.Element[] = []
+    for (let i = 0; i < 9; i++) {
+        a.push(<SkeletonPost />)
     }
-    if (category !== 'all') {
-        results = results.filter(item => item.category.toLowerCase() === category.toLowerCase())
+
+    let results = data
+    if (data) {
+        if (searchFor.length > 0) results = results.filter(item => item.title.toLowerCase().includes(searchFor.toLowerCase()))
+        if (category !== 'all') results = results.filter(item => item.category.toLowerCase() === category.toLowerCase())
+        // sortObject function checks type of sortBy property of first object of results array so results cannot be an empty array
+        if (results.length > 0) results = sortObject(results, sortBy)
     }
-    // sortObject function checks type of sortBy property of first object of results array so results cannot be an empty array
-    if (results.length > 0) results = sortObject(results, sortBy)
 
     return (
-        <div className={Styles.container}>
+        <div className={Styles.master}>
             <div className={Styles.filters}>
                 <Search label='Search' value={searchFor} handleChange={e => setSearchFor(e.target.value)} styles={Styles.search} />
                 <div className={Styles.options}>
@@ -60,23 +57,30 @@ export default function Posts() {
                 <button onClick={resetFilters} className={`outline ${Styles.reset}`}>Reset filters</button>
             </div>
             <div className={Styles.content}>
-                <PopUp status={results.length > 0 ? 'success' : 'warning'} label={`Found ${results.length} items matching the criteria.`} />
-                <div className={Styles.posts}>
-                    {results.map((item, index) => (
-                        <div key={index}>
-                            <Post
-                                uploadedBy={item.uploadedBy}
-                                time={item.time}
-                                category={item.category}
-                                title={item.title}
-                                likes={item.likes}
-                                dislikes={item.dislikes}
-                                comments={item.comments}
-                            />
-                        </div>
-                    ))}
-                </div>
+                {results ? (results.map((item, index) => (
+                    <Post
+                        uploadedBy={item.uploadedBy}
+                        time={item.time}
+                        category={item.category}
+                        title={item.title}
+                        likes={item.likes}
+                        dislikes={item.dislikes}
+                        comments={item.comments}
+                        styles={Styles.post}
+                        key={index}
+                    />
+                ))) : (a)}
             </div>
         </div>
     )
 }
+
+
+
+/*
+
+
+
+ */
+
+

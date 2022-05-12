@@ -1,12 +1,18 @@
-.wrapper {
+.master {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
     margin-left: auto;
     margin-right: auto;
-    width: 90vw;
+    max-width: 640px;
+    min-height: calc(100vh - var(--footer-height) - var(--header-nav-height));
+    padding-left: 1rem;
+    padding-right: 1rem;
     text-align: center;
+}
+
+.master h1 {
+    font-size: 2.4rem;
 }
 
 .quote {
@@ -16,15 +22,11 @@
 }
 
 .name {
-    color: var(--slate-400);
-    font-size: 1.1rem;
+    color: var(--gray-400);
 }
 
-
-@media screen and (min-width: 768px) {
-    .wrapper {
-        margin-left: auto;
-        margin-right: auto;
-        width: 640px;
+@media (min-width: 640px) {
+    .master h1 {
+        font-size: 3.4rem;
     }
 }

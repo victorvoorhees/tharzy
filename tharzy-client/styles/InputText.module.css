@@ -1,32 +1,28 @@
 .label {
-    color: var(--slate-400);
+    color: var(--gray-400);
     display: block;
-    font-variation-settings: 'wght' 450;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
+    text-transform: capitalize;
     width: fit-content;
 }
 
-.label:first-letter {
-    text-transform: uppercase;
-}
-
-.input, .wrapper {
-    border: 1px solid var(--slate-400);
-    border-radius: 0.5rem;
-}
-
-.wrapper {
-    align-items: center;
-    display: flex;
-}
-
-.wrapper i {
-    color: var(--slate-400);
-    margin-left: 0.8rem;
-}
-
-.wrapper input, .input {
+.input {
+    border-bottom: 1px solid var(--black);
     font-size: 1rem;
-    padding: 0.6rem;
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
     width: 100%;
+    transition: border-bottom-color 0.2s;
+}
+
+.input::placeholder {
+    color: var(--gray-400);
+}
+
+.input:hover {
+    border-bottom-color: var(--blue-600);
+}
+
+.input:focus {
+    border-bottom-color: var(--blue-600);
 }

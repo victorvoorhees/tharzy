@@ -10,29 +10,31 @@ interface IProps {
     country?: string,
     deadline?: number,
     title: string,
-    uploadedBy: string,
+    uploadedBy?: string,
     time: number,
     likes: number,
     dislikes: number,
-    comments: number
+    comments: number,
+    styles?: string
 }
 
-export default function Post({ date, duration, category, country, deadline, title, uploadedBy, time, likes, dislikes, comments }: IProps) {
+export default function Post({ date, duration, category, country, deadline, title, uploadedBy, time, likes, dislikes, comments, styles }: IProps) {
     return (
-        <motion.div className={Styles.post}
-                    initial={{opacity: 0}}
-                    whileInView={{opacity: 1}}
-                    viewport={{once: true, amount: 0.5}}
-                    transition={{duration: 0.5}}
-        >
+        <div className={styles ? `${styles} ${Styles.post}` : Styles.post}>
             <div>
-                {(date && duration) && <div className={Styles.date}>{setTimeLabel(date, { long: true })} · {duration}</div>}
+                {(date && duration) && <div className={Styles.date}>{setTimeLabel(date, { long: true })} / {duration}</div>}
                 {deadline && <div className={Styles.date}>{setTimeLabel(deadline, { long: true })}</div>}
-                <div className={Styles.category}>{category}{country && ` · ${country}`}</div>
+                <div className={Styles.category}>
+                    <span>{category}{country && ` / ${country}`}</span>
+                    <span> {setTimeLabel(time)} ago</span>
+                </div>
                 <Link href='/'><a><h2 className={Styles.title}>{title}</h2></a></Link>
-                <div className={Styles.name}>By {uploadedBy} · {setTimeLabel(time)}</div>
             </div>
-            <div className={Styles.userData}>{likes} likes · {dislikes} dislikes · {comments} comments</div>
-        </motion.div>
+            <div className={Styles.userData}>
+                <span><i className='fa-solid fa-heart' /> {likes}</span>
+                <span><i className='fa-solid fa-heart-broken' /> {dislikes}</span>
+                <span><i className='fa-solid fa-comment' /> {comments}</span>
+            </div>
+        </div>
     )
 }

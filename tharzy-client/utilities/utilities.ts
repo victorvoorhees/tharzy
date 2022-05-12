@@ -1,3 +1,5 @@
+import { IEvent, IFundraiser, IPost } from './types'
+
 function sortObject<T extends object[]>(arrayOfObjects: T, sortBy: string): T {
     if (typeof arrayOfObjects[0][sortBy] === 'number') {
         arrayOfObjects.sort((a, b) => {
@@ -41,14 +43,14 @@ function setTimeLabel(time: number, options?: { long: boolean }): string {
 
 
 
-function returnPosts(): any {
+function returnPosts(): IPost[] {
     return (
         [
             {
                 uploadedBy: 'Michael Smith',
                 time: new Date(2022, 3, 1).getTime(),
                 category: 'atrocities',
-                title: `The Ukrainian army pushed the line of fire from Kryvyi Rih district deep into Kherson region, liberating more than 15 populated localities`,
+                title: `The Ukrainian army pushed the line of fire from Kryvyi Rih district.`,
                 engagement: 243,
                 likes: 231,
                 dislikes: 3,
@@ -68,7 +70,7 @@ function returnPosts(): any {
                 uploadedBy: 'Ye Htut',
                 time: new Date(2022, 3, 3).getTime(),
                 category: 'international',
-                title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
+                title: 'For the first time since the coup, China condemns Tatmadaw',
                 engagement: 140,
                 likes: 58,
                 dislikes: 43,
@@ -108,7 +110,7 @@ function returnPosts(): any {
                 uploadedBy: 'Ye Htut',
                 time: new Date(2022, 3, 7).getTime(),
                 category: 'international',
-                title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
+                title: 'For the first time since the coup, China condemns Tatmadaw',
                 engagement: 140,
                 likes: 58,
                 dislikes: 43,
@@ -128,14 +130,14 @@ function returnPosts(): any {
     )
 }
 
-function returnFundraisers(): any {
+function returnFundraisers(): IFundraiser[] {
     return (
         [
             {
                 uploadedBy: 'Michael Smith',
                 time: new Date(2022, 3, 1).getTime(),
                 category: 'humanitarian',
-                title: `The Ukrainian army pushed the line of fire from Kryvyi Rih district deep into Kherson region, liberating more than 15 populated localities`,
+                title: `The Ukrainian army pushed the line of fire from Kryvyi Rih district deep into Kherson region.`,
                 deadline: new Date(2022, 2, 20).getTime(),
                 engagement: 243,
                 likes: 231,
@@ -156,8 +158,8 @@ function returnFundraisers(): any {
             {
                 uploadedBy: 'Ye Htut',
                 time: new Date(2022, 3, 3).getTime(),
-                category: 'international',
-                title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
+                category: 'resistance',
+                title: 'For the first time since the coup, China condemns Tatmadaw',
                 deadline: new Date(2022, 2, 18).getTime(),
                 engagement: 140,
                 likes: 35,
@@ -181,8 +183,8 @@ function returnFundraisers(): any {
                 category: 'humanitarian',
                 title: `Junta forces violently arrested an innocent teenager in Pyae`,
                 deadline: new Date(2022, 2, 16).getTime(),
-                engagement: 243,
-                likes: 546,
+                engagement: 139,
+                likes: 112,
                 dislikes: 23,
                 comments: 4,
             },
@@ -192,7 +194,7 @@ function returnFundraisers(): any {
                 category: 'resistance',
                 title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
                 deadline: new Date(2022, 2, 15).getTime(),
-                engagement: 163,
+                engagement: 215,
                 likes: 213,
                 dislikes: 1,
                 comments: 1
@@ -200,10 +202,10 @@ function returnFundraisers(): any {
             {
                 uploadedBy: 'Ye Htut',
                 time: new Date(2022, 3, 7).getTime(),
-                category: 'international',
-                title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
+                category: 'humanitarian',
+                title: 'For the first time since the coup, China condemns Tatmadaw',
                 deadline: new Date(2022, 2, 14).getTime(),
-                engagement: 140,
+                engagement: 26,
                 likes: 23,
                 dislikes: 2,
                 comments: 1
@@ -214,7 +216,7 @@ function returnFundraisers(): any {
                 category: 'other',
                 title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
                 deadline: new Date(2022, 2, 13).getTime(),
-                engagement: 174,
+                engagement: 298,
                 likes: 234,
                 dislikes: 55,
                 comments: 9
@@ -223,17 +225,17 @@ function returnFundraisers(): any {
     )
 }
 
-function returnEvents(): any {
+function returnEvents(): IEvent[] {
     return (
         [
             {
                 date: new Date(2022, 2, 20).getTime(),
-                duration: '23:00 - 23:59',
+                duration: '23:00-23:59',
                 uploadedBy: 'Michael Smith',
                 time: new Date(2022, 3, 1).getTime(),
                 category: 'protest',
                 country: 'Japan',
-                title: `The Ukrainian army pushed the line of fire from Kryvyi Rih district deep into Kherson region, liberating more than 15 populated localities`,
+                title: `The Ukrainian army pushed the line of fire from Kryvyi Rih district deep into Kherson region.`,
                 engagement: 243,
                 likes: 231,
                 dislikes: 3,
@@ -241,7 +243,7 @@ function returnEvents(): any {
             },
             {
                 date: new Date(2022, 2, 23).getTime(),
-                duration: '23:00 - 23:59',
+                duration: '23:00-23:59',
                 uploadedBy: 'karen revolutionary',
                 time: new Date(2022, 3, 2).getTime(),
                 category: 'meetup',
@@ -254,7 +256,7 @@ function returnEvents(): any {
             },
             {
                 date: new Date(2022, 2, 18).getTime(),
-                duration: '23:00 - 23:59',
+                duration: '23:00-23:59',
                 uploadedBy: 'Ye Htut',
                 time: new Date(2022, 3, 3).getTime(),
                 category: 'fundraising',
@@ -267,7 +269,7 @@ function returnEvents(): any {
             },
             {
                 date: new Date(2022, 2, 17).getTime(),
-                duration: '23:00 - 23:59',
+                duration: '23:00-23:59',
                 uploadedBy: 'commie lay',
                 time: new Date(2022, 3, 4).getTime(),
                 category: 'other',
@@ -280,7 +282,7 @@ function returnEvents(): any {
             },
             {
                 date: new Date(2022, 2, 15).getTime(),
-                duration: '23:00 - 23:59',
+                duration: '23:00-23:59',
                 uploadedBy: 'Michael Smith',
                 time: new Date(2022, 3, 5).getTime(),
                 category: 'fundraising',
@@ -293,7 +295,7 @@ function returnEvents(): any {
             },
             {
                 date: new Date(2022, 2, 13).getTime(),
-                duration: '23:00 - 23:59',
+                duration: '23:00-23:59',
                 uploadedBy: 'karen revolutionary',
                 time: new Date(2022, 3, 6).getTime(),
                 category: 'protest',
@@ -306,7 +308,7 @@ function returnEvents(): any {
             },
             {
                 date: new Date(2022, 2, 13).getTime(),
-                duration: '23:00 - 23:59',
+                duration: '23:00-23:59',
                 uploadedBy: 'Ye Htut',
                 time: new Date(2022, 3, 7).getTime(),
                 category: 'meetup',
@@ -319,7 +321,7 @@ function returnEvents(): any {
             },
             {
                 date: new Date(2022, 2, 11).getTime(),
-                duration: '23:00 - 23:59',
+                duration: '23:00-23:59',
                 uploadedBy: 'commie lay',
                 time: new Date(2022, 3, 8).getTime(),
                 category: 'other',

@@ -7,16 +7,12 @@ export default function NotFound() {
             name: 'Vladimir Lenin'
         },
         {
-            quote: `"You should never let your fears prevent you from doing what you know is right."`,
-            name: 'Aung San Suu Kyi'
+            quote: `"There are decades where nothing happens; and there are weeks where decades happen."`,
+            name: 'Vladimir Lenin'
         },
         {
-            quote: `"The only real prison is fear, and the only freedom is freedom from fear."`,
-            name: 'Aung San Suu Kyi'
-        },
-        {
-            quote: `"If you're feeling helpless, help someone."`,
-            name: 'Aung San Suu Kyi'
+            quote: `"Without revolutionary theory there can be no revolutionary movement."`,
+            name: 'Vladimir Lenin'
         },
         {
             quote: `"Let me say, at the risk of seeming ridiculous, that the true revolutionary is guided by great feelings of love."`,
@@ -24,10 +20,6 @@ export default function NotFound() {
         },
         {
             quote: `"The first duty of a revolutionary is to be educated."`,
-            name: 'Che Guevara'
-        },
-        {
-            quote: `"If you tremble with indignation at every injustice then you are a comrade of mine."`,
             name: 'Che Guevara'
         },
         {
@@ -55,6 +47,10 @@ export default function NotFound() {
             name: 'Ho Chi Minh'
         },
         {
+            quote: `"To reap a return in ten years, plant trees. To reap a return in 100, cultivate the people."`,
+            name: 'Ho Chi Minh'
+        },
+        {
             quote: `"The people, and the people alone, are the motive force in the making of world history."`,
             name: 'Mao Zedong'
         },
@@ -63,15 +59,26 @@ export default function NotFound() {
             name: 'Mao Zedong'
         },
         {
-            quote: `"To reap a return in ten years, plant trees. To reap a return in 100, cultivate the people."`,
-            name: 'Ho Chi Minh'
+            quote: `"Our lives begin to end the day we become silent about things that matter."`,
+            name: 'Martin Luther King Jr'
+        },
+        {
+            quote: `"Those who do not move, do not notice their chains."`,
+            name: 'Rosa Luxemburg'
+        },
+        {
+            quote: `"The masses are the decisive element, they are the rock on which the final victory of the revolution will be built."`,
+            name: 'Rosa Luxemburg'
+        },
+        {
+            quote: `"Before a revolution happens, it is perceived as impossible; after it happens, it is seen as having been inevitable."`,
+            name: 'Rosa Luxemburg'
         },
     ]
-
     const n = Math.floor(Math.random() * (quotes.length - 1))
 
     return (
-        <div className={Styles.wrapper}>
+        <div className={Styles.container}>
             <h1>Page doesn't exist.</h1>
             <p className={Styles.quote}>{quotes[n].quote}</p>
             <p className={Styles.name}>- {quotes[n].name}</p>

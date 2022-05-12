@@ -1,0 +1,16 @@
+.master {
+    display: grid;
+    grid-row-gap: 0.8rem;
+}
+
+.master > div {
+    animation: wave 0.7s linear infinite;
+    background: linear-gradient(to right, var(--gray-50), var(--gray-200), var(--gray-50));
+    background-size: 200%;
+    height: 1.4rem;
+}
+
+@keyframes wave {
+    0% {background-position-x: -100%;}
+    100% {background-position-x: 100%;}
+}

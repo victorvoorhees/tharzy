@@ -1,13 +1,11 @@
-.wrapper {
+.master {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 600px;
-    height: 100vh;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 4.4rem;
-    width: 90vw;
+    max-width: 420px;
+    min-height: calc(100vh - var(--footer-height) - var(--header-nav-height));
 }
 
 .title {
@@ -15,26 +13,14 @@
 }
 
 .input {
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.checkbox {
+    margin-top: 0.6rem;
 }
 
 .submit {
-    font-variation-settings: 'wght' 500;
-    margin-top: 1.4rem;
-}
-
-
-
-@media screen and (min-width: 640px) {
-    .background {
-        background-color: var(--gray-100);
-    }
-}
-
-@media screen and (min-width: 540px) {
-    .wrapper {
-        margin-left: auto;
-        margin-right: auto;
-        width: 480px;
-    }
+    margin-top: 2rem;
+    padding: 0.7rem;
 }

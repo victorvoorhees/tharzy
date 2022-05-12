@@ -18,6 +18,7 @@ export default function Layout({ children }: { children: ReactNode }): JSX.Eleme
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ type: 'tween', duration: 0.5 }}
+                    className={url === '/' ? undefined : 'main'}
                 >
                     {children}
                 </motion.main>

@@ -14,7 +14,7 @@
     align-items: flex-start;
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.8rem 1rem;
 }
 
 .label i {

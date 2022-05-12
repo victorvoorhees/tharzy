@@ -1,0 +1,33 @@
+.label {
+    border-bottom: 1px solid var(--black);
+    font-family: 'foundersgrotesk-mono', sans-serif;
+    line-height: 1.2em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.1rem;
+    text-transform: uppercase;
+}
+
+.section {
+    align-items: center;
+    display: flex;
+    font-size: 1.2rem;
+    height: 2rem;
+    padding-left: 0.4rem;
+    text-transform: capitalize;
+    width: fit-content;
+}
+
+.section[data-viewing=false] {
+    border-left: 2px solid var(--gray-300);
+    color: var(--gray-400);
+    cursor: pointer;
+}
+
+.section[data-viewing=false]:hover {
+    color: var(--black);
+}
+
+.section[data-viewing=true] {
+    border-left: 2px solid var(--black);
+    color: var(--black);
+}

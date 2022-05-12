@@ -4,7 +4,13 @@ import Styles from '../styles/PopUp.module.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import {useState} from 'react';
 
-export default function PopUp({ status, label }: { status: 'success' | 'warning' | 'failure', label: string }) {
+interface IProps {
+    status: 'success' | 'warning' | 'failure',
+    label: string,
+    styles?: string
+}
+
+export default function PopUp({ status, label, styles }: IProps) {
     const [render, setRender] = useState<boolean>(true)
 
     function applyStyles() {
@@ -15,7 +21,7 @@ export default function PopUp({ status, label }: { status: 'success' | 'warning'
     return (
         <AnimatePresence>
             {render && (
-                <div className={Styles.popUp}>
+                <div className={styles ? `${Styles.popUp} ${styles}` : `${Styles.popUp}`}>
                     <motion.div className={Styles.block}
                                 style={{originX: 1}}
                                 initial={{transform: 'scaleX(0)'}}

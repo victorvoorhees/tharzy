@@ -10,7 +10,7 @@
     border: 1px solid var(--gray-100);
     display: flex;
     width: 100%;
-    transition: border-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .wrapper i {
@@ -20,7 +20,7 @@
 
 .wrapper input {
     font-size: 1rem;
-    padding: 0.8rem;
+    padding: 0.7rem;
     width: 100%;
 }
 
@@ -33,5 +33,6 @@
 }
 
 .wrapper:focus-within {
+    background-color: var(--white);
     border-color: var(--blue-600);
 }

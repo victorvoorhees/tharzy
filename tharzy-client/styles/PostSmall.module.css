@@ -1,0 +1,56 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.date {
+    background-color: #002b55;
+    color: var(--white);
+    font-family: 'foundersgrotesk-mono', sans-serif;
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+    padding: 0.4rem;
+    width: fit-content;
+}
+
+.category span {
+    font-family: 'foundersgrotesk-mono', sans-serif;
+    font-size: 0.8rem;
+}
+
+.category span:nth-of-type(1) {
+    color: var(--blue-600);
+    text-transform: uppercase;
+}
+
+.category span:nth-of-type(2) {
+    color: var(--gray-400);
+}
+
+.category:first-letter {
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 1.2rem;
+    margin-top: 0.6rem;
+    transition: color 0.3s;
+}
+
+.title:hover {
+    color: var(--blue-600);
+}
+
+.name {
+    color: var(--slate-400);
+    margin-top: 0.2rem;
+}
+
+.userData {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 1.2rem;
+    justify-content: start;
+    margin-top: 1rem;
+}

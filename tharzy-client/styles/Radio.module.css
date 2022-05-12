@@ -1,7 +1,6 @@
 .label {
     font-family: 'foundersgrotesk', sans-serif;
     font-size: 1.2rem;
-    line-height: 1.2em;
 }
 
 .radio {
@@ -26,7 +25,7 @@
     border-radius: 50%;
     content: '';
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s;
 
     position: absolute;
     top: 0;
@@ -35,12 +34,6 @@
     bottom: 0;
 }
 
-.radio input:hover:before {
-    background-color: var(--gray-300);
-}
-
 .radio input:checked:before {
     background-color: var(--black);
-    border-radius: 50%;
-    content: '';
 }

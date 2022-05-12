@@ -1,0 +1,40 @@
+.master {
+    display: grid;
+    grid-gap: 0.3rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 1.8rem), 1.8rem));
+    justify-content: start;
+}
+
+.radio {
+    display: block;
+    position: relative;
+}
+
+.radio label {
+    align-items: center;
+    border: 1px solid var(--black);
+    display: flex;
+    height: 1.8rem;
+    justify-content: center;
+    text-transform: capitalize;
+    transition: background-color 0.3s, color 0.3s;
+    width: 1.8rem;
+}
+
+.radio input {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.radio input:hover + label {
+    background-color: var(--gray-200);
+}
+
+.radio input:checked + label {
+    background-color: var(--black);
+    color: var(--white);
+}

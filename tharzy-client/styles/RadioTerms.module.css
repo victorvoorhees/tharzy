@@ -1,0 +1,37 @@
+.master {
+    height: fit-content;
+}
+
+.label {
+    font-family: 'foundersgrotesk', sans-serif;
+    font-size: 1.2rem;
+}
+
+.master > div:last-of-type {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+}
+
+.radio {
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.radio label {
+    cursor: pointer;
+    line-height: 1.3em;
+    padding: 0.4rem 0.5rem;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.radio label:hover {
+    background-color: var(--gray-200);
+}
+
+.radio input:checked + label {
+    background-color: var(--black);
+    color: var(--white);
+}

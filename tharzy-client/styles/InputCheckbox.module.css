@@ -1,35 +1,36 @@
-.wrapper {
+.master {
     align-items: flex-start;
     display: flex;
 }
 
-.input {
-    display: flex;
-}
-
-.input input {
-    appearance: auto;
-    background: none;
-    height: 1rem;
-    margin-right: -1rem;
-    opacity: 0;
-    width: 1rem;
-}
-
-.input div {
-    border: 1px solid var(--slate-400);
-    border-radius: 0.3rem;
+.master input {
+    appearance: none;
     height: 1rem;
     margin-right: 0.4rem;
-    transition: border-color 0.2s, background-color 0.2s;
+    position: relative;
     width: 1rem;
 }
 
-.input input:hover ~ div {
-    border-color: var(--blue-600);
+.master input:before {
+    border: 1px solid var(--black);
+    color: var(--white);
+    content: '';
+    font-family: 'Font Awesome 5 Free';
+    font-size: 0.8rem;
+    font-weight: 900;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    transition: border-color 0.2s, background-color 0.2s;
+    width: 100%;
 }
 
-.input input:checked ~ div {
+.master input:checked:before {
     background-color: var(--blue-600);
+    border-color: var(--blue-600);
+    content: '\f00c';
+}
+
+.master input:hover:before {
     border-color: var(--blue-600);
 }
