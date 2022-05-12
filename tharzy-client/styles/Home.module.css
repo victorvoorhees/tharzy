@@ -26,13 +26,13 @@
 }
 
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     line-height: 1.1em;
     margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 
@@ -52,11 +52,11 @@
 }
 
 .notice h2 {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
 }
 
 .notice button {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 0.6rem;
 }
 
@@ -78,7 +78,7 @@
 
 
 .heading {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     margin-bottom: 2rem;
 }
 
@@ -124,12 +124,24 @@
         font-size: 3.2rem;
     }
 
+    .hero p {
+        font-size: 1.2rem;
+    }
+
     .hero > div > img {
         width: 100%;
     }
 
     .content > div {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .notice h2 {
+        font-size: 2.2rem;
+    }
+
+    .notice button {
+        font-size: 1.1rem;
     }
 
     .heading {

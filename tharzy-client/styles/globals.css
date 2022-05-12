@@ -17,6 +17,7 @@ button, input, textarea, select {
   -moz-appearance: none;
   background: none;
   border: none;
+  border-radius: 0;
   outline: none;
 
   font-size: 1rem;
