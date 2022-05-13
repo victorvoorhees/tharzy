@@ -1,9 +1,3 @@
-.label {
-    font-family: 'foundersgrotesk', sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.2em;
-}
-
 .wrapper {
     align-items: center;
     background-color: var(--gray-100);

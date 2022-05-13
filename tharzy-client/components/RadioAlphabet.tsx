@@ -11,7 +11,7 @@ interface IProps {
 export default function RadioAlphabet({ name, options, value, handleChange, styles }: IProps) {
     return (
         <div className={styles || styles}>
-            <h3>Letter</h3>
+            <div className='h4'>Letter</div>
             <div className={Styles.master}>
                 {options.map((option, index) => (
                     <div className={Styles.radio} key={index}>

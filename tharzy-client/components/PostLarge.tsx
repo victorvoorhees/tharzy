@@ -30,10 +30,7 @@ export default function PostLarge({ date, duration, category, country, deadline,
                     <span> {setTimeLabel(time)} ago</span>
                 </div>
                 <Link href='/'><a><h2 className={Styles.title}>{title}</h2></a></Link>
-                <div className={Styles.body}>
-                    <p>{body}</p>
-                    <div></div>
-                </div>
+                <p className='p-1'>{body.substring(0, 300)} ...</p>
             </div>
             <div className={Styles.userData}>
                 <span><i className='fa-solid fa-heart' /> {likes}</span>

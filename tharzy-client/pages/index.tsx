@@ -29,8 +29,8 @@ export default function Home() {
             <div className={Styles.hero}>
                 <div>
                     <div>
-                        <h1>Contribute to Myanmar's struggle for freedom.</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae velit ante. Vivamus felis ipsum, convallis a risus non, posuere imperdiet.</p>
+                        <h1>Contribute to Myanmar's fight for freedom.</h1>
+                        <p className='p-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae velit ante. Vivamus felis ipsum, convallis a risus non, posuere imperdiet.</p>
                     </div>
                     <img src='/workers.svg' />
                 </div>
@@ -38,6 +38,7 @@ export default function Home() {
 
             <div className={`main ${Styles.master}`}>
                 <div className={Styles.notice}>
+                    <img src='pieces.svg' />
                     <div className={Styles.small}>
                         <h2>Log in or sign up with an email to start posting.</h2>
                         <button className='outline'>Log in</button>
@@ -45,7 +46,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className={Styles.content}>
-                    <h2 className={Styles.heading}>Latest posts.</h2>
+                    <h2 className='h1'>Latest posts.</h2>
                     <div>
                         {postsLatest && postsLatest.map((post, index) => (
                             <PostLarge category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} />
@@ -53,21 +54,15 @@ export default function Home() {
                     </div>
                 </div>
                 <div className={Styles.content}>
-                    <h2 className={Styles.heading}>Latest fundraisers.</h2>
+                    <h2 className='h1'>Latest fundraisers.</h2>
                     <div>
                         {fundraisersLatest && postsLatest.map((post, index) => (
                             <PostLarge category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} />
                         ))}
                     </div>
                 </div>
-                <div className={Styles.notice}>
-                    <div className={Styles.big}>
-                        <h2>Your location is detected as: Australia. It's recommended to use a VPN.</h2>
-                        <button className='outline'>Get a VPN</button>
-                    </div>
-                </div>
                 <div className={Styles.content}>
-                    <h2 className={Styles.heading}>Latest events in Australia.</h2>
+                    <h2 className='h1'>Latest events in Australia.</h2>
                     <div>
                         {eventsLatest && postsLatest.map((post, index) => (
                             <PostLarge category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} />

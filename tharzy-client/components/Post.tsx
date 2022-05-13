@@ -28,7 +28,7 @@ export default function Post({ date, duration, category, country, deadline, titl
                     <span>{category}{country && ` / ${country}`}</span>
                     <span> {setTimeLabel(time)} ago</span>
                 </div>
-                <Link href='/'><a><h2 className={Styles.title}>{title}</h2></a></Link>
+                <Link href='/'><a><div className={`h3 ${Styles.title}`}>{title}</div></a></Link>
             </div>
             <div className={Styles.userData}>
                 <span><i className='fa-solid fa-heart' /> {likes}</span>

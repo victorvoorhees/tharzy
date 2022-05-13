@@ -12,7 +12,7 @@ interface IProps {
 export default function Radio({ label, name, options, value, handleChange, styles }: IProps) {
     return (
         <div className={styles || undefined}>
-            {label ? <div className={Styles.label}>{label}</div> : undefined}
+            {label ? <div className='h4'>{label}</div> : undefined}
             {options.map((option, index) => (
                 <div className={Styles.radio} key={index}>
                     <label htmlFor={option}>{option}</label>

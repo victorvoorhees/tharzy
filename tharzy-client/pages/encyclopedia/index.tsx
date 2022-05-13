@@ -45,7 +45,7 @@ export default function Encyclopedia() {
             <div className={Styles.description}>
                 <h1>{definition.long}</h1>
                 {desc ? (
-                    <div dangerouslySetInnerHTML={{__html: desc}}/>
+                    <div dangerouslySetInnerHTML={{__html: desc}} className='p-2' />
                 ) : (
                     <SkeletonText />
                 )}
