@@ -29,6 +29,11 @@
     bottom: 0;
 }
 
+.radio input:hover:before {
+    border-color: var(--blue-600);
+}
+
 .radio input:checked:before {
-    background-color: var(--black);
+    background-color: var(--blue-600);
+    border-color: var(--blue-600);
 }

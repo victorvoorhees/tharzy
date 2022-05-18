@@ -29,26 +29,23 @@ export default function Encyclopedia() {
             .then(result => setDesc(Object.values(result.query.pages)[0].extract))
     }, [definition])
 
+    function handleDefinitionChange(e) {
+        const selectedDefinition = definitions.filter(definition => definition.short === e.target.value)[0]
+        setDefinition(selectedDefinition)
+    }
+
     return (
         <div className={Styles.master}>
             <div>
                 <Search label='Search' value={searchFor} handleChange={e => setSearchFor(e.target.value)} styles={Styles.option} />
                 {!(searchFor.length > 0) && <RadioAlphabet name='alphabet' options={alphabet} value={letter} handleChange={(e) => setLetter(e.target.value)} styles={Styles.option} />}
-                {visibleDefinitions.filter(term => term.type === 'event').length > 0 && <RadioTerms label='Events' name='terms' options={visibleDefinitions.filter(term => term.type === 'event')} value={definition} handleChange={setDefinition} />}
-                {visibleDefinitions.filter(term => term.type === 'militia').length > 0 && <RadioTerms label='Armed organizations' name='terms'
-                             options={visibleDefinitions.filter(term => term.type === 'militia')} value={definition}
-                             handleChange={setDefinition}/>}
-                {visibleDefinitions.filter(term => term.type === 'party').length > 0 && <RadioTerms label='Political organizations' name='terms'
-                             options={visibleDefinitions.filter(term => term.type === 'party')} value={definition}
-                             handleChange={setDefinition}/>}
+                {visibleDefinitions.filter(term => term.type === 'event').length > 0 && <RadioTerms label='Events' name='terms' options={visibleDefinitions.filter(term => term.type === 'event')} value={definition} handleChange={handleDefinitionChange} />}
+                {visibleDefinitions.filter(term => term.type === 'militia').length > 0 && <RadioTerms label='Armed organizations' name='terms' options={visibleDefinitions.filter(term => term.type === 'militia')} value={definition} handleChange={handleDefinitionChange}/>}
+                {visibleDefinitions.filter(term => term.type === 'party').length > 0 && <RadioTerms label='Political organizations' name='terms' options={visibleDefinitions.filter(term => term.type === 'party')} value={definition} handleChange={handleDefinitionChange}/>}
             </div>
             <div className={Styles.description}>
                 <h1>{definition.long}</h1>
-                {desc ? (
-                    <div dangerouslySetInnerHTML={{__html: desc}} className='p-2' />
-                ) : (
-                    <SkeletonText />
-                )}
+                {desc ? <div dangerouslySetInnerHTML={{__html: desc}} className='p-2' /> : <SkeletonText />}
             </div>
         </div>
     )

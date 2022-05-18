@@ -14,14 +14,22 @@ export default function Home() {
 
     const [userLocation, setUserLocation] = useState('Australia')
 
+    const [postsTrending, setPostsTrending] = useState<IPost[]>(null)
+    const [fundraisersTrending, setFundraisersTrending] = useState<IFundraiser[]>(null)
+    const [eventsTrending, setEventsTrending] = useState<IEvent[]>(null)
+
     const [postsLatest, setPostsLatest] = useState<IPost[]>(null)
     const [fundraisersLatest, setFundraisersLatest] = useState<IFundraiser[]>(null)
     const [eventsLatest, setEventsLatest] = useState<IEvent[]>(null)
 
     useEffect(() => {
-        setPostsLatest(sortObject(returnPosts(), 'time').slice(0, 4))
-        setFundraisersLatest(sortObject(returnFundraisers(), 'time').slice(0, 4))
-        setEventsLatest(sortObject(returnEvents(), 'time').slice(0, 4))
+        setPostsTrending(sortObject(returnPosts(), 'engagement').slice(0, 6))
+        setFundraisersTrending(sortObject(returnFundraisers(), 'engagement').slice(0, 6))
+        setEventsTrending(sortObject(returnEvents(), 'engagement').slice(0, 6))
+
+        setPostsLatest(sortObject(returnPosts(), 'time').slice(0, 3))
+        setFundraisersLatest(sortObject(returnFundraisers(), 'time').slice(0, 3))
+        setEventsLatest(sortObject(returnEvents(), 'time').slice(0, 3))
     }, [])
 
     return (
@@ -32,41 +40,58 @@ export default function Home() {
                         <h1>Contribute to Myanmar's fight for freedom.</h1>
                         <p className='p-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae velit ante. Vivamus felis ipsum, convallis a risus non, posuere imperdiet.</p>
                     </div>
-                    <img src='/workers.svg' />
+                    <img src='/pdf.svg' />
                 </div>
             </div>
 
             <div className={`main ${Styles.master}`}>
-                <div className={Styles.notice}>
-                    <img src='pieces.svg' />
-                    <div className={Styles.small}>
-                        <h2>Log in or sign up with an email to start posting.</h2>
-                        <button className='outline'>Log in</button>
-                        <button className='primary'>Sign up</button>
+                <div>
+                    <h2 className='h1'>Trending.</h2>
+                    <div>
+                        <div>
+                            {postsTrending && postsTrending.map((post, index) => (
+                                <PostSmall title={post.title} category={post.category} time={post.time} key={index} styles={Styles.postSmall} />
+                            ))}
+                        </div>
+                        <button className='outline'>See all posts</button>
+                        <div>
+                            {postsTrending && postsTrending.map((post, index) => (
+                                <PostSmall title={post.title} category={post.category} time={post.time} key={index} styles={Styles.postSmall} />
+                            ))}
+                        </div>
+                        <button className='outline'>See all fundraisers</button>
+                        <div>
+                            {postsTrending && postsTrending.map((post, index) => (
+                                <PostSmall title={post.title} category={post.category} time={post.time} key={index} styles={Styles.postSmall} />
+                            ))}
+                        </div>
+                        <button className='outline'>See all events</button>
                     </div>
                 </div>
-                <div className={Styles.content}>
-                    <h2 className='h1'>Latest posts.</h2>
+                <div>
                     <div>
-                        {postsLatest && postsLatest.map((post, index) => (
-                            <PostLarge category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} />
-                        ))}
+                        <h2 className='h1'>Latest posts.</h2>
+                        <div>
+                            {postsLatest && postsLatest.map((post, index) => (
+                                <PostLarge category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} key={index} />
+                            ))}
+                        </div>
                     </div>
-                </div>
-                <div className={Styles.content}>
-                    <h2 className='h1'>Latest fundraisers.</h2>
                     <div>
-                        {fundraisersLatest && postsLatest.map((post, index) => (
-                            <PostLarge category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} />
-                        ))}
+                        <h2 className='h1'>Latest fundraisers.</h2>
+                        <div>
+                            {fundraisersLatest && fundraisersLatest.map((post, index) => (
+                                <PostLarge deadline={post.deadline} category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} key={index} />
+                            ))}
+                        </div>
                     </div>
-                </div>
-                <div className={Styles.content}>
-                    <h2 className='h1'>Latest events in Australia.</h2>
                     <div>
-                        {eventsLatest && postsLatest.map((post, index) => (
-                            <PostLarge category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} />
-                        ))}
+                        <h2 className='h1'>Latest events in Australia.</h2>
+                        <div>
+                            {eventsLatest && eventsLatest.map((post, index) => (
+                                <PostLarge date={post.date} duration={post.duration} category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} key={index} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

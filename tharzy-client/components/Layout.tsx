@@ -6,8 +6,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Nav from './Nav'
 import Footer from './Footer'
 
-export default function Layout({ children }: { children: ReactNode }): JSX.Element {
-    const { asPath: url }: { asPath: string } = useRouter()
+export default function Layout({ children }: { children: ReactNode }) {
+    const { asPath: url } = useRouter()
     return (
         <>
             <Nav />

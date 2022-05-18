@@ -34,7 +34,7 @@
 :root {
     --header-nav-height: 4rem;
     --footer-height: 3rem;
-    --site-max-width: 1440px;
+    --site-max-width: 1280px;
 
     --black: #021f4d; /* #021f4d */
     --white: rgb(255, 255, 255);

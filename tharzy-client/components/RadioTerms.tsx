@@ -17,8 +17,11 @@ export default function RadioTerms({ label, name, options, value, handleChange, 
             <div>
                 {options.map((option, index) => (
                     <div className={Styles.radio} key={index}>
-                        {value === option ? <input type='radio' name={name} id={option.short} value={option.short} onChange={() => handleChange(option)} checked /> : <input type='radio' name={name} id={option.short} value={option.short} onChange={() => handleChange(option)} />}
-                        <label htmlFor={option.short}>{option.long}</label>
+                        {value === option ? <input type='radio' name={name} id={option.short} value={option.short} onChange={handleChange} checked /> : <input type='radio' name={name} id={option.short} value={option.short} onChange={handleChange} />}
+                        <label htmlFor={option.short}>
+                            <div/>
+                            <div>{option.long}</div>
+                        </label>
                     </div>
                 ))}
             </div>

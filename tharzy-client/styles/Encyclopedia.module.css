@@ -11,7 +11,7 @@
     display: grid;
     grid-row-gap: 1.2rem;
     height: fit-content;
-    padding: 1rem;
+    padding: 1.2rem;
 }
 
 .option {
@@ -37,9 +37,9 @@
 
 
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
     .master {
-        grid-template-columns: 16rem auto;
+        grid-template-columns: 18rem auto;
         padding-bottom: 4rem;
         padding-top: 4rem;
     }

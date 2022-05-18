@@ -35,7 +35,7 @@ export default function Events() {
 
     let a: JSX.Element[] = []
     for (let i = 0; i < 9; i++) {
-        a.push(<SkeletonPost />)
+        a.push(<SkeletonPost key={i} />)
     }
 
     let results = data

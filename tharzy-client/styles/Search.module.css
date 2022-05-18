@@ -2,9 +2,10 @@
     align-items: center;
     background-color: var(--gray-100);
     border: 1px solid var(--gray-100);
+    box-shadow: 0 0 4px 1px var(--trans);
     display: flex;
     width: 100%;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
 .wrapper i {
@@ -27,6 +28,6 @@
 }
 
 .wrapper:focus-within {
-    background-color: var(--white);
     border-color: var(--blue-600);
+    box-shadow: 0 0 4px 1px var(--blue-600);
 }

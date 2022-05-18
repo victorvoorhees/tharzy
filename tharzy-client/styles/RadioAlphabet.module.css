@@ -35,6 +35,7 @@
 }
 
 .radio input:checked + label {
-    background-color: var(--black);
+    background-color: var(--blue-600);
+    border-color: var(--blue-600);
     color: var(--white);
 }

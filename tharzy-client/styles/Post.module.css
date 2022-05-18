@@ -5,7 +5,7 @@
 }
 
 .date {
-    background-color: #002b55;
+    background-color: var(--black);
     color: var(--white);
     font-family: 'foundersgrotesk-mono', sans-serif;
     font-size: 0.9rem;
@@ -51,5 +51,5 @@
     grid-auto-flow: column;
     grid-column-gap: 1.2rem;
     justify-content: start;
-    margin-top: 1rem;
+    margin-top: 1.2rem;
 }
