@@ -17,8 +17,8 @@ export default function Layout({ children }: { children: ReactNode }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ type: 'tween', duration: 0.5 }}
-                    className={url === '/' ? undefined : 'main'}
+                    transition={{ duration: 0.25 }}
+                    className={(!(url === '/') && 'fixedWidth') + (!(url === '/login' || url === '/register') && ' master')}
                 >
                     {children}
                 </motion.main>

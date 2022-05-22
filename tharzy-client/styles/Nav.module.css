@@ -1,24 +1,17 @@
 .header {
     background-color: var(--white);
     border-bottom: 2px solid var(--gray-200);
-
-    position: fixed;
-    width: 100%;
-    z-index: 2000;
     overflow: hidden;
-}
-
-.header a {
-    transition: color 0.3s;
-}
-
-.header a:hover {
-    color: var(--blue-600);
+    position: fixed;
+    width: 100vw;
+    z-index: 2000;
 }
 
 .desktop {
     background-color: var(--white);
+    left: 0;
     position: absolute;
+    top: 0;
     width: 100%;
     z-index: 2002;
 }
@@ -35,7 +28,7 @@
 
     margin-left: auto;
     margin-right: auto;
-    width: min(100%, var(--site-max-width));
+    max-width: var(--site-max-width);
 }
 
 .logo {
@@ -43,45 +36,89 @@
 }
 
 .logo img {
-    height: 0.9rem;
+    height: 0.95rem;
 }
 
-.big {
+.desktop > div > div {
     display: none;
     grid-auto-flow: column;
     grid-column-gap: 1rem;
+}
+
+.desktop > div > div a:hover {
+    text-decoration: underline var(--slate-400);
+    text-underline-offset: 20%;
 }
 
 .desktop button i {
     font-size: 1.6rem;
 }
 
+
+
+
+.underline {
+    text-decoration: underline var(--blue-600);
+    text-underline-offset: 20%;
+}
+
+.underline:hover {
+    text-decoration: underline var(--blue-600) !important;
+    text-underline-offset: 20% !important;
+}
+
+.super {
+    position: relative;
+}
+
+.super:before {
+    animation: underline-appear 0.2s;
+    border-bottom: 2px solid var(--blue-600);
+    content: '';
+    height: 110%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform-origin: left;
+    width: 100%;
+    z-index: -1;
+}
+
+@keyframes underline-appear {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+
+
+
+
 .mobile {
     align-content: center;
     display: grid;
-    grid-row-gap: 1rem;
+    grid-row-gap: 0.6rem;
     justify-items: center;
 
     height: 100vh;
     width: 100vw;
 
+    left: 0;
     position: absolute;
     top: 0;
     z-index: 2001;
 }
 
-.mobile > a {
-    font-family: 'foundersgrotesk', sans-serif;
-    font-size: 2.5rem;
-}
 
 
 
 
-/* RESPONSIVE */
 
 @media (min-width: 960px) {
-    .big {
+    .desktop > div > div {
         display: grid;
     }
 

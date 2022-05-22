@@ -41,7 +41,8 @@
 
 .master {
     display: grid;
-    grid-gap: 2rem;
+    grid-column-gap: 2rem;
+    grid-row-gap: 3rem;
     padding-bottom: 3rem;
     padding-top: 3rem;
 }
@@ -63,13 +64,13 @@
 
 .master > div:nth-of-type(2) {
     display: grid;
-    grid-row-gap: 4rem;
+    grid-row-gap: 3rem;
 }
 
 .master > div:nth-of-type(2) > div > div {
     display: grid;
     grid-row-gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 2.2rem;
 }
 
 .postSmall {

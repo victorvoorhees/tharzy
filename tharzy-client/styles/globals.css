@@ -4,9 +4,10 @@
 
 
 
+/* REMOVALS AND ENHANCEMENTS */
+
 *, *:before, *:after {
   box-sizing: border-box;
-  line-height: 1em;
   margin: 0;
   padding: 0;
 }
@@ -25,20 +26,8 @@ button, input, textarea, select {
 
 a {
   color: unset;
+  cursor: pointer;
   text-decoration: none;
-}
-
-
-
-
-
-
-
-
-h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
-  font-family: 'foundersgrotesk', sans-serif;
-  font-weight: normal;
-  line-height: 1.1em;
 }
 
 body, input, textarea, select, button {
@@ -47,8 +36,22 @@ body, input, textarea, select, button {
   color: var(--black);
 }
 
-p {
-  line-height: 1.5em;
+button, input[type='submit'] {
+  color: unset; /* text color of buttons is blue by default on apple devices and this removes that */
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* FONT SIZES */
+
+h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+  font-family: 'foundersgrotesk', sans-serif;
+  font-weight: normal;
+  line-height: 1.1em;
 }
 
 h1, .h1 {
@@ -67,6 +70,10 @@ h4, .h4 {
   font-size: 1.2rem;
 }
 
+p {
+  line-height: 1.5em;
+}
+
 .p-2 {
   font-size: 1.1rem;
 }
@@ -74,54 +81,6 @@ h4, .h4 {
 .p-1 {
   font-size: 1rem;
 }
-
-main {
-  min-height: calc(100vh - var(--footer-height));
-  padding-top: var(--header-nav-height);
-}
-
-footer {
-  align-items: center;
-  background-color: var(--black);
-  color: var(--white);
-  display: flex;
-  height: var(--footer-height);
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-footer a {
-  text-decoration: underline;
-  transition: color 0.3s;
-}
-
-footer a:hover {
-  color: var(--blue-600);
-}
-
-button {
-  color: unset;
-  cursor: pointer;
-}
-
-input[type='submit'] {
-  background-color: var(--blue-600);
-  border: 1px solid var(--blue-600);
-  color: var(--white);
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-input[type='submit']:hover {
-  background-color: var(--white);
-  color: var(--blue-600);
-}
-
-
-
-
 
 @media (min-width: 768px) {
   h1, .h1 {
@@ -154,57 +113,65 @@ input[type='submit']:hover {
 
 
 
-/* CUSTOM COMPONENTS */
 
-.main {
+
+
+/* CLASSES */
+
+.master {
+  min-height: calc(100vh - var(--footer-height));
+  padding-top: var(--header-nav-height);
+}
+
+.fixedWidth {
   margin-left: auto;
   margin-right: auto;
+  max-width: var(--site-max-width);
   padding-left: 1rem;
   padding-right: 1rem;
-  width: min(100%, var(--site-max-width));
 }
 
-a:active {
-  background-color: var(--yellow-200);
-  color: var(--black) !important;
-  transition: none;
-}
-
-a.styled {
-  cursor: pointer;
+a.underline {
   text-decoration: underline;
-  transition: color 0.3s;
+  text-underline-offset: 18%;
 }
 
-a.styled:hover {
-  color: var(--blue-600);
-}
-
-button.primary {
+button.primary, input[type='submit'].primary {
   background-color: var(--blue-600);
   border: 1px solid var(--blue-600);
   color: var(--white);
   transition: background-color 0.2s, color 0.2s;
 }
 
-button.primary:hover {
+button.primary:hover, input[type='submit'].primary:hover {
   background-color: transparent;
   color: var(--blue-600);
 }
 
 button.outline {
   border: 1px solid var(--black);
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  position: relative;
+  transition: color 0.2s;
+}
+
+button.outline:before {
+  background-color: var(--black);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s;
+  width: 100%;
+  z-index: -1;
 }
 
 button.outline:hover {
-  background-color: var(--black);
   color: var(--white);
 }
 
-button:active, input[type='submit']:active {
-  background-color: var(--yellow-200) !important;
-  border-color: var(--yellow-200);
-  color: var(--black) !important;
-  transition: none;
+button.outline:hover:before {
+  transform: scaleX(1);
 }

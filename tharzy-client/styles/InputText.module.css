@@ -7,12 +7,12 @@
 }
 
 .input {
-    border-bottom: 1px solid var(--black);
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-100);
     font-size: 1rem;
-    padding-bottom: 0.2rem;
-    padding-top: 0.2rem;
+    padding: 0.7rem;
     width: 100%;
-    transition: border-bottom-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .input::placeholder {
@@ -20,9 +20,10 @@
 }
 
 .input:hover {
-    border-bottom-color: var(--blue-600);
+    border-color: var(--blue-600);
 }
 
 .input:focus {
-    border-bottom-color: var(--blue-600);
+    border-color: var(--blue-600);
+    box-shadow: 0 0 4px 0 var(--blue-600);
 }

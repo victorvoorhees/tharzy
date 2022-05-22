@@ -17,7 +17,7 @@
     height: 1.8rem;
     justify-content: center;
     text-transform: capitalize;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
     width: 1.8rem;
 }
 
@@ -31,7 +31,8 @@
 }
 
 .radio input:hover + label {
-    background-color: var(--gray-200);
+    border-color: var(--blue-600);
+    color: var(--blue-600);
 }
 
 .radio input:checked + label {

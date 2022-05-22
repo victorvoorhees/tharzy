@@ -33,36 +33,41 @@ export default function Home() {
     }, [])
 
     return (
-        <div className={Styles.container}>
+        <div>
             <div className={Styles.hero}>
                 <div>
                     <div>
                         <h1>Contribute to Myanmar's fight for freedom.</h1>
                         <p className='p-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae velit ante. Vivamus felis ipsum, convallis a risus non, posuere imperdiet.</p>
                     </div>
-                    <img src='/pdf.svg' />
+                    <img src='/pdf.svg' alt={`Flag of the People's Defence Force`} title={`Flag of the People's Defence Force`} />
                 </div>
             </div>
-
-            <div className={`main ${Styles.master}`}>
+            <div className={`fixedWidth ${Styles.master}`}>
                 <div>
                     <h2 className='h1'>Trending.</h2>
                     <div>
                         <div>
                             {postsTrending && postsTrending.map((post, index) => (
-                                <PostSmall title={post.title} category={post.category} time={post.time} key={index} styles={Styles.postSmall} />
+                                <div key={index} className={Styles.postSmall}>
+                                    <PostSmall title={post.title} category={post.category} time={post.time} />
+                                </div>
                             ))}
                         </div>
                         <button className='outline'>See all posts</button>
                         <div>
-                            {postsTrending && postsTrending.map((post, index) => (
-                                <PostSmall title={post.title} category={post.category} time={post.time} key={index} styles={Styles.postSmall} />
+                            {fundraisersTrending && fundraisersTrending.map((post, index) => (
+                                <div key={index} className={Styles.postSmall}>
+                                    <PostSmall title={post.title} category={post.category} time={post.time} />
+                                </div>
                             ))}
                         </div>
                         <button className='outline'>See all fundraisers</button>
                         <div>
-                            {postsTrending && postsTrending.map((post, index) => (
-                                <PostSmall title={post.title} category={post.category} time={post.time} key={index} styles={Styles.postSmall} />
+                            {eventsTrending && eventsTrending.map((post, index) => (
+                                <div key={index} className={Styles.postSmall}>
+                                    <PostSmall title={post.title} category={post.category} country={post.country} time={post.time} />
+                                </div>
                             ))}
                         </div>
                         <button className='outline'>See all events</button>
@@ -73,7 +78,9 @@ export default function Home() {
                         <h2 className='h1'>Latest posts.</h2>
                         <div>
                             {postsLatest && postsLatest.map((post, index) => (
-                                <PostLarge category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} key={index} />
+                                <div className={Styles.postLarge} key={index}>
+                                    <PostLarge category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} />
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -81,7 +88,9 @@ export default function Home() {
                         <h2 className='h1'>Latest fundraisers.</h2>
                         <div>
                             {fundraisersLatest && fundraisersLatest.map((post, index) => (
-                                <PostLarge deadline={post.deadline} category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} key={index} />
+                                <div className={Styles.postLarge} key={index}>
+                                    <PostLarge deadline={post.deadline} category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} />
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -89,7 +98,9 @@ export default function Home() {
                         <h2 className='h1'>Latest events in Australia.</h2>
                         <div>
                             {eventsLatest && eventsLatest.map((post, index) => (
-                                <PostLarge date={post.date} duration={post.duration} category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} styles={Styles.postLarge} key={index} />
+                                <div className={Styles.postLarge} key={index}>
+                                    <PostLarge date={post.date} duration={post.duration} category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} />
+                                </div>
                             ))}
                         </div>
                     </div>

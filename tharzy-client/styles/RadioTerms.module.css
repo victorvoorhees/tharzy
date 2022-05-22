@@ -34,6 +34,11 @@
     line-height: 1.3em;
 }
 
+.radio input:hover + label {
+    text-decoration: underline var(--slate-400);
+    text-underline-offset: 20%;
+}
+
 .radio input:checked + label {
     text-decoration: underline var(--blue-600);
     text-underline-offset: 20%;

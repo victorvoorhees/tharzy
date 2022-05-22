@@ -11,17 +11,15 @@ interface IProps {
     deadline?: number,
     title: string,
     body: string,
-    uploadedBy?: string,
     time: number,
     likes: number,
     dislikes: number,
-    comments: number,
-    styles?: string
+    comments: number
 }
 
-export default function PostLarge({ date, duration, category, country, deadline, title, body, uploadedBy, time, likes, dislikes, comments, styles }: IProps) {
+export default function PostLarge({ date, duration, category, country, deadline, title, body, time, likes, dislikes, comments }: IProps) {
     return (
-        <div className={styles ? `${styles} ${Styles.post}` : Styles.post}>
+        <div className={Styles.master}>
             <div>
                 {(date && duration) && <div className={Styles.date}>{setTimeLabel(date, { long: true })} / {duration}</div>}
                 {deadline && <div className={Styles.date}>{setTimeLabel(deadline, { long: true })}</div>}
@@ -29,13 +27,13 @@ export default function PostLarge({ date, duration, category, country, deadline,
                     <span>{category}{country && ` / ${country}`}</span>
                     <span> {setTimeLabel(time)} ago</span>
                 </div>
-                <Link href='/'><a><h2 className={Styles.title}>{title}</h2></a></Link>
+                <Link href='/'><a className='h2'>{title}</a></Link>
                 <p className='p-1'>{body.substring(0, 300)} ...</p>
             </div>
             <div className={Styles.userData}>
-                <span><i className='fa-solid fa-heart' /> {likes}</span>
-                <span><i className='fa-solid fa-heart-broken' /> {dislikes}</span>
-                <span><i className='fa-solid fa-comment' /> {comments}</span>
+                <span className='p-1'><i className='fa-solid fa-heart' /> {likes}</span>
+                <span className='p-1'><i className='fa-solid fa-heart-broken' /> {dislikes}</span>
+                <span className='p-1'><i className='fa-solid fa-comment' /> {comments}</span>
             </div>
         </div>
     )

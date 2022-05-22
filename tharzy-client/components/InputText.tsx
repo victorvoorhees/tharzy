@@ -19,7 +19,6 @@ export default function InputText({ type, label, name, value, handleChange, plac
             </div>
         )
     }
-
     return (
         <div className={styles}>
             {label && <label htmlFor={name} className={Styles.label}>{label}</label>}
