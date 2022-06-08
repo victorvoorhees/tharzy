@@ -1,13 +1,14 @@
 import {useEffect, useState} from 'react'
-import Search from '../../components/Search'
 import Select from '../../components/Select'
 import Post from '../../components/Post'
 import Radio from '../../components/Radio'
-import PopUp from '../../components/PopUp'
 import Styles from '../../styles/Posts.module.css'
 import { FundraiserCategory, IFundraiser } from '../../utilities/types'
-import {sortObject, returnFundraisers, returnPosts} from '../../utilities/utilities'
-import SkeletonPost from "../../components/SkeletonPost";
+import {sortObject} from '../../utilities/utilities'
+import Skeleton from '../../components/Skeleton'
+import InputText from '../../components/InputText'
+import Loading from "../../components/loading";
+import {returnFundraisers} from "../../utilities/dummy";
 
 type SortOption = 'title' | 'time' | 'deadline' | 'engagement'
 
@@ -33,7 +34,7 @@ export default function Fundraisers() {
 
     let a: JSX.Element[] = []
     for (let i = 0; i < 9; i++) {
-        a.push(<SkeletonPost key={i} />)
+        a.push(<div className={Styles.post}><Skeleton type='post' key={i} /></div>)
     }
 
     let results = data
@@ -44,34 +45,46 @@ export default function Fundraisers() {
         if (results.length > 0) results = sortObject(results, sortBy)
     }
 
-    return (
-        <div className={Styles.master}>
-            <div className={Styles.filters}>
-                <Search label='Search' value={searchFor} handleChange={e => setSearchFor(e.target.value)} styles={Styles.search} />
-                <div className={Styles.options}>
-                    <Radio label='Categories' name='category' options={categories} value={category} handleChange={e => setCategory(e.target.value)} styles={Styles.radio} />
-                    <Select label='Categories' name='category' options={categories} value={category} handleChange={e => setCategory(e.target.value)} styles={Styles.select} />
-                    <Radio label='Sort by' name='sortBy' options={sortOptions} value={sortBy} handleChange={e => setSortBy(e.target.value)} styles={Styles.radio} />
-                    <Select label='Sort by' name='sortBy' options={sortOptions} value={sortBy} handleChange={e => setSortBy(e.target.value)} styles={Styles.select} />
+    if (data) {
+        return (
+            <div className={Styles.master}>
+                <div>
+                    <div>
+                        <div className='h7'>Search</div>
+                        <InputText type='search' name='keyword' value={searchFor} handleChange={e => setSearchFor(e.target.value)} placeholder='Keyword?' />
+                    </div>
+                    <div>
+                        <div className='h7'>Category</div>
+                        <Radio name='category' options={categories} value={category} handleChange={(e) => setCategory(e.target.value)} style='tags' />
+                    </div>
                 </div>
-                <button onClick={resetFilters} className={`outline ${Styles.reset}`}>Reset filters</button>
+                {results.length > 0 ? (
+                    <div>
+                        <div className={Styles.sort}>
+                            <Select label='Sort by' name='sort' options={sortOptions} value={sortBy} handleChange={(e) => setSortBy(e.target.value)} />
+                        </div>
+                        <div className={Styles.fundraisers}>
+                            {results.map((item, index) => (
+                                <div key={index}>
+                                    <Post
+                                        fundraiser={item}
+                                        type='fundraiser'
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ) : (
+                    <div className={Styles.nothing}>
+                        <div className='h1'>Nothing found.</div>
+                        <div className='p3'>Maybe try selecting a different filter or typing in a different keyword?</div>
+                    </div>
+                )}
             </div>
-            <div className={Styles.content}>
-                {results ? (results.map((item, index) => (
-                    <Post
-                        uploadedBy={item.uploadedBy}
-                        time={item.time}
-                        category={item.category}
-                        title={item.title}
-                        deadline={item.deadline}
-                        likes={item.likes}
-                        dislikes={item.dislikes}
-                        comments={item.comments}
-                        styles={Styles.post}
-                        key={index}
-                    />
-                ))) : (a)}
-            </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <Loading />
+        )
+    }
 }

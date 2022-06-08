@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { setTimeLabel } from '../utilities/utilities'
 import Styles from '../styles/PostLarge.module.css'
 

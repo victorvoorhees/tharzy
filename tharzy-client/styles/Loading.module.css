@@ -1,0 +1,13 @@
+.master {
+    align-items: center;
+    display: flex;
+    height: calc(100vh - var(--footer-height) - var(--header-nav-height));
+    justify-content: center;
+    width: 100%;
+}
+
+.master > div:last-of-type {
+    letter-spacing: 0.1em;
+    margin-left: 0.1em;
+    width: 1em;
+}

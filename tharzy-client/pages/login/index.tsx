@@ -17,7 +17,7 @@ export default function Login() {
             <form>
                 <Link href='/' scroll={false}><a className={Styles.logo}/></Link>
                 <h1>Log in.</h1>
-                <InputText name='email' value={email} handleChange={(e) => setEmail(e.target.value)} placeholder='Enter email here'/>
+                <InputText name='email' value={email} handleChange={(e) => setEmail(e.target.value)} type='email' placeholder='Enter email here'/>
                 <InputText name='password' value={password} handleChange={(e) => setPassword(e.target.value)} type='password' placeholder='Enter password here'/>
                 <div className={Styles.flex}>
                     <InputCheckbox name='rememberUser' checked={rememberUser} handleChange={(e) => setRememberUser(e.target.checked)} label='Remember me' styles={Styles.checkbox} />

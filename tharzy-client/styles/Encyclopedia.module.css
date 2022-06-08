@@ -5,7 +5,7 @@
     padding-top: 2rem;
 }
 
-.master > div:first-of-type {
+.options {
     align-content: start;
     border: 1px solid var(--black);
     display: grid;
@@ -14,21 +14,30 @@
     padding: 1.2rem;
 }
 
-.option {
+.options > div:not(:last-of-type) {
     border-bottom: 1px solid var(--black);
     padding-bottom: 1.2rem;
 }
 
-.description > h1 {
-    margin-bottom: 0.4rem;
+.definitions {
+    display: grid;
+    grid-row-gap: 1.2rem;
 }
 
-.description > div {
+.definitions > div > div:first-of-type {
+    margin-bottom: 0.3rem;
+}
+
+.description > h1 {
+    margin-bottom: 1rem;
+}
+
+.description > p {
     display: grid;
     grid-row-gap: 1rem;
 }
 
-.description > div > p:first-of-type {
+.description > p > p:first-of-type {
     display: none;
 }
 

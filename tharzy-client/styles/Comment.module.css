@@ -1,0 +1,96 @@
+.master i {
+    cursor: pointer;
+}
+
+.master i:hover:before {
+    color: var(--blue-600);
+}
+
+.master input[type = 'checkbox']:checked + label{
+    color: var(--slate-400);
+}
+
+.disabled:before, .disabled:hover:before {
+    color: var(--black) !important;
+    cursor: default !important;
+}
+
+.body {
+
+    width: fit-content;
+}
+
+.body > div:first-of-type > span:first-of-type {
+    font-weight: bold;
+}
+
+.body > div:first-of-type > span:last-of-type {
+    color: var(--slate-400);
+    font-size: 0.9rem;
+    margin-left: 0.4rem;
+}
+
+.body > p {
+    margin-top: 0.4rem;
+}
+
+.reacts {
+    align-items: center;
+    display: grid;
+    font-size: 0.85rem;
+    grid-auto-flow: column;
+    grid-column-gap: 1rem;
+    justify-content: start;
+    margin-top: 0.4rem;
+}
+
+
+
+.reacts i {
+    background-color: var(--slate-200);
+    border-radius: 50%;
+    padding: 0.4em;
+}
+.reacts > div:last-of-type {
+    padding-bottom: 0.2em;
+}
+
+.replyInput {
+    background-color: var(--slate-100);
+    height: max-content;
+    margin-top: 0.8rem;
+    width: 100%;
+}
+
+.replyInput textarea {
+    height: 45px;
+    overflow: hidden;
+    padding: 0.6rem;
+    resize: none;
+    width: 100%;
+}
+
+.replyInput textarea::placeholder {
+    color: var(--slate-400);
+}
+
+.replyInput > div {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 0.3rem;
+    justify-content: end;
+    padding: 0 0.6rem 0.6rem 0.6rem;
+}
+
+.replyInput > div button {
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.4rem;
+}
+
+.replies {
+    border-left: 3px solid var(--slate-200);
+    display: grid;
+    grid-row-gap: 1.6rem;
+    margin-top: 1.6rem;
+    padding-left: 1.2rem;
+}

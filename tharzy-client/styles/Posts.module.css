@@ -1,54 +1,67 @@
 .master {
     display: grid;
-    grid-gap: 2rem;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
+    grid-gap: 3rem;
+    padding-bottom: 8rem;
+    padding-top: 4rem;
 }
 
-.search {
-    margin-bottom: 1.2rem;
-}
-
-.options {
+.master > div:first-of-type {
     display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 1.6rem;
 }
 
-.radio {
-    border-top: 1px solid var(--black);
-    display: none;
-    padding-top: 1rem;
+.master > div:first-of-type > div {
+    display: grid;
+    grid-row-gap: 0.2rem;
 }
 
-.reset {
-    margin-top: 1.2rem;
-    padding: 0.6rem;
-    width: 100%;
+.sort {
+    margin-bottom: 1rem;
 }
 
 .content {
     display: grid;
-    grid-gap: 1.8rem;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+    grid-column-gap: 2rem;
+    grid-row-gap: 3rem;
+    grid-template-columns: auto;
     width: 100%;
 }
 
-.post {
-    border-bottom: 1px dashed var(--black);
-    padding-bottom: 1.8rem;
+.fundraisers {
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-row-gap: 3rem;
+}
+
+.boxes {
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+}
+
+.nothing {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 480px;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.nothing > div:first-of-type {
+    margin-bottom: 0.4rem;
 }
 
 
 
 
-
-@media (min-width: 640px) {
+@media (min-width: 768px) {
     .master {
-        grid-template-columns: 13rem auto;
+        grid-template-columns: auto;
         align-items: start;
-        padding-bottom: 4rem;
-        padding-top: 4rem;
     }
 
     .options {
@@ -61,5 +74,19 @@
 
     .select {
         display: none;
+    }
+
+    .fundraisers, .boxes {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fundraisers, .boxes {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }

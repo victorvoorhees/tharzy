@@ -18,9 +18,9 @@ export default function Register() {
             <form>
                 <Link href='/' scroll={false}><a className={Styles.logo}/></Link>
                 <h1>Register.</h1>
-                <InputText name='username' value={username} handleChange={(e) => setUsername(e.target.value)} styles={Styles.input} placeholder='Enter username here' />
-                <InputText name='email' value={email} handleChange={(e) => setEmail(e.target.value)} styles={Styles.input} placeholder='Enter email here' />
-                <InputText name='password' type='password' value={password} handleChange={(e) => setPassword(e.target.value)} styles={Styles.input} placeholder='Enter password here' />
+                <InputText name='username' value={username} handleChange={(e) => setUsername(e.target.value)} type='text' placeholder='Enter username here' />
+                <InputText name='email' value={email} handleChange={(e) => setEmail(e.target.value)} type='email' placeholder='Enter email here' />
+                <InputText name='password' value={password} handleChange={(e) => setPassword(e.target.value)} type='password' placeholder='Enter password here' />
                 <div className={Styles.flex}>
                     <InputCheckbox name='awareOfRisks' checked={isAwareOfRisks} handleChange={(e) => setIsAwareOfRisks(e.target.checked)} label={<>I'm aware of the <Link href='/about#risks'><a className='underline'>risks</a></Link>.</>} styles={Styles.checkbox} />
                 </div>

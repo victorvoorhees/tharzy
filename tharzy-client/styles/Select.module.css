@@ -1,17 +1,14 @@
-.label {
-    font-family: 'foundersgrotesk', sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.2em;
+.master {
+    display: flex;
 }
 
-.label:first-letter {
-    text-transform: uppercase;
+.master label {
+    margin-right: 0.4rem;
 }
 
 .wrapper {
     align-items: center;
     background-color: var(--white);
-    border-bottom: 1px solid var(--black);
     display: flex;
 }
 
@@ -28,17 +25,13 @@
 }
 
 .wrapper select {
-    color: var(--slate-800);
     cursor: pointer;
-    line-height: 1.2em;
-    padding-bottom: 0.1rem;
-    padding-top: 0.1rem;
+    font-weight: bold;
+    padding-right: 1rem;
     text-transform: capitalize;
     transition: color 0.3s;
-    width: 100%;
 }
 
 .wrapper i {
-    font-size: 0.8rem;
     transition: transform 0.3s;
 }

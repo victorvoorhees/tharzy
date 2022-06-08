@@ -3,7 +3,7 @@
     border-bottom: 2px solid var(--gray-200);
     overflow: hidden;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     z-index: 2000;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .logo img {
-    height: 0.95rem;
+    height: 1.3rem;
 }
 
 .desktop > div > div {
@@ -45,9 +45,13 @@
     grid-column-gap: 1rem;
 }
 
+.desktop > div > div a {
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
 .desktop > div > div a:hover {
-    text-decoration: underline var(--slate-400);
-    text-underline-offset: 20%;
+    color: var(--slate-400);
 }
 
 .desktop button i {
@@ -57,14 +61,8 @@
 
 
 
-.underline {
-    text-decoration: underline var(--blue-600);
-    text-underline-offset: 20%;
-}
-
-.underline:hover {
-    text-decoration: underline var(--blue-600) !important;
-    text-underline-offset: 20% !important;
+.current {
+    color: var(--blue-600) !important;
 }
 
 .super {

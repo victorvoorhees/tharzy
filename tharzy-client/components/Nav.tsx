@@ -35,11 +35,11 @@ export default function Nav() {
                         <div>
                             <Link href='/' scroll={false}><a className={Styles.logo}><img src='tharzy-logo.svg'/></a></Link>
                             <div>
-                                <Link href='/about' scroll={false}><a className={url === '/about' && Styles.underline}>About</a></Link>
-                                <Link href='/posts' scroll={false}><a className={url === '/posts' && Styles.underline}>Posts</a></Link>
-                                <Link href='/fundraisers' scroll={false}><a className={url === '/fundraisers' && Styles.underline}>Fundraisers</a></Link>
-                                <Link href='/events' scroll={false}><a className={url === '/events' && Styles.underline}>Events</a></Link>
-                                <Link href='/encyclopedia' scroll={false}><a className={url === '/encyclopedia' && Styles.underline}>Encyclopedia</a></Link>
+                                <Link href='/about' scroll={false}><a className={url === '/about' ? Styles.current : undefined}>About</a></Link>
+                                <Link href='/posts' scroll={false}><a className={url === '/posts' ? Styles.current : undefined}>Posts</a></Link>
+                                <Link href='/fundraisers' scroll={false}><a className={url === '/fundraisers' ? Styles.current : undefined}>Fundraisers</a></Link>
+                                <Link href='/events' scroll={false}><a className={url === '/events' ? Styles.current : undefined}>Events</a></Link>
+                                <Link href='/encyclopedia' scroll={false}><a className={url === '/encyclopedia' ? Styles.current : undefined}>Encyclopedia</a></Link>
                             </div>
                             <div>
                                 <Link href='/login' scroll={false}><a>Log in</a></Link>

@@ -1,29 +1,65 @@
-@font-face {
-    font-family: 'akkurat';
-    font-weight: 400;
-    font-style: normal;
-    src: url('../asset/fonts/akkurat-regular.ttf') format('truetype');
-}
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+
+
+
+
 
 @font-face {
-    font-family: 'akkurat';
+    font-family: 'founders grotesk condensed';
     font-weight: 700;
     font-style: normal;
-    src: url('../asset/fonts/akkurat-bold.ttf') format('truetype');
+    src: url('../asset/fonts/foundersgrotesk-condensed-bold.woff');
 }
 
 @font-face {
-    font-family: 'foundersgrotesk';
+    font-family: 'founders grotesk mono';
     font-weight: 400;
     font-style: normal;
-    src: url('../asset/fonts/foundersgrotesk-bold.otf') format('opentype');
+    src: url('../asset/fonts/FoundersGroteskMonoWeb-Regular.woff') format('woff');
 }
 
 @font-face {
-    font-family: 'foundersgrotesk-mono';
+    font-family: 'founders grotesk text';
     font-weight: 400;
     font-style: normal;
-    src: url('../asset/fonts/foundersgrotesk-mono-webfont.woff2') format('woff2');
+    src: url('../asset/fonts/foundersgrotesk-text-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'founders grotesk text';
+    font-weight: 600;
+    font-style: normal;
+    src: url('../asset/fonts/foundersgrotesk-text-semibold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'founders grotesk text';
+    font-weight: 700;
+    font-style: normal;
+    src: url('../asset/fonts/foundersgrotesk-text-bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'bureau grotesque';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../asset/fonts/bureaugrotesque-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'bureau grotesque';
+    font-weight: 500;
+    font-style: normal;
+    src: url('../asset/fonts/bureaugrotesque-medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'bureau grotesque';
+    font-weight: 700;
+    font-style: normal;
+    src: url('../asset/fonts/bureaugrotesque-bold.woff') format('woff');
 }
 
 
@@ -47,7 +83,7 @@
     --blue-300: rgb(147 197 253);
     --blue-400: rgb(96 165 250);
     --blue-500: rgb(59 130 246);
-    --blue-600: #cd1724; /* #cd1724 c73412 rgb(37 99 235) */
+    --blue-600: #f10810; /* #cd1724 c73412 rgb(37 99 235) */
     --blue-700: rgb(29 78 216);
     --blue-800: rgb(30 64 175);
     --blue-900: rgb(30 58 138);
@@ -65,15 +101,16 @@
     --yellow-700: rgb(161 98 7);
     --yellow-800: rgb(133 77 14);
 
-    --red-200: rgb(254 202 202);
-    --red-300: rgb(252 165 165);
-    --red-700: rgb(185 28 28);
-    --red-800: rgb(153 27 27);
+    --red-opaque: #ff989b;
 
     --slate-50: rgb(248 250 252);
     --slate-100: rgb(242 245 248);
+    --slate-200: rgb(226 232 240);
     --slate-300: rgb(203 213 225);
     --slate-400: rgb(148 163 184);
+    --slate-500: rgb(100 116 139);
+    --slate-600: rgb(71 85 105);
+    --slate-700: rgb(51 65 85);
     --slate-800: rgb(30 41 59);
     --slate-900: rgb(15 23 42);
 

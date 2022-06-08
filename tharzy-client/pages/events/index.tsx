@@ -1,13 +1,14 @@
 import {useEffect, useState} from 'react'
-import Search from '../../components/Search'
 import Select from '../../components/Select'
 import Post from '../../components/Post'
 import Radio from '../../components/Radio'
-import PopUp from '../../components/PopUp'
-import Styles from '../../styles/Posts.module.css'
+import Skeleton from '../../components/Skeleton'
+import InputText from '../../components/InputText'
+import Loading from '../../components/loading'
+import { sortObject } from '../../utilities/utilities'
 import { EventCategory, IEvent } from '../../utilities/types'
-import { sortObject, returnEvents } from '../../utilities/utilities'
-import SkeletonPost from "../../components/SkeletonPost";
+import { returnEvents } from '../../utilities/dummy'
+import Styles from '../../styles/Posts.module.css'
 
 type SortOption = 'title' | 'time' | 'date' | 'engagement'
 
@@ -16,78 +17,82 @@ export default function Events() {
     const sortOptions: SortOption[] = ['date', 'engagement', 'time', 'title']
 
     const [data, setData] = useState<IEvent[]>(null)
+    const [countries, setCountries] = useState<string[]>(null)
 
     const [searchFor, setSearchFor] = useState('')
     const [category, setCategory] = useState<EventCategory>('all')
-    const [country, setCountry] = useState('all')
+    const [country, setCountry] = useState('All')
     const [sortBy, setSortBy] = useState<SortOption>('date')
 
-    function resetFilters() {
-        setSearchFor('')
-        setCategory('all')
-        setCountry('all')
-        setSortBy('title')
-    }
-
     useEffect(() => {
-        setData(returnEvents())
+        const info = returnEvents()
+        setData(info)
+
+        let c: string[] = []
+        info.forEach(event => {if (!c.includes(event.location.country)) c.push(event.location.country)})
+        c.sort()
+        c.unshift('All')  /* if the first letter is not capitalized, it breaks filter selection */
+        setCountries(c)
     }, [])
 
     let a: JSX.Element[] = []
     for (let i = 0; i < 9; i++) {
-        a.push(<SkeletonPost key={i} />)
+        a.push(<div className={Styles.post}><Skeleton type='post' key={i} /></div>)
     }
 
     let results = data
-    let countries: string[] = []
     if (data) {
-        data.forEach(event => {if (!countries.includes(event.country)) countries.push(event.country)})
-        countries.sort()
-        countries.unshift('all')
-
         if (searchFor.length > 0) results = results.filter(item => item.title.toLowerCase().includes(searchFor.toLowerCase()))
         if (category !== 'all') results = results.filter(item => item.category.toLowerCase() === category.toLowerCase())
-        if (country !== 'all') results = results.filter(item => item.country.toLowerCase() === country.toLowerCase())
+        if (country !== 'All') results = results.filter(item => item.location.country.toLowerCase() === country.toLowerCase())
         // sortObject function checks type of sortBy property of first object of results array so results cannot be an empty array
         if (results.length > 0) results = sortObject(results, sortBy)
     }
 
-    return (
-        <div className={Styles.master}>
-            <div className={Styles.filters}>
-                <Search label='Search' value={searchFor} handleChange={e => setSearchFor(e.target.value)} styles={Styles.search} />
-                <div className={Styles.options}>
-                    <Radio label='Categories' name='category' options={categories} value={category} handleChange={e => setCategory(e.target.value)} styles={Styles.radio} />
-                    <Select label='Categories' name='category' options={categories} value={category} handleChange={e => setCategory(e.target.value)} styles={Styles.select} />
-                    {countries.length > 0 && (
-                        <>
-                            <Radio label='Countries' name='country' options={countries} value={country} handleChange={e => setCountry(e.target.value)} styles={Styles.radio} />
-                            <Select label='Countries' name='country' options={countries} value={country} handleChange={e => setCountry(e.target.value)} styles={Styles.select} />
-                        </>
-                    )}
-                    <Radio label='Sort by' name='sortBy' options={sortOptions} value={sortBy} handleChange={e => setSortBy(e.target.value)} styles={Styles.radio} />
-                    <Select label='Sort by' name='sortBy' options={sortOptions} value={sortBy} handleChange={e => setSortBy(e.target.value)} styles={Styles.select} />
+    if (data) {
+        return (
+            <div className={Styles.master}>
+                <div>
+                    <div>
+                        <div className='h7'>Search</div>
+                        <InputText type='search' name='keyword' value={searchFor} handleChange={e => setSearchFor(e.target.value)} placeholder='Keyword?' />
+                    </div>
+                    <div>
+                        <div className='h7'>Category</div>
+                        <Radio name='category' options={categories} value={category} handleChange={(e) => setCategory(e.target.value)} style='tags' />
+                    </div>
+                    <div>
+                        <div className='h7'>Country</div>
+                        <Radio name='country' options={countries} value={country} handleChange={(e) => setCountry(e.target.value)} style='tags' country={true} />
+                    </div>
                 </div>
-                <button onClick={resetFilters} className={`outline ${Styles.reset}`}>Reset filters</button>
+                {results.length > 0 ? (
+                    <div>
+                        <div className={Styles.sort}>
+                            <Select label='Sort by' name='sort' options={sortOptions} value={sortBy} handleChange={(e) => setSortBy(e.target.value)} />
+                        </div>
+                        <div className={Styles.boxes}>
+                            {results.map((item, index) => (
+                                <div key={index}>
+                                    <Post
+                                        event={item}
+                                        type='event'
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ) : (
+                    <div className={Styles.nothing}>
+                        <div className='h2'>Nothing found.</div>
+                        <div className='p1'>Maybe try selecting a different filter or typing in a different keyword?</div>
+                    </div>
+                )}
             </div>
-            <div className={Styles.content}>
-                {results ? (results.map((item, index) => (
-                    <Post
-                        date={item.date}
-                        duration={item.duration}
-                        uploadedBy={item.uploadedBy}
-                        time={item.time}
-                        category={item.category}
-                        country={item.country}
-                        title={item.title}
-                        likes={item.likes}
-                        dislikes={item.dislikes}
-                        comments={item.comments}
-                        styles={Styles.post}
-                        key={index}
-                    />
-                ))) : (a)}
-            </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <Loading />
+        )
+    }
 }

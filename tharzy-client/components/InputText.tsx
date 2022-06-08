@@ -1,28 +1,31 @@
 import Styles from '../styles/InputText.module.css'
 
 interface IProps {
-    type?: 'password',
     label? : string,
+    type?: 'text' | 'password' | 'search' | 'email',
     name: string,
     value: string,
-    handleChange: (e: {target: {value: string}}) => void,
-    placeholder?: string,
-    styles?: string
+    handleChange: (e) => void,
+    placeholder?: string
 }
 
-export default function InputText({ type, label, name, value, handleChange, placeholder, styles }: IProps) {
-    if (type === 'password') {
+export default function InputText({ type, label, name, value, handleChange, placeholder }: IProps) {
+    if (type === 'search') {
         return (
-            <div className={styles}>
-                {label && <label htmlFor={name} className={Styles.label}>{label}</label>}
-                <input type='password' name={name} id={name} value={value} onChange={handleChange} placeholder={placeholder} className={Styles.input} />
+            <div>
+                {label && <label htmlFor={name}>{label}</label>}
+                <div className={Styles.search}>
+                    <input type='text' name={name} id={name} placeholder={placeholder} value={value} onChange={handleChange} />
+                    <i className='fi fi-rr-search'></i>
+                </div>
             </div>
         )
     }
+
     return (
-        <div className={styles}>
-            {label && <label htmlFor={name} className={Styles.label}>{label}</label>}
-            <input type='text' name={name} id={name} value={value} onChange={handleChange} placeholder={placeholder} className={Styles.input} />
+        <div className={Styles.master}>
+            {label && <label htmlFor={name}>{label}</label>}
+            <input type={type} name={name} id={name} value={value} onChange={handleChange} placeholder={placeholder} />
         </div>
     )
 }

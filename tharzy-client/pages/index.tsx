@@ -4,8 +4,9 @@ import Post from '../components/Post'
 import PostLarge from '../components/PostLarge'
 import Styles from '../styles/Home.module.css'
 import { IPost, IFundraiser, IEvent } from '../utilities/types'
-import {returnPosts, returnFundraisers, returnEvents, sortObject} from '../utilities/utilities'
+import {sortObject} from '../utilities/utilities'
 import PostSmall from "../components/PostSmall";
+import {returnEvents, returnFundraisers, returnPosts} from "../utilities/dummy";
 
 export default function Home() {
     const body = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae velit ante. Vivamus felis ipsum, convallis a risus non, posuere imperdiet arcu. Sed odio erat, eleifend vel accumsan vel, varius sit amet dolor. Praesent mollis feugiat nisi a eleifend. Ut lobortis dictum congue. Curabitur vitae arcu porta, semper nulla sit amet, mollis enim. Fusce posuere et odio ac dictum.\n' +
@@ -66,7 +67,7 @@ export default function Home() {
                         <div>
                             {eventsTrending && eventsTrending.map((post, index) => (
                                 <div key={index} className={Styles.postSmall}>
-                                    <PostSmall title={post.title} category={post.category} country={post.country} time={post.time} />
+                                    <PostSmall title={post.title} category={post.category} country={post.location.country} time={post.time} />
                                 </div>
                             ))}
                         </div>
@@ -90,16 +91,6 @@ export default function Home() {
                             {fundraisersLatest && fundraisersLatest.map((post, index) => (
                                 <div className={Styles.postLarge} key={index}>
                                     <PostLarge deadline={post.deadline} category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className='h1'>Latest events in Australia.</h2>
-                        <div>
-                            {eventsLatest && eventsLatest.map((post, index) => (
-                                <div className={Styles.postLarge} key={index}>
-                                    <PostLarge date={post.date} duration={post.duration} category={post.category} title={post.title} body={body} time={post.time} likes={post.likes} dislikes={post.dislikes} comments={post.comments} />
                                 </div>
                             ))}
                         </div>

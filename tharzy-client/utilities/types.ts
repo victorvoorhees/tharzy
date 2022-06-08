@@ -25,17 +25,42 @@ interface IFundraiser {
 
 type EventCategory = 'all' | 'protest' | 'fundraising' | 'meetup' | 'other'
 interface IEvent {
-    date: number,
-    duration: string,
+    from: number,
+    to: number,
     uploadedBy: string,
     time: number,
     category: EventCategory,
-    country: string,
+    location: {
+        address: string,
+        country: string
+    }
     title: string,
     engagement: number,
-    likes: number,
-    dislikes: number,
+    like: {
+        count: number,
+        pressed: boolean
+    },
+    dislike: {
+        count: number,
+        pressed: boolean
+    },
     comments: number
 }
 
-export type { PostCategory, IPost, FundraiserCategory, IFundraiser, EventCategory, IEvent }
+interface IComment {
+    id: number,
+    user: string,
+    body: string,
+    time: string,
+    replyTo?: number,
+    like: {
+        count: number,
+        pressed: boolean
+    },
+    dislike: {
+        count: number,
+        pressed: boolean
+    }
+}
+
+export type { PostCategory, IPost, FundraiserCategory, IFundraiser, EventCategory, IEvent, IComment }

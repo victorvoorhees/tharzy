@@ -1,21 +1,25 @@
-.radio {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.2rem;
+.filter {
+    display: grid;
 }
 
-.radio label {
+.filter > div {
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.filter > div label {
     text-transform: capitalize;
 }
 
-.radio input {
+.filter > div input {
     height: 0.7rem;
     width: 0.7rem;
     position: relative;
 }
 
-.radio input:before {
+.filter > div input:before {
     border: 1px solid var(--black);
     border-radius: 50%;
     content: '';
@@ -23,17 +27,187 @@
     transition: background-color 0.2s, border-color 0.2s;
 
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+
+    width: 100%;
+    height: 100%;
 }
 
-.radio input:hover:before {
+.filter > div input:hover:before {
     border-color: var(--blue-600);
 }
 
-.radio input:checked:before {
+.filter > div input:checked:before {
     background-color: var(--blue-600);
     border-color: var(--blue-600);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.box {
+    display: grid;
+    grid-gap: 0.3rem;
+    grid-template-columns: repeat(auto-fill, 1.8rem);
+    justify-content: start;
+}
+
+.box > div {
+    position: relative;
+}
+
+.box > div label {
+    align-items: center;
+    border: 1px solid var(--black);
+    cursor: pointer;
+    display: flex;
+    height: 1.8rem;
+    justify-content: center;
+    text-transform: capitalize;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    width: 1.8rem;
+}
+
+.box > div input {
+    display: none;
+}
+
+.box > div input:hover + label {
+    background-color: var(--slate-200);
+}
+
+.box > div input:checked + label {
+    background-color: var(--blue-600);
+    border-color: var(--blue-600);
+    color: var(--white);
+}
+
+
+
+
+
+
+
+
+
+.definition {
+    display: grid;
+    grid-row-gap: 0.6rem;
+    padding-left: 1rem;
+}
+
+.definition li label {
+    cursor: pointer;
+    line-height: 1.3em;
+}
+
+.definition li label:hover {
+    text-decoration: underline var(--black);
+    text-underline-offset: 18%;
+}
+
+.definition li input:checked + label {
+    text-decoration: underline var(--blue-600);
+    text-underline-offset: 18%;
+}
+
+
+
+
+
+
+
+.section {
+    border-bottom: 1px solid var(--black);
+    display: flex;
+}
+
+.section input {
+    display: none;
+}
+
+.section label {
+    border-bottom: 4px solid var(--trans);
+    cursor: pointer;
+    display: block;
+    padding: 0.4rem 0.8rem;
+    text-transform: capitalize;
+}
+
+.section label:hover {
+    color: var(--blue-600);
+}
+
+.section input:checked + label {
+    border-color: var(--blue-600);
+    color: var(--blue-600);
+}
+
+
+
+
+
+
+
+
+
+
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tags > div {
+    display: flex;
+    margin-bottom: 0.6rem;
+}
+
+.tags > div:not(:last-of-type) {
+    margin-right: 0.4rem;
+}
+
+.tags label {
+    border: 1px solid var(--black);
+    border-radius: 0.3rem;
+    cursor: pointer;
+    display: block;
+    outline: 2px solid var(--trans);
+    padding: 0.4rem 0.5rem;
+    text-transform: capitalize;
+    transition: background-color 0.2s, border-color 0.2s, outline-color 0.2s;
+}
+
+.tags label:hover {
+    background-color: var(--slate-200);
+}
+
+.tags input:checked + label {
+    background-color: var(--blue-600);
+    border-color: var(--blue-600);
+    color: var(--white);
+}
+
+.country label span {
+    font-family: 'Twemoji Country Flags';
+    margin-right: 0.2rem;
+}
+
+.country label:hover {
+    background-color: initial;
+    border-color: var(--blue-600);
+}
+
+.country input:checked + label {
+    background-color: initial;
+    border-color: var(--blue-600);
+    color: initial;
+    outline-color: var(--blue-600);
 }
