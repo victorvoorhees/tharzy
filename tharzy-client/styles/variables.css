@@ -6,61 +6,7 @@
 
 
 
-@font-face {
-    font-family: 'founders grotesk condensed';
-    font-weight: 700;
-    font-style: normal;
-    src: url('/tharzy-client/asset/fonts/foundersgrotesk-condensed-bold.woff');
-}
 
-@font-face {
-    font-family: 'founders grotesk mono';
-    font-weight: 400;
-    font-style: normal;
-    src: url('/tharzy-client/asset/fonts/FoundersGroteskMonoWeb-Regular.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'founders grotesk text';
-    font-weight: 400;
-    font-style: normal;
-    src: url('/tharzy-client/asset/fonts/foundersgrotesk-text-regular.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'founders grotesk text';
-    font-weight: 600;
-    font-style: normal;
-    src: url('/tharzy-client/asset/fonts/foundersgrotesk-text-semibold.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'founders grotesk text';
-    font-weight: 700;
-    font-style: normal;
-    src: url('/tharzy-client/asset/fonts/foundersgrotesk-text-bold.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'bureau grotesque';
-    font-weight: 400;
-    font-style: normal;
-    src: url('/tharzy-client/asset/fonts/bureaugrotesque-regular.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'bureau grotesque';
-    font-weight: 500;
-    font-style: normal;
-    src: url('/tharzy-client/asset/fonts/bureaugrotesque-medium.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'bureau grotesque';
-    font-weight: 700;
-    font-style: normal;
-    src: url('/tharzy-client/asset/fonts/bureaugrotesque-bold.woff') format('woff');
-}
 
 
 
