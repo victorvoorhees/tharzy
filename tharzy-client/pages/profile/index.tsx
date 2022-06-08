@@ -2,8 +2,9 @@ import Styles from '../../styles/Profile.module.css'
 import {useEffect, useState} from 'react'
 import Post from '../../components/Post'
 import {IEvent, IFundraiser, IPost} from '../../utilities/types'
-import {returnEvents, returnFundraisers, returnPosts, sortObject} from '../../utilities/utilities'
+import {sortObject} from '../../utilities/utilities'
 import Radio from '../../components/Radio'
+import {returnEvents, returnFundraisers, returnPosts} from "../../utilities/dummy";
 
 type section = 'posts' | 'fundraisers' | 'events'
 
@@ -64,41 +65,22 @@ export default function Profile() {
                     <div className={Styles.posts}>
                         {currentSection === 'posts' && posts.map((item, index) => (
                             <Post
-                                time={item.time}
-                                category={item.category}
-                                title={item.title}
-                                likes={item.likes}
-                                dislikes={item.dislikes}
-                                comments={item.comments}
-                                styles={Styles.post}
+                                post={item}
+                                type='post'
                                 key={index}
                             />
                         ))}
                         {currentSection === 'fundraisers' && fundraisers.map((item, index) => (
                             <Post
-                                time={item.time}
-                                category={item.category}
-                                title={item.title}
-                                deadline={item.deadline}
-                                likes={item.likes}
-                                dislikes={item.dislikes}
-                                comments={item.comments}
-                                styles={Styles.post}
+                                fundraiser={item}
+                                type='fundraiser'
                                 key={index}
                             />
                         ))}
                         {currentSection === 'events' && events.map((item, index) => (
                             <Post
-                                date={item.date}
-                                duration={item.duration}
-                                time={item.time}
-                                category={item.category}
-                                country={item.country}
-                                title={item.title}
-                                likes={item.likes}
-                                dislikes={item.dislikes}
-                                comments={item.comments}
-                                styles={Styles.post}
+                                event={item}
+                                type='event'
                                 key={index}
                             />
                         ))}
