@@ -37,21 +37,14 @@
   font-family: 'bureau grotesque';
   font-weight: 400;
   font-style: normal;
-  src: url('/tharzy-client/asset/fonts/bureaugrotesque-regular.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'bureau grotesque';
-  font-weight: 500;
-  font-style: normal;
-  src: url('/tharzy-client/asset/fonts/bureaugrotesque-medium.woff') format('woff');
+  src: url('/tharzy-client/asset/fonts/bureaugrotesque-regular.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'bureau grotesque';
   font-weight: 700;
   font-style: normal;
-  src: url('/tharzy-client/asset/fonts/bureaugrotesque-bold.woff') format('woff');
+  src: url('/tharzy-client/asset/fonts/bureaugrotesque-bold.woff2') format('woff2');
 }
 
 
