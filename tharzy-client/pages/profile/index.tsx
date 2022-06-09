@@ -5,6 +5,7 @@ import {IEvent, IFundraiser, IPost} from '../../utilities/types'
 import {sortObject} from '../../utilities/utilities'
 import Radio from '../../components/Radio'
 import {returnEvents, returnFundraisers, returnPosts} from "../../utilities/dummy";
+import Select from "../../components/Select";
 
 type section = 'posts' | 'fundraisers' | 'events'
 
@@ -20,14 +21,21 @@ interface IProfile {
     }
 }
 
-export default function Profile() {
-    const sections: section[] = ['posts', 'fundraisers', 'events']
+const sections: section[] = ['posts', 'fundraisers', 'events']
+const sortPostsOptions = ['engagement', 'time', 'title']
+const sortFundraisersOptions = ['deadline', 'engagement', 'time', 'title']
+const sortEventsOptions = ['date', 'engagement', 'time', 'title']
 
+export default function Profile() {
     const [profileData, setProfileData] = useState<IProfile>(null)
     const [posts, setPosts] = useState<IPost[]>(null)
     const [fundraisers, setFundraisers] = useState<IFundraiser[]>(null)
     const [events, setEvents] = useState<IEvent[]>(null)
     const [currentSection, setCurrentSection] = useState<section>('posts')
+
+    const [sortPosts, setSortPosts] = useState('time')
+    const [sortFundraisers, setSortFundraisers] = useState('time')
+    const [sortEvents, setSortEvents] = useState('time')
 
     useEffect(() => {
         setProfileData({
@@ -35,7 +43,8 @@ export default function Profile() {
             details: {
                 name: 'Kate Granger',
                 location: 'United States',
-                twitter: 'comradekeyboard',
+                email: 'kate2222222@gmail.com',
+                twitter: 'https://twitter.com/comradekeyboard',
                 about: 'Carpenter, gardener, and half-baked anthropologist.   Easily distracted by things related to Burma, forests, John Coltrane, and the end of capitalism.'
             }
         })
@@ -45,46 +54,72 @@ export default function Profile() {
     }, [])
 
     if (profileData) {
+        let postsSorted = sortObject(posts, sortPosts)
+        let fundraisersSorted = sortObject(fundraisers, sortPosts)
+        let eventsSorted = sortObject(events, sortPosts)
+
         return (
             <div className={Styles.master}>
                 <div className={Styles.head}>
                     <div>
                         <h1>{profileData.username}</h1>
-                        {profileData.details.name && <div className='p-1'>{profileData.details.name}</div>}
+                        {profileData.details.name && <div>{profileData.details.name}</div>}
                     </div>
-                    {profileData.details.about && <p>{profileData.details.about}</p>}
+                    {profileData.details.about && <p className='p1'>{profileData.details.about}</p>}
                     <div>
-                        {profileData.details.location && <div ><i className='fa-solid fa-location-dot'/>{profileData.details.location}</div>}
-                        {profileData.details.twitter && <a  href={`https://twitter.com/${profileData.details.twitter}`} target='_blank'><i className='fa-brands fa-twitter'/>{profileData.details.twitter}</a>}
-                        {profileData.details.facebook && <div ><i className='fa-brands fa-facebook-f'/>{profileData.details.facebook}</div>}
+                        {profileData.details.location && <div className='icon' ><i className='fi fi-rs-marker'/>{profileData.details.location}</div>}
+                        {profileData.details.email && <div className='icon' ><i className='fi fi-rr-envelope'/>{profileData.details.email}</div>}
+                        {profileData.details.twitter && <a className='icon' href={profileData.details.twitter} target='_blank'><i className='fi fi-brands-twitter'/>{profileData.details.twitter}</a>}
+                        {profileData.details.facebook && <a className='icon' href={profileData.details.facebook} target='_blank'><i className='fi fi-brands-facebook'/>{profileData.details.facebook}</a>}
                     </div>
 
                 </div>
                 <div className={Styles.content}>
-                    <Radio name='section' options={sections} value={currentSection} handleChange={(e) => setCurrentSection(e.target.value)} style='section' />
-                    <div className={Styles.posts}>
-                        {currentSection === 'posts' && posts.map((item, index) => (
-                            <Post
-                                post={item}
-                                type='post'
-                                key={index}
-                            />
-                        ))}
-                        {currentSection === 'fundraisers' && fundraisers.map((item, index) => (
-                            <Post
-                                fundraiser={item}
-                                type='fundraiser'
-                                key={index}
-                            />
-                        ))}
-                        {currentSection === 'events' && events.map((item, index) => (
-                            <Post
-                                event={item}
-                                type='event'
-                                key={index}
-                            />
-                        ))}
+                    <div>
+                        <Radio name='section' options={sections} value={currentSection} handleChange={(e) => setCurrentSection(e.target.value)} style='section' />
                     </div>
+                    {currentSection === 'posts' && (
+                        <>
+                            <Select label='Sort by' name='sortPost' options={sortPostsOptions} value={sortPosts} handleChange={(e) => setSortPosts(e.target.value)} />
+                            <div className={Styles.posts}>
+                                {postsSorted.map((item, index) => (
+                                    <Post
+                                        post={item}
+                                        type='post'
+                                        key={index}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
+                    {currentSection === 'fundraisers' && (
+                        <>
+                            <Select label='Sort by' name='sortFundraiser' options={sortFundraisersOptions} value={sortFundraisers} handleChange={(e) => setSortPosts(e.target.value)} />
+                            <div className={Styles.events}>
+                                {fundraisersSorted.map((item, index) => (
+                                    <Post
+                                        fundraiser={item}
+                                        type='fundraiser'
+                                        key={index}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
+                    {currentSection === 'events' && (
+                        <>
+                            <Select label='Sort by' name='sortEvent' options={sortEventsOptions} value={sortEvents} handleChange={(e) => setSortPosts(e.target.value)} />
+                            <div className={Styles.events}>
+                                {eventsSorted.map((item, index) => (
+                                    <Post
+                                        event={item}
+                                        type='event'
+                                        key={index}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
         )

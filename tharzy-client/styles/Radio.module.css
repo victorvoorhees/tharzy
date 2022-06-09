@@ -150,7 +150,7 @@
 }
 
 .section label:hover {
-    color: var(--blue-600);
+    color: var(--slate-400);
 }
 
 .section input:checked + label {
@@ -206,6 +206,10 @@
 
 
 
+.country label {
+    align-items: center;
+}
+
 .country label > * {
     display: flex;
     height: 1em;
@@ -214,6 +218,7 @@
 .country label span {
     font-family: 'Twemoji Country Flags';
     margin-right: 0.2rem;
+    padding-bottom: 1.1em;
 }
 
 .country label:hover {
