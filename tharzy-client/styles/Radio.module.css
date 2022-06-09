@@ -175,7 +175,7 @@
 
 .tags > div {
     display: flex;
-    margin-bottom: 0.6rem;
+    margin-top: 0.4rem;
 }
 
 .tags > div:not(:last-of-type) {
@@ -183,18 +183,13 @@
 }
 
 .tags label {
-    align-items: center;
     border: 1px solid var(--black);
     border-radius: 0.3rem;
     cursor: pointer;
     display: flex;
-    padding: 0.4rem 0.5rem;
+    padding: 0.5rem 0.6rem;
     text-transform: capitalize;
     transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-}
-
-.tags label > * {
-    display: flex;
 }
 
 .tags label:hover {
@@ -205,6 +200,15 @@
     background-color: var(--blue-600);
     border-color: var(--blue-600);
     color: var(--white);
+}
+
+
+
+
+
+.country label > * {
+    display: flex;
+    height: 1em;
 }
 
 .country label span {

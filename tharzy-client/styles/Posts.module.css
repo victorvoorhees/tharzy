@@ -10,9 +10,8 @@
     grid-row-gap: 1.6rem;
 }
 
-.master > div:first-of-type > div {
-    display: grid;
-    grid-row-gap: 0.2rem;
+.master > div:first-of-type > div:first-of-type > div:first-of-type {
+    margin-bottom: 0.2rem;
 }
 
 .sort {

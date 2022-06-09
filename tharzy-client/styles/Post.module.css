@@ -100,7 +100,6 @@
 }
 
 .country {
-    align-items: center;
     background-color: var(--slate-200);
     border-radius: 0.3rem;
     display: flex;
@@ -110,7 +109,9 @@
 }
 
 .country > div:first-of-type {
+    display: flex;
     font-family: 'Twemoji Country Flags';
+    height: 1em;
     margin-right: 0.2rem;
 }
 
