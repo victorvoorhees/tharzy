@@ -14,6 +14,16 @@
 
 
 
+
+
+.master input {
+    display: none;
+}
+
+
+
+
+
 .master {
     display: grid;
     grid-row-gap: 2.5rem;
@@ -95,7 +105,7 @@
     margin-bottom: 1rem;
 }
 
-.commentButton input[type = 'checkbox']:checked + label{
+.addComment input[type = 'checkbox']:checked + label{
     color: var(--slate-400);
 }
 

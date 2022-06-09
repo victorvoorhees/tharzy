@@ -77,8 +77,8 @@ export default function Index() {
 
                 <div>
                     <h2>Comments ({commentsCount})</h2>
-                    <div className={Styles.commentButton}>
-                        <input name={String(data.id)} id={String(data.id)} type='checkbox' checked={replyVisible} onChange={() => setReplyVisible(!replyVisible)} />
+                    <div className={Styles.addComment}>
+                        <input name='addComment' id='addComment' type='checkbox' checked={replyVisible} onChange={() => setReplyVisible(!replyVisible)} />
                         <label className='underline' htmlFor={String(data.id)}>Add comment</label>
                     </div>
                     {replyVisible && (

@@ -45,13 +45,12 @@
 
 .event > div:first-of-type {
     background-color: var(--black);
-    padding: 1rem 1rem 1.6rem 1rem;
+    padding: 1rem;
 }
 
 .event > div:first-of-type > div {
     color: var(--white);
-    font-family: 'founders grotesk condensed';
-    height: 1em;
+    line-height: 1.1;
     text-align: center;
 }
 

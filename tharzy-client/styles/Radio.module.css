@@ -1,3 +1,11 @@
+.filter input, .box input, .definition input, .section input, .tags input {
+    display: none;
+}
+
+
+
+
+
 .filter {
     display: grid;
 }
@@ -175,14 +183,18 @@
 }
 
 .tags label {
+    align-items: center;
     border: 1px solid var(--black);
     border-radius: 0.3rem;
     cursor: pointer;
-    display: block;
-    outline: 2px solid var(--trans);
+    display: flex;
     padding: 0.4rem 0.5rem;
     text-transform: capitalize;
-    transition: background-color 0.2s, border-color 0.2s, outline-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.tags label > * {
+    display: flex;
 }
 
 .tags label:hover {
@@ -209,5 +221,5 @@
     background-color: initial;
     border-color: var(--blue-600);
     color: initial;
-    outline-color: var(--blue-600);
+    box-shadow: 0 0 0 2px var(--blue-600);
 }
