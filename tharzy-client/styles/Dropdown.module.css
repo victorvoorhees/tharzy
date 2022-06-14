@@ -1,0 +1,52 @@
+.master {
+    position: relative;
+    width: fit-content;
+}
+
+.master input {
+    display: none;
+}
+
+.master label {
+    cursor: pointer;
+    display: block;
+    text-transform: uppercase;
+}
+
+
+
+
+.master > label {
+    align-items: center;
+    border-radius: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.master > label > span {
+    margin-right: 0.2rem;
+}
+
+.master > label > span, .master > label > i:before {
+    color: var(--blue-600);
+}
+
+.master > div {
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 0.3rem;
+    display: grid;
+    grid-row-gap: 0.4rem;
+    padding: 0.6rem;
+    position: absolute;
+    width: fit-content;
+}
+
+.master > div > label {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.master > div > label:hover {
+    color: var(--blue-600);
+}

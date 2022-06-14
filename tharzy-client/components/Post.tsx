@@ -37,7 +37,7 @@ export default function Post({ post, fundraiser, event, type }: IProps) {
                         <span>{post.dislikes}</span>
                     </span>
                     <span className='icon'>
-                        <i className='fi fi-rr-comment' />
+                        <i className='fi fi-rs-comment' />
                         <span>{post.comments}</span>
                     </span>
                 </div>
@@ -66,7 +66,7 @@ export default function Post({ post, fundraiser, event, type }: IProps) {
                         <span>{fundraiser.dislikes}</span>
                     </span>
                     <span className='icon'>
-                        <i className='fi fi-rr-comment' />
+                        <i className='fi fi-rs-comment' />
                         <span>{fundraiser.comments}</span>
                     </span>
                 </div>
@@ -103,7 +103,7 @@ export default function Post({ post, fundraiser, event, type }: IProps) {
                             <span>{event.dislike.count}</span>
                         </span>
                             <span className='icon'>
-                            <i className='fi fi-rr-comment' />
+                            <i className='fi fi-rs-comment' />
                             <span>{event.comments}</span>
                         </span>
                     </div>

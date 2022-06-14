@@ -2,7 +2,7 @@ import Styles from '../styles/InputText.module.css'
 
 interface IProps {
     label? : string,
-    type?: 'text' | 'password' | 'search' | 'email',
+    type: 'text' | 'password' | 'search' | 'email',
     name: string,
     value: string,
     handleChange: (e) => void,

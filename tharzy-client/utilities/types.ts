@@ -1,3 +1,4 @@
+const postCategoryArray = ['atrocities', 'international', 'opinion', 'other', 'resistance']
 type PostCategory = 'all' | 'atrocities' | 'resistance' | 'international' | 'opinion' | 'other'
 interface IPost {
     uploadedBy: string,
@@ -10,6 +11,7 @@ interface IPost {
     comments: number
 }
 
+const fundraiserCategoryArray = ['humanitarian', 'other', 'resistance']
 type FundraiserCategory = 'all' | 'humanitarian' | 'resistance' | 'other'
 interface IFundraiser {
     uploadedBy: string,
@@ -23,6 +25,7 @@ interface IFundraiser {
     comments: number
 }
 
+const eventCategoryArray = ['fundraising', 'meetup', 'other', 'protest']
 type EventCategory = 'all' | 'protest' | 'fundraising' | 'meetup' | 'other'
 interface IEvent {
     from: number,
@@ -64,3 +67,4 @@ interface IComment {
 }
 
 export type { PostCategory, IPost, FundraiserCategory, IFundraiser, EventCategory, IEvent, IComment }
+export { postCategoryArray, fundraiserCategoryArray, eventCategoryArray }

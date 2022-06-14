@@ -28,7 +28,7 @@ export default function Comment({ comment, comments }: IProps) {
     }
 
     function autogrow(e) {
-        e.target.style.height = '1rem'
+        e.target.style.height = ''
         e.target.style.height = (e.target.scrollHeight) + 'px'
         setReply(e.target.value)
     }

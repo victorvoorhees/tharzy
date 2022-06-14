@@ -1,37 +1,80 @@
-.master {
-    display: flex;
-}
-
-.master label {
-    margin-right: 0.4rem;
-}
-
-.wrapper {
+.master > div {
     align-items: center;
-    background-color: var(--white);
     display: flex;
+    position: relative;
 }
 
-.wrapper:hover {
-    border-color: var(--blue-600);
-}
-
-.wrapper:focus-within {
-    border-color: var(--blue-600);
-}
-
-.wrapper:focus-within i {
+.master > div:focus-within i {
     transform: rotate(180deg);
 }
 
-.wrapper select {
+.master label {
+    align-items: center;
+    color: var(--slate-400);
+    display: flex;
+}
+
+.master select {
     cursor: pointer;
-    font-weight: bold;
-    padding-right: 1rem;
-    text-transform: capitalize;
+    padding-left: 0.2rem;
+    padding-right: 1.2rem;
     transition: color 0.3s;
 }
 
-.wrapper i {
+.master i {
+    right: 0;
+    pointer-events: none;
+    position: absolute;
     transition: transform 0.3s;
+}
+
+
+
+
+
+
+.normal > div {
+    border: 1px solid var(--black);
+    border-radius: 0.2rem;
+}
+
+.normal label {
+    margin-bottom: 0.1rem;
+}
+
+.normal select {
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+    text-transform: capitalize;
+}
+
+
+
+
+
+.minimalist {
+    display: flex;
+}
+
+.minimalist label {
+    margin-right: 0.2rem;
+}
+
+.minimalist select {
+    text-transform: capitalize;
+}
+
+
+
+.category > div {
+    width: fit-content;
+}
+
+.category select {
+    color: var(--blue-600);
+    text-transform: uppercase;
+}
+
+.category i:before {
+    color: var(--blue-600);
 }

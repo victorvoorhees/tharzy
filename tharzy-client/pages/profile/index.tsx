@@ -80,7 +80,7 @@ export default function Profile() {
                     </div>
                     {currentSection === 'posts' && (
                         <>
-                            <Select label='Sort by' name='sortPost' options={sortPostsOptions} value={sortPosts} handleChange={(e) => setSortPosts(e.target.value)} />
+                            <Select style='minimalist' label='Sort by' name='sortPost' options={sortPostsOptions} value={sortPosts} handleChange={(e) => setSortPosts(e.target.value)} />
                             <div className={Styles.posts}>
                                 {postsSorted.map((item, index) => (
                                     <Post
@@ -94,7 +94,7 @@ export default function Profile() {
                     )}
                     {currentSection === 'fundraisers' && (
                         <>
-                            <Select label='Sort by' name='sortFundraiser' options={sortFundraisersOptions} value={sortFundraisers} handleChange={(e) => setSortPosts(e.target.value)} />
+                            <Select style='minimalist' label='Sort by' name='sortFundraiser' options={sortFundraisersOptions} value={sortFundraisers} handleChange={(e) => setSortPosts(e.target.value)} />
                             <div className={Styles.events}>
                                 {fundraisersSorted.map((item, index) => (
                                     <Post
@@ -108,7 +108,7 @@ export default function Profile() {
                     )}
                     {currentSection === 'events' && (
                         <>
-                            <Select label='Sort by' name='sortEvent' options={sortEventsOptions} value={sortEvents} handleChange={(e) => setSortPosts(e.target.value)} />
+                            <Select style='minimalist' label='Sort by' name='sortEvent' options={sortEventsOptions} value={sortEvents} handleChange={(e) => setSortPosts(e.target.value)} />
                             <div className={Styles.events}>
                                 {eventsSorted.map((item, index) => (
                                     <Post

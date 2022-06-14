@@ -58,8 +58,8 @@ export default function Index() {
                     <div className={Styles.event}>
                         <div/>
                         <div>
-                            <div className='icon'><i className="fi fi-rr-calendar-minus"></i>{new Date(from).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })} - {new Date(to).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}</div>
-                            <div className='icon'><i className="fi fi-rs-marker"></i>{location.address} {location.country}</div>
+                            <div className='icon'><i className="fi fi-rr-calendar-minus"/>{new Date(from).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })} - {new Date(to).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}</div>
+                            <div className='icon'><i className="fi fi-rs-marker"/>{location.address} {location.country}</div>
                         </div>
                     </div>
                 )}

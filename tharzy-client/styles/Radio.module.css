@@ -147,6 +147,7 @@
     display: block;
     padding: 0.4rem 0.8rem;
     text-transform: capitalize;
+    transition: color 0.2s, border-color 0.2s;
 }
 
 .section label:hover {

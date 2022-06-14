@@ -61,7 +61,7 @@ export default function Posts() {
                 {results.length > 0 ? (
                     <div>
                         <div className={Styles.sort}>
-                            <Select label='Sort by' name='sort' options={sortOptions} value={sortBy} handleChange={(e) => setSortBy(e.target.value)} />
+                            <Select style='minimalist' label='Sort by' name='sort' options={sortOptions} value={sortBy} handleChange={(e) => setSortBy(e.target.value)} />
                         </div>
                         <div className={Styles.content}>
                             {results.map((item, index) => (

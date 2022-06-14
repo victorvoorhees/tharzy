@@ -69,7 +69,7 @@ export default function Events() {
                 {results.length > 0 ? (
                     <div>
                         <div className={Styles.sort}>
-                            <Select label='Sort by' name='sort' options={sortOptions} value={sortBy} handleChange={(e) => setSortBy(e.target.value)} />
+                            <Select style='minimalist' label='Sort by' name='sort' options={sortOptions} value={sortBy} handleChange={(e) => setSortBy(e.target.value)} />
                         </div>
                         <div className={Styles.boxes}>
                             {results.map((item, index) => (

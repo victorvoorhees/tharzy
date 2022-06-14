@@ -30,12 +30,12 @@
   margin: 0;
   padding: 0;
 
+  color: var(--black);
   font-family: 'bureau grotesque', sans-serif;
   font-weight: normal;
-  color: var(--black);
 }
 
-button, input, textarea, select {
+button, input, select, textarea {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -47,15 +47,33 @@ button, input, textarea, select {
   font-size: 1rem;
 }
 
+button, input[type='submit'] {
+  color: unset;  /* text color of buttons is blue by default on apple devices and this removes that */
+  cursor: pointer;
+  display: block;
+}
+
+input[type='radio'], input[type='checkbox'] {
+  display: none;
+}
+
 a {
   color: unset;
   cursor: pointer;
+  display: block;
   text-decoration: none;
 }
 
-button, input[type='submit'] {
-  color: unset; /* text color of buttons is blue by default on apple devices and this removes that */
-  cursor: pointer;
+i {
+  display: inline-flex;
+}
+
+i:before {
+  transition: color 0.2s;
+}
+
+span {
+  display: inline-block;
 }
 
 
@@ -158,27 +176,29 @@ button.primary:hover, input[type='submit'].primary:hover {
   color: var(--blue-600);
 }
 
-button.outline {
+button.outline, input[type='submit'].outline {
   border: 1px solid var(--black);
   transition: background-color 0.2s, color 0.2s;
 }
 
-button.outline:hover {
+button.outline:hover, input[type='submit'].outline:hover {
   background-color: var(--black);
   color: var(--white);
+}
+
+button i {
+  background-color: var(--slate-200);
+  border-radius: 50%;
+  padding: 0.4rem;
+}
+
+button i:hover:before {
+  color: var(--blue-600);
 }
 
 .icon {
   align-items: center;
   display: flex;
-}
-
-.icon i {
-  margin-right: 0.2em;
-}
-
-i {
-  display: inline-flex;
 }
 
 

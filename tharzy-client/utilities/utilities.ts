@@ -20,6 +20,7 @@ function sortObject<T extends object[]>(arrayOfObjects: T, sortBy: string): T {
     return arrayOfObjects
 }
 
+
 function setTimeLabel(time: number, options?: { long: boolean }): string {
     let timeLabel = 's';
     let elapsedTime = (new Date().getTime() - time) / 1000;
@@ -40,7 +41,40 @@ function setTimeLabel(time: number, options?: { long: boolean }): string {
 }
 
 
+function produceCalendar(n) {
+    const now = new Date().getFullYear()
+
+    let o = {}
+    o[String(now)] = []
+
+    for (let i = 1; i < n; i++) {
+        o[String(now + i)] = []
+    }
+
+    let d = new Date(now, 0, 1)
+
+    while (d.getFullYear() < (now + n)) {
+        o[String(d.getFullYear())][d.getMonth()] = d.getDate()
+        d.setDate(d.getDate() + 1)
+    }
+
+    return o
+}
+
+
+function produceTime() {
+    let m = [];
+    let h = [];
+    for (let i = 0; i < 60; i++) {
+        m.push(i)
+    }
+    for (let i = 0; i < 24; i++) {
+        h.push(i)
+    }
+    return {m, h}
+}
 
 
 
-export { sortObject, setTimeLabel }
+
+export { sortObject, setTimeLabel, produceCalendar, produceTime }
