@@ -53,14 +53,14 @@ button, input[type='submit'] {
   display: block;
 }
 
-input[type='radio'], input[type='checkbox'] {
+input[type='radio'] {
   display: none;
 }
 
 a {
   color: unset;
   cursor: pointer;
-  display: block;
+  display: inline-block;
   text-decoration: none;
 }
 

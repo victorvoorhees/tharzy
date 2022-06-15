@@ -6,14 +6,15 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Nav from './Nav'
 import Footer from './Footer'
 
-const urlList = ['/login', '/register', '/posts/add']
+const noHeight = ['/login', '/register', '/posts/add']
+const noWidth = ['/login', '/register', '/']
 
 export default function Layout({ children }: { children: ReactNode }) {
     const { asPath: url } = useRouter()
     return (
         <>
             <AnimatePresence>
-                {!urlList.includes(url) && (
+                {!noHeight.includes(url) && (
                     <Nav />
                 )}
             </AnimatePresence>
@@ -25,14 +26,14 @@ export default function Layout({ children }: { children: ReactNode }) {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.25 }}
                     className={
-                        ((url === '/') ? '' : 'fixedWidth') +
-                        ((urlList.includes(url)) ? '' : ' fixedHeight')
+                        ((noWidth.includes(url)) ? '' : 'fixedWidth') +
+                        ((noHeight.includes(url)) ? '' : ' fixedHeight')
                     }
                 >
                     {children}
                 </motion.main>
             </AnimatePresence>
-            {!urlList.includes(url) && (
+            {!noHeight.includes(url) && (
                 <Footer />
             )}
         </>

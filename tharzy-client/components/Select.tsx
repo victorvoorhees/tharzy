@@ -1,7 +1,7 @@
 import Styles from '../styles/Select.module.css'
 
 interface IProps {
-    style: 'normal' | 'minimalist' | 'category'
+    style: 'normal' | 'minimalist' | 'category' | 'home'
     label?: string,
     name: string,
     options: any[],

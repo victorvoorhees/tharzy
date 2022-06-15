@@ -1,4 +1,5 @@
 import Styles from '../styles/InputText.module.css'
+import Select from "./Select";
 
 interface IProps {
     label? : string,
@@ -6,17 +7,18 @@ interface IProps {
     name: string,
     value: string,
     handleChange: (e) => void,
-    placeholder?: string
+    placeholder?: string,
+    homePage?: boolean
 }
 
-export default function InputText({ type, label, name, value, handleChange, placeholder }: IProps) {
+export default function InputText({ type, label, name, value, handleChange, placeholder, homePage }: IProps) {
     if (type === 'search') {
         return (
             <div>
                 {label && <label htmlFor={name}>{label}</label>}
                 <div className={Styles.search}>
                     <input type='text' name={name} id={name} placeholder={placeholder} value={value} onChange={handleChange} />
-                    <i className='fi fi-rr-search'></i>
+                    <i className='fi fi-rr-search'/>
                 </div>
             </div>
         )

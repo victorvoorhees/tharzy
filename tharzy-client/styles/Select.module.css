@@ -66,6 +66,8 @@
 
 
 
+
+
 .category > div {
     width: fit-content;
 }
@@ -77,4 +79,24 @@
 
 .category i:before {
     color: var(--blue-600);
+}
+
+
+
+
+
+
+.home {
+    background-color: var(--blue-600);
+    border-bottom-left-radius: 0.3rem;
+    border-top-left-radius: 0.3rem;
+    padding: 0.8rem;
+}
+
+.home select, .home i:before {
+    color: var(--white);
+}
+
+.home select {
+    text-transform: capitalize;
 }

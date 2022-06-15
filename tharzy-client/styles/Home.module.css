@@ -1,33 +1,90 @@
-.hero {
-    background-color: var(--black);
-    color: var(--white);
-    padding-top: 4rem;
+.master > div {
+    padding-bottom: 5rem;
+    padding-top: 5rem;
 }
 
-.hero > div {
-    align-items: center;
-    display: grid;
+
+
+
+
+.gray {
+    background-color: var(--slate-100);
+}
+
+.master img[src='myanmar.svg'] {
+    width: 6rem;
+}
+
+.master img[src='world.svg'] {
+    width: 5rem;
+}
+
+
+
+
+
+.hero {
     margin-left: auto;
     margin-right: auto;
-    max-width: var(--site-max-width);
+    max-width: 640px;
     padding-left: 1rem;
     padding-right: 1rem;
-}
-
-.hero > div > div {
-    justify-self: center;
-    max-width: 30rem;
     text-align: center;
 }
 
-.hero > div > img {
-    justify-self: center;
-    max-width: 30rem;
-    padding-top: 2rem;
+.hero img {
+    margin-bottom: 1rem;
 }
 
 .hero h1 {
+    margin-bottom: 1rem;
+}
+
+.hero button {
+    border-radius: 0.4rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.6rem;
+    padding: 0.8rem 1rem;
+}
+
+
+
+
+
+.user {
+    background-color: var(--black);
+    padding: 3rem 1rem !important;
+}
+
+.user div, .user i:before {
+    color: var(--white);
+}
+
+.user > div > div:first-of-type {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.user > div > div:last-of-type {
+    display: grid;
+    grid-row-gap: 2rem;
+    justify-content: center;
+    justify-items: center;
+}
+
+.user > div > div:last-of-type > div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.user i {
+    background-color: var(--blue-600);
+    border-radius: 50%;
+    font-size: 2rem;
     margin-bottom: 0.4rem;
+    padding: 1.4rem;
 }
 
 
@@ -36,52 +93,59 @@
 
 
 
+.search {
+    margin-top: 0.4rem;
+}
+
+.search > div:first-of-type {
+    background-color: var(--slate-400);
+    border-bottom-left-radius: 0.3rem;
+    border-top-left-radius: 0.3rem;
+    display: none;
+    padding: 0.8rem;
+}
+
+.search > div:first-of-type select, .search > div:first-of-type i:before {
+    color: var(--white);
+    text-transform: uppercase;
+}
 
 
 
-.master {
+
+
+
+
+.content > div:not(:first-of-type) {
+    margin-top: 5rem;
+}
+
+.content h2 {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.posts {
     display: grid;
     grid-column-gap: 2rem;
     grid-row-gap: 3rem;
-    padding-bottom: 3rem;
-    padding-top: 3rem;
+    grid-template-columns: auto;
+    width: 100%;
 }
 
-.master > div:nth-of-type(1) > div {
+.fundraisers {
     display: grid;
-    grid-row-gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.master > div:nth-of-type(1) > div > div {
-    display: grid;
-    grid-gap: 1rem;
-}
-
-.master > div:nth-of-type(1) > div > button {
-    padding: 0.6rem;
-}
-
-.master > div:nth-of-type(2) {
-    display: grid;
+    grid-column-gap: 2rem;
     grid-row-gap: 3rem;
 }
 
-.master > div:nth-of-type(2) > div > div {
+.boxes {
     display: grid;
+    grid-column-gap: 1rem;
     grid-row-gap: 2rem;
-    margin-top: 2.2rem;
 }
 
-.postSmall {
-    border-bottom: 1px dashed var(--black);
-    padding-bottom: 1rem;
-}
 
-.postLarge {
-    border-bottom: 2px dashed var(--black);
-    padding-bottom: 2rem;
-}
 
 
 
@@ -90,42 +154,37 @@
 
 
 @media (min-width: 540px) {
-    .master > div:nth-of-type(1) > div > div {
+    .user > div > div:last-of-type {
+        grid-template-columns: repeat(3, 10rem);
+    }
+
+    .content > div:first-of-type > div:first-of-type {
+        display: none;
+    }
+
+    .search {
+        margin-top: 0;
+    }
+
+    .search > div:first-of-type {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+
+
+    .fundraisers, .boxes {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-@media (min-width: 960px) {
-    .master {
-        grid-template-columns: 20rem auto;
-        padding-bottom: 4rem;
-        padding-top: 4rem;
-    }
-
-    .master > div:nth-of-type(1) {
-        border-right: 1px solid var(--black);
-        padding-right: 2rem;
-    }
-
-    .master > div:nth-of-type(1) > div > div {
-        grid-template-columns: auto;
-    }
-}
-
 @media (min-width: 1024px) {
-    .hero {
-        padding-top: 0;
+    .posts {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .hero > div {
-        grid-template-columns: 50% auto;
-    }
-
-    .hero > div > div {
-        padding-right: 2rem;
-    }
-
-    .hero > div > img {
-        max-width: 40rem;
+    .fundraisers, .boxes {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }

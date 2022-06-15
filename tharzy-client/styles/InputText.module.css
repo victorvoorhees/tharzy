@@ -8,9 +8,11 @@
 
 .master input {
     background-color: var(--slate-100);
+    border: 1px solid var(--slate-100);
+    border-radius: 0.3rem;
     font-size: 1rem;
     outline: 3px solid var(--trans);
-    padding: 0.7rem;
+    padding: 0.6rem;
     width: 100%;
     transition: border-color 0.2s, outline-color 0.2s;
 }
@@ -19,7 +21,12 @@
     color: var(--slate-400);
 }
 
+.master input:hover {
+    border-color: var(--slate-300);
+}
+
 .master input:focus {
+    border-color: var(--slate-300);
     outline-color: var(--slate-300);
 }
 
@@ -39,7 +46,7 @@
     transition: background-color 0.2s, box-shadow 0.2s;
 }
 
-.search i {
+.search > i {
     align-items: center;
     background-color: var(--blue-600);
     border-top-right-radius: 0.3rem;
@@ -50,17 +57,17 @@
     min-width: 2.7rem;
 }
 
-.search i:before {
+.search > i:before {
     color: var(--white);
 }
 
-.search input {
+.search > input {
     font-size: 1rem;
     padding: 0.7rem;
     width: 100%;
 }
 
-.search input::placeholder {
+.search > input::placeholder {
     color: var(--slate-400);
 }
 
