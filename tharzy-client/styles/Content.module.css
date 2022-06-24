@@ -43,12 +43,11 @@
 }
 
 .poster div:not(:last-of-type) {
-    color: var(--slate-500);
+    color: var(--slate-400);
 }
 
 .poster span {
-    font-size: 1rem;
-    font-weight: bold;
+    text-decoration: underline;
 }
 
 .master h1 + div {
