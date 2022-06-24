@@ -53,7 +53,7 @@ export default function Events() {
         return (
             <div className={Styles.master}>
                 <div>
-                    <div className={Styles.search}>
+                    <div>
                         <div className='h7'>Search</div>
                         <InputText type='search' name='keyword' value={searchFor} handleChange={e => setSearchFor(e.target.value)} placeholder='Keyword?' />
                     </div>

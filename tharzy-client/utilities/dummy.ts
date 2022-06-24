@@ -308,7 +308,7 @@ function returnEvents(): IEvent[] {
                 category: 'meetup',
                 location: {
                     address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'United States'
+                    country: 'China'
                 },
                 title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
                 engagement: 163,
@@ -330,7 +330,7 @@ function returnEvents(): IEvent[] {
                 category: 'fundraising',
                 location: {
                     address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'Japan'
+                    country: 'China'
                 },
                 title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
                 engagement: 140,
@@ -352,7 +352,7 @@ function returnEvents(): IEvent[] {
                 category: 'other',
                 location: {
                     address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'South Korea'
+                    country: 'China'
                 },
                 title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
                 engagement: 174,
@@ -374,7 +374,7 @@ function returnEvents(): IEvent[] {
                 category: 'fundraising',
                 location: {
                     address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'United Kingdom'
+                    country: 'China'
                 },
                 title: `Junta forces violently arrested an innocent teenager in Pyae`,
                 engagement: 243,
@@ -396,7 +396,7 @@ function returnEvents(): IEvent[] {
                 category: 'protest',
                 location: {
                     address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'Australia'
+                    country: 'China'
                 },
                 title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
                 engagement: 163,
@@ -418,7 +418,7 @@ function returnEvents(): IEvent[] {
                 category: 'meetup',
                 location: {
                     address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'France'
+                    country: 'China'
                 },
                 title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
                 engagement: 140,
@@ -440,7 +440,7 @@ function returnEvents(): IEvent[] {
                 category: 'other',
                 location: {
                     address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'Canada'
+                    country: 'China'
                 },
                 title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
                 engagement: 174,

@@ -39,15 +39,14 @@ export default function Index() {
         const commentsOnly = comments.filter(item => item.replyTo === undefined)
         return (
             <div className={Styles.master}>
-
+                <div className={Styles.poster}>
+                    <div>Posted on {new Date(time).toLocaleString(undefined, { dateStyle: 'long', timeStyle: 'long' })}.</div>
+                    <div>Updated on {new Date().toLocaleString(undefined, { dateStyle: 'long', timeStyle: 'long' })}.</div>
+                    <div>By <span>{uploadedBy}</span></div>
+                </div>
                 <div>
                     <h1>{title}</h1>
                     <div>{category}</div>
-                </div>
-                <div className={Styles.poster}>
-                    <div>Posted on {new Date(time).toLocaleString(undefined, { dateStyle: 'long', timeStyle: 'short' })}.</div>
-                    <div>Updated on {new Date().toLocaleString(undefined, { dateStyle: 'long', timeStyle: 'short' })}.</div>
-                    <div>By <span>{uploadedBy}</span></div>
                 </div>
                 <p className='p1'>{body}</p>
 
