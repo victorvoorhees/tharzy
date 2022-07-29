@@ -1,60 +1,86 @@
+import {useEffect, useRef, useState} from 'react'
 import Styles from '../styles/Calendar.module.css'
-import { useState } from 'react'
 
-function createCalendar(date, today) {
+function createCalendar(name, date, handleClick, value) {
     let element = []
-    let dayInLoop = new Date(date.getTime())
-    dayInLoop.setDate(1)
+    let d = new Date(date.getTime())
+    d.setDate(1)
 
-    for (let i = 0; i < dayInLoop.getDay(); i++) element.push(<div></div>)
+    for (let i = 0; i < d.getDay(); i++) element.push(<div/>)
 
-    while (dayInLoop.getMonth() === date.getMonth()) {
-        let n = Math.ceil(Math.random() * 4)
+    while (d.getMonth() === date.getMonth()) {
         element.push(
-            <div tabIndex='0' className={Styles.day}>
-                <div className={dayInLoop.getTime() === today.getTime() ? Styles.today : ''}>{dayInLoop.getDate()}</div>
-                {n === 3 ? <div className={Styles.eventCount}>{Math.ceil(Math.random() * 99)}</div> : <div className={Styles.nothing}></div>}
+            <div>
+                <input
+                    type='radio'
+                    name={name}
+                    id={name + String(d.getTime())}
+                    value={d.toDateString()}
+                    onChange={handleClick}
+                    checked={d.toDateString() === value.toDateString()}
+                />
+                <label
+                    htmlFor={name + String(d.getTime())}
+                    className={d.toDateString() === new Date().toDateString() ? Styles.today : ''}
+                >{d.getDate()}</label>
             </div>
         )
-        dayInLoop.setDate(dayInLoop.getDate() + 1)
+        d.setDate(d.getDate() + 1)
     }
 
     return element
 }
 
-export default function Calendar() {
-    const [calendar, setCalendar] = useState(new Date())
-    const today = new Date()
+export default function Calendar({name, handleClick, value, handleClose}) {
+    const [month, setMonth] = useState(new Date())
 
-    function prevMonth() {
-        let newDate = new Date(calendar.getTime())
-        newDate.setMonth(newDate.getMonth() - 1)
-        setCalendar(newDate)
+    const calendarRef = useRef(null)
+
+    useEffect(() => {
+        setTimeout(() => {
+            document.addEventListener('click', close)
+        }, 0)
+        return () => document.removeEventListener('click', close)
+    }, [])
+
+    function close(e) {
+        if (!calendarRef.current.contains(e.target)) {
+            e.preventDefault()
+            handleClose()
+        }
     }
 
-    function nextMonth() {
-        let newDate = new Date(calendar.getTime())
+    function prev() {
+        let newDate = new Date(month.getTime())
+        newDate.setMonth(newDate.getMonth() - 1)
+        setMonth(newDate)
+    }
+
+    function next() {
+        let newDate = new Date(month.getTime())
         newDate.setMonth(newDate.getMonth() + 1)
-        setCalendar(newDate)
+        setMonth(newDate)
     }
 
     return (
-        <div>
-            <div className={Styles.selectDate}>
-                <i onClick={prevMonth} className='fa-solid fa-arrow-left'></i>
-                <div>{calendar.toLocaleString('default', { month: 'long', year: 'numeric' })}</div>
-                <i onClick={nextMonth} className='fa-solid fa-arrow-right'></i>
+        <div className={Styles.master} ref={calendarRef}>
+            <div className={Styles.select}>
+                <i onClick={prev} className='fi fi-rr-arrow-left'/>
+                <div>{month.toLocaleString('default', { month: 'long', year: 'numeric' })}</div>
+                <i onClick={next} className='fi fi-rr-arrow-right'/>
             </div>
-            <div className={Styles.calendar}>
-                <div className={Styles.header}>Sun</div>
-                <div className={Styles.header}>Mon</div>
-                <div className={Styles.header}>Tue</div>
-                <div className={Styles.header}>Wed</div>
-                <div className={Styles.header}>Thu</div>
-                <div className={Styles.header}>Fri</div>
-                <div className={Styles.header}>Sat</div>
+            <div className={Styles.body}>
+                <div>
+                    <div>Su</div>
+                    <div>Mo</div>
+                    <div>Tu</div>
+                    <div>We</div>
+                    <div>Th</div>
+                    <div>Fr</div>
+                    <div>Sa</div>
+                </div>
+                <div>{createCalendar(name, month, handleClick, value)}</div>
             </div>
-            <div className={Styles.calendar}>{createCalendar(calendar, today)}</div>
         </div>
     )
 }

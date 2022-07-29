@@ -1,6 +1,8 @@
 import Styles from '../styles/Comment.module.css'
 import {IComment} from '../utilities/types'
 import {useState} from 'react'
+import Like from "../icons/like";
+import Dislike from "../icons/dislike";
 
 interface IProps {
     comment: IComment,
@@ -10,7 +12,7 @@ interface IProps {
 export default function Comment({ comment, comments }: IProps) {
     const [data, setData] = useState(comment)
     const [reply, setReply] = useState('')
-    const [replyVisible, setReplyVisible] = useState(false)
+    const [replying, setReplying] = useState(false)
 
     const replies = comments.filter(item => item.replyTo === comment.id)
 
@@ -40,24 +42,27 @@ export default function Comment({ comment, comments }: IProps) {
                 <p>{data.body}</p>
             </div>
             <div className={Styles.reacts}>
-                <div className='icon'>
-                    <i className={`fi fi-${data.like.pressed ? `sr` : `rr`}-thumbs-up ${data.like.pressed && `red`} ${data.dislike.pressed && Styles.disabled}`} onClick={() => react('like')} />
+                <div>
+                    <div className={data.like.pressed && Styles.blue} onClick={() => react('like')}>
+                        <Like bold={data.like.pressed} />
+                    </div>
                     <span>{data.like.count}</span>
                 </div>
-                <div className='icon'>
-                    <i className={`fi fi-${data.dislike.pressed ? `sr` : `rr`}-thumbs-down ${data.dislike.pressed && `red`} ${data.like.pressed && Styles.disabled}`} onClick={() => react('dislike')} />
+                <div>
+                    <div className={data.dislike.pressed && Styles.blue} onClick={() => react('dislike')}>
+                        <Dislike bold={data.dislike.pressed} />
+                    </div>
                     <span>{data.dislike.count}</span>
                 </div>
                 <div>
-                    <input name={String(data.id)} id={String(data.id)} type='checkbox' checked={replyVisible} onChange={() => setReplyVisible(!replyVisible)} />
-                    <label className='underline' htmlFor={String(data.id)}>Reply</label>
+                    <input name={String(data.id)} id={String(data.id)} type='checkbox' checked={replying} onChange={() => setReplying(!replying)} />
+                    <label htmlFor={String(data.id)}>{replying ? 'Close' : 'Reply'}</label>
                 </div>
             </div>
-            {replyVisible && (
-                <div className={Styles.replyInput}>
+            {replying && (
+                <div className={Styles.reply}>
                     <textarea onInput={autogrow} value={reply} placeholder='Type your reply here' />
                     <div>
-                        <button onClick={() => setReplyVisible(!replyVisible)} className='outline'>Cancel</button>
                         <button className='primary'>Submit</button>
                     </div>
                 </div>

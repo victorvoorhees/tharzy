@@ -1,0 +1,60 @@
+.master {
+    display: grid;
+    grid-row-gap: 0.4rem;
+    max-height: 165px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.master::-webkit-scrollbar {
+    width: 8px;
+}
+
+.master::-webkit-scrollbar-track {
+    background: none;
+}
+
+.master::-webkit-scrollbar-thumb {
+    background-color: var(--slate-200);
+    border-radius: 100px;
+}
+
+.master input {
+    display: none;
+}
+
+.master label {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    text-transform: capitalize;
+}
+
+.master label > div:first-of-type {
+    background-color: var(--white);
+    border: 1px solid var(--slate-400);
+    border-radius: 4px;
+    height: 1rem;
+    margin-right: 0.6rem;
+    min-width: 1rem;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.master label > div:first-of-type > svg {
+    fill: var(--white);
+    height: 0.7em;
+}
+
+.master label:hover > div:first-of-type {
+    border-color: var(--blue-600);
+}
+
+.master input:checked + label div:first-of-type {
+    background-color: var(--blue-600);
+    border-color: var(--blue-600);
+}

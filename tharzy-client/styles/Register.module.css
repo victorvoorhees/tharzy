@@ -1,79 +1,90 @@
 .master {
-    display: grid;
-    height: 100vh;
-}
-
-.master > div {
-    align-items: center;
-    background-color: var(--black);
-    display: none;
-    justify-content: center;
-    height: 100vh;
-}
-
-.master > div > div * {
-    color: var(--white);
-    width: 420px;
-}
-
-.master > div > div > h2 {
-    margin-bottom: 2rem;
-}
-
-.master > form {
     align-content: center;
     display: grid;
-    grid-row-gap: 0.6rem;
+    grid-row-gap: 20px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    width: min(100%, 420px);
+    max-width: 400px;
+
+    min-height: calc(100vh - var(--header-nav-height) - var(--footer-height));
+    padding-bottom: 80px;
+    padding-top: 80px;
 }
 
-.master > form > a:first-of-type {
-    background-color: var(--blue-600);
-    border-radius: 50%;
-    height: 1.6rem;
-    left: 1rem;
-    position: absolute;
-    top: 1rem;
-    width: 1.6rem;
+.master a {
+    color: var(--blue-600);
 }
 
-.master > form > h1 {
-    margin-bottom: 1.2rem;
+.master h1 + div {
+    margin-bottom: 32px;
 }
 
-.master > form a {
-    text-decoration: underline;
-    text-underline-offset: 18%;
+.text label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.text input {
+    border: 1px solid var(--slate-300);
+    border-radius: 10px;
+    display: block;
+    padding: 10px 12px;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.text input::placeholder {
+    color: var(--slate-400);
+}
+
+.text input:focus {
+    border-color: var(--blue-600);
 }
 
 .flex {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.6rem;
-    margin-top: 0.6rem;
+    margin-bottom: 6px;
+    margin-top: 6px;
+}
+
+.flex > div:first-of-type input {
+    display: none;
+}
+
+.flex > div:first-of-type label {
+    display: flex;
+}
+
+.flex > div:first-of-type label > div:first-of-type {
+    border: 1px solid var(--slate-300);
+    border-radius: 4px;
+    height: 1em;
+    margin-right: 4px;
+    width: 1em;
+
+    transition: background-color 0.2s, border-color 0.2s;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.flex > div:first-of-type label > div:first-of-type svg {
+    fill: var(--white);
+    height: 0.7em;
+}
+
+.flex > div:first-of-type input:checked + label > div:first-of-type {
+    background-color: var(--blue-600);
+    border-color: var(--blue-600);
 }
 
 .submit {
-    border-radius: 0.3rem;
-    margin-bottom: 1.2rem;
-    padding: 0.6rem;
-}
-
-
-
-
-
-@media (min-width: 1024px) {
-    .master {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .master > div {
-        display: flex;
-    }
+    border-radius: 10px;
+    font-weight: 700;
+    padding: 10px 12px;
+    width: fit-content;
 }

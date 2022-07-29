@@ -1,4 +1,10 @@
-import {IEvent, IFundraiser, IPost} from "./types";
+import returnCountries from "./countries";
+
+function generate(a: string[]) {
+    let n = Math.floor(Math.random() * a.length)
+    return a[n]
+}
+
 
 function returnBody() {
     return ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae velit ante. Vivamus felis ipsum, convallis a risus non, posuere imperdiet arcu. Sed odio erat, eleifend vel accumsan vel, varius sit amet dolor. Praesent mollis feugiat nisi a eleifend. Ut lobortis dictum congue. Curabitur vitae arcu porta, semper nulla sit amet, mollis enim. Fusce posuere et odio ac dictum.\n' +
@@ -89,377 +95,245 @@ function returnComments() {
 
 
 
-function returnPosts(): IPost[] {
-    return (
-        [
-            {
-                uploadedBy: 'Michael Smith',
-                time: new Date(2022, 3, 1).getTime(),
-                category: 'atrocities',
-                title: `The Ukrainian army pushed the line of fire from Kryvyi Rih district.`,
-                engagement: 243,
-                likes: 231,
-                dislikes: 3,
-                comments: 9,
-            },
-            {
-                uploadedBy: 'karen revolutionary',
-                time: new Date(2022, 3, 2).getTime(),
-                category: 'resistance',
-                title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
-                engagement: 163,
-                likes: 158,
-                dislikes: 3,
-                comments: 2
-            },
-            {
-                uploadedBy: 'Ye Htut',
-                time: new Date(2022, 3, 3).getTime(),
-                category: 'international',
-                title: 'For the first time since the coup, China condemns Tatmadaw',
-                engagement: 140,
-                likes: 58,
-                dislikes: 43,
-                comments: 39
-            },
-            {
-                uploadedBy: 'commie lay',
-                time: new Date(2022, 3, 4).getTime(),
-                category: 'other',
-                title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
-                engagement: 174,
-                likes: 98,
-                dislikes: 73,
-                comments: 3
-            },
-            {
-                uploadedBy: 'Michael Smith',
-                time: new Date(2022, 3, 5).getTime(),
-                category: 'atrocities',
-                title: `Junta forces violently arrested an innocent teenager in Pyae`,
-                engagement: 243,
-                likes: 231,
-                dislikes: 3,
-                comments: 9,
-            },
-            {
-                uploadedBy: 'karen revolutionary',
-                time: new Date(2022, 3, 6).getTime(),
-                category: 'resistance',
-                title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
-                engagement: 163,
-                likes: 158,
-                dislikes: 3,
-                comments: 2
-            },
-            {
-                uploadedBy: 'Ye Htut',
-                time: new Date(2022, 3, 7).getTime(),
-                category: 'international',
-                title: 'For the first time since the coup, China condemns Tatmadaw',
-                engagement: 140,
-                likes: 58,
-                dislikes: 43,
-                comments: 39
-            },
-            {
-                uploadedBy: 'commie lay',
-                time: new Date(2022, 3, 8).getTime(),
-                category: 'other',
-                title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
-                engagement: 174,
-                likes: 98,
-                dislikes: 73,
-                comments: 3
-            },
-        ]
-    )
+function returnPostCategories() {
+    interface ICategories {
+        category: string,
+        count: number
+    }
+
+    let o: ICategories[] = []
+    returnPostCategoriesArray().forEach(i => {
+        o.push({
+            category: i,
+            count: Math.ceil(Math.random() * 50)
+        })
+    })
+    return o
 }
 
-
-
-function returnFundraisers(): IFundraiser[] {
-    return (
-        [
-            {
-                uploadedBy: 'Michael Smith',
-                time: new Date(2022, 3, 1).getTime(),
-                category: 'humanitarian',
-                title: `The Ukrainian army pushed the line of fire from Kryvyi Rih district deep into Kherson region.`,
-                deadline: new Date(2022, 2, 20).getTime(),
-                engagement: 243,
-                likes: 231,
-                dislikes: 3,
-                comments: 9,
-            },
-            {
-                uploadedBy: 'karen revolutionary',
-                time: new Date(2022, 3, 2).getTime(),
-                category: 'resistance',
-                title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
-                deadline: new Date(2022, 2, 19).getTime(),
-                engagement: 163,
-                likes: 123,
-                dislikes: 2,
-                comments: 1
-            },
-            {
-                uploadedBy: 'Ye Htut',
-                time: new Date(2022, 3, 3).getTime(),
-                category: 'resistance',
-                title: 'For the first time since the coup, China condemns Tatmadaw',
-                deadline: new Date(2022, 2, 18).getTime(),
-                engagement: 140,
-                likes: 35,
-                dislikes: 22,
-                comments: 98
-            },
-            {
-                uploadedBy: 'commie lay',
-                time: new Date(2022, 3, 4).getTime(),
-                category: 'other',
-                title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
-                deadline: new Date(2022, 2, 17).getTime(),
-                engagement: 174,
-                likes: 123,
-                dislikes: 34,
-                comments: 1
-            },
-            {
-                uploadedBy: 'Michael Smith',
-                time: new Date(2022, 3, 5).getTime(),
-                category: 'humanitarian',
-                title: `Junta forces violently arrested an innocent teenager in Pyae`,
-                deadline: new Date(2022, 2, 16).getTime(),
-                engagement: 139,
-                likes: 112,
-                dislikes: 23,
-                comments: 4,
-            },
-            {
-                uploadedBy: 'karen revolutionary',
-                time: new Date(2022, 3, 6).getTime(),
-                category: 'resistance',
-                title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
-                deadline: new Date(2022, 2, 15).getTime(),
-                engagement: 215,
-                likes: 213,
-                dislikes: 1,
-                comments: 1
-            },
-            {
-                uploadedBy: 'Ye Htut',
-                time: new Date(2022, 3, 7).getTime(),
-                category: 'humanitarian',
-                title: 'For the first time since the coup, China condemns Tatmadaw',
-                deadline: new Date(2022, 2, 14).getTime(),
-                engagement: 26,
-                likes: 23,
-                dislikes: 2,
-                comments: 1
-            },
-            {
-                uploadedBy: 'commie lay',
-                time: new Date(2022, 3, 8).getTime(),
-                category: 'other',
-                title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
-                deadline: new Date(2022, 2, 13).getTime(),
-                engagement: 298,
-                likes: 234,
-                dislikes: 55,
-                comments: 9
-            },
-        ]
-    )
+function returnPostCategoriesArray() {
+    return ['atrocities', 'china', 'economy', 'international', 'opinion', 'other', 'resistance', 'russia']
 }
 
+function returnPosts(n) {
+    let a = []
+    for (let i = 0; i < n; i++) {
+        let l = Math.ceil(Math.random() * 99)
+        let d = Math.ceil(Math.random() * 99)
+        let c = Math.ceil(Math.random() * 99)
+        let p = Math.ceil(Math.random() * 99)
+        let b = Math.ceil(Math.random() * 99)
 
-
-function returnEvents(): IEvent[] {
-    return (
-        [
-            {
-                from: new Date(2023, 9, 3).getTime(),
-                to: new Date(2023, 9, 4).getTime(),
-                uploadedBy: 'gingerman',
-                time: new Date(2022, 3, 1).getTime(),
-                category: 'protest',
-                location: {
-                    address: '111 Lenin Lane Stalingrad, 11966',
-                    country: 'China'
-                },
-                title: `The Ukrainian army pushed the line of fire from Kryvyi Rih district deep into Kherson region.`,
-                engagement: 243,
-                like: {
-                    count: 22,
-                    pressed: false
-                },
-                dislike: {
-                    count: 22,
-                    pressed: false
-                },
-                comments: 9,
-            },
-            {
-                from: new Date(2023, 9, 3).getTime(),
-                to: new Date(2023, 9, 3).getTime(),
-                uploadedBy: 'karen revolutionary',
-                time: new Date(2022, 3, 2).getTime(),
-                category: 'meetup',
-                location: {
-                    address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'China'
-                },
-                title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
-                engagement: 163,
-                like: {
-                    count: 22,
-                    pressed: false
-                },
-                dislike: {
-                    count: 22,
-                    pressed: false
-                },
-                comments: 2
-            },
-            {
-                from: new Date(2023, 9, 3).getTime(),
-                to: new Date(2023, 9, 3).getTime(),
-                uploadedBy: 'Ye Htut',
-                time: new Date(2022, 3, 3).getTime(),
-                category: 'fundraising',
-                location: {
-                    address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'China'
-                },
-                title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
-                engagement: 140,
-                like: {
-                    count: 22,
-                    pressed: false
-                },
-                dislike: {
-                    count: 22,
-                    pressed: false
-                },
-                comments: 39
-            },
-            {
-                from: new Date(2023, 9, 3).getTime(),
-                to: new Date(2023, 9, 3).getTime(),
-                uploadedBy: 'commie lay',
-                time: new Date(2022, 3, 4).getTime(),
-                category: 'other',
-                location: {
-                    address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'China'
-                },
-                title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
-                engagement: 174,
-                like: {
-                    count: 22,
-                    pressed: false
-                },
-                dislike: {
-                    count: 22,
-                    pressed: false
-                },
-                comments: 3
-            },
-            {
-                from: new Date(2023, 9, 3).getTime(),
-                to: new Date(2023, 9, 3).getTime(),
-                uploadedBy: 'Michael Smith',
-                time: new Date(2022, 3, 5).getTime(),
-                category: 'fundraising',
-                location: {
-                    address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'China'
-                },
-                title: `Junta forces violently arrested an innocent teenager in Pyae`,
-                engagement: 243,
-                like: {
-                    count: 22,
-                    pressed: false
-                },
-                dislike: {
-                    count: 22,
-                    pressed: false
-                },
-                comments: 9,
-            },
-            {
-                from: new Date(2023, 9, 3).getTime(),
-                to: new Date(2023, 9, 3).getTime(),
-                uploadedBy: 'karen revolutionary',
-                time: new Date(2022, 3, 6).getTime(),
-                category: 'protest',
-                location: {
-                    address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'China'
-                },
-                title: `KNU offensive on Pha-an a 'massive success', says KNU chief Pha-Htee`,
-                engagement: 163,
-                like: {
-                    count: 22,
-                    pressed: false
-                },
-                dislike: {
-                    count: 22,
-                    pressed: false
-                },
-                comments: 2
-            },
-            {
-                from: new Date(2023, 9, 3).getTime(),
-                to: new Date(2023, 9, 3).getTime(),
-                uploadedBy: 'Ye Htut',
-                time: new Date(2022, 3, 7).getTime(),
-                category: 'meetup',
-                location: {
-                    address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'China'
-                },
-                title: 'For the first time since the coup, China condemns atrocities by Tatmadaw',
-                engagement: 140,
-                like: {
-                    count: 22,
-                    pressed: false
-                },
-                dislike: {
-                    count: 22,
-                    pressed: false
-                },
-                comments: 39
-            },
-            {
-                from: new Date(2023, 9, 3).getTime(),
-                to: new Date(2023, 9, 3).getTime(),
-                uploadedBy: 'commie lay',
-                time: new Date(2022, 3, 8).getTime(),
-                category: 'other',
-                location: {
-                    address: '111 Lenin Lane Stalingrad 11966',
-                    country: 'China'
-                },
-                title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
-                engagement: 174,
-                like: {
-                    count: 22,
-                    pressed: false
-                },
-                dislike: {
-                    count: 22,
-                    pressed: false
-                },
-                comments: 3
-            },
-        ]
-    )
+        a.push({
+            uploadedBy: Math.random().toString(36).slice(2, 7),
+            time: new Date(2022, Math.floor(Math.random() * 3), Math.floor(Math.random() * 28)).getTime(),
+            category: generate(returnPostCategoriesArray()),
+            title: returnBody().slice(p, p + 100),
+            body: returnBody().slice(b, b + 200),
+            engagement: l + d + c,
+            like: l,
+            dislike: d,
+            comments: c,
+        })
+    }
+    return a
 }
 
 
 
 
 
-export { returnBody, returnComments, returnPosts, returnFundraisers, returnEvents }
+
+function returnFundraiserCategories() {
+    let o = []
+    returnFundraiserCategoriesArray().forEach(i => {
+        o.push({
+            category: i,
+            count: Math.ceil(Math.random() * 50)
+        })
+    })
+    return o
+}
+
+function returnFundraiserCategoriesArray() {
+    return ['humanitarian', 'knu', 'other', 'pdf', 'resistance']
+}
+
+function returnFundraisers(n) {
+    let a = []
+    for (let i = 0; i < n; i++) {
+        let l = Math.ceil(Math.random() * 99)
+        let d = Math.ceil(Math.random() * 99)
+        let c = Math.ceil(Math.random() * 99)
+        let p = Math.ceil(Math.random() * 99)
+        let b = Math.ceil(Math.random() * 99)
+
+        a.push({
+            deadline: new Date(2023, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28)).getTime(),
+            uploadedBy: Math.random().toString(36).slice(2, 7),
+            time: new Date(2022, Math.floor(Math.random() * 3), Math.floor(Math.random() * 28)).getTime(),
+            category: generate(returnFundraiserCategoriesArray()),
+            title: returnBody().slice(p, p + 100),
+            body: returnBody().slice(b, b + 200),
+            engagement: l + d + c,
+            like: l,
+            dislike: d,
+            comments: c,
+        })
+    }
+    return a
+}
+
+
+
+
+
+
+
+
+
+
+function returnCountriesMentioned() {
+    let o = []
+    returnCountries().forEach(i => {
+        o.push({
+            category: i,
+            count: Math.ceil(Math.random() * 50)
+        })
+    })
+    return o
+}
+
+function returnEventCategories() {
+    let o = []
+    returnEventCategoriesArray().forEach(i => {
+        o.push({
+            category: i,
+            count: Math.ceil(Math.random() * 50)
+        })
+    })
+    return o
+}
+
+function returnEventCategoriesArray() {
+    return ['fundraising', 'meetup', 'other', 'protest']
+}
+
+function returnEvents(n) {
+    let a = []
+    for (let i = 0; i < n; i++) {
+        let l = Math.ceil(Math.random() * 99)
+        let d = Math.ceil(Math.random() * 99)
+        let c = Math.ceil(Math.random() * 99)
+        let p = Math.ceil(Math.random() * 99)
+        let b = Math.ceil(Math.random() * 99)
+
+        a.push({
+            from: new Date(2023, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28)).getTime(),
+            to: new Date(2023, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28)).getTime(),
+            country: generate(returnCountries()),
+            uploadedBy: Math.random().toString(36).slice(2, 7),
+            time: new Date(2022, Math.floor(Math.random() * 3), Math.floor(Math.random() * 28)).getTime(),
+            category: generate(returnEventCategoriesArray()),
+            title: returnBody().slice(p, p + 100),
+            body: returnBody().slice(b, b + 200),
+            engagement: l + d + c,
+            like: l,
+            dislike: d,
+            comments: c,
+        })
+    }
+    return a
+}
+
+
+function returnUserDefinitions() {
+    let a = []
+    for (let i = 0; i < 9; i++) {
+        let l = Math.ceil(Math.random() * 99)
+        let d = Math.ceil(Math.random() * 99)
+        let c = Math.ceil(Math.random() * 99)
+        let b = Math.ceil(Math.random() * 99)
+
+        a.push({
+            uploadedBy: Math.random().toString(36).slice(2, 7),
+            time: new Date(2022, Math.floor(Math.random() * 3), Math.floor(Math.random() * 28)).getTime(),
+            body: returnBody().slice(b, b + 200),
+            engagement: l + d + c,
+            like: l,
+            dislike: d,
+            comments: c,
+        })
+    }
+    return a
+}
+
+
+function returnSingleEvent() {
+    return ({
+        content: {
+            from: new Date(2023, 9, 3).getTime(),
+            to: new Date(2023, 9, 3).getTime(),
+            uploadedBy: 'commielay',
+            time: new Date(2022, 3, 8).getTime(),
+            category: 'other',
+            location: {
+                address: '111 Lenin Lane Stalingrad 11966',
+                country: 'Japan'
+            },
+            title: 'Resurgent Communist Party of Burma welcomed warmly by rural peasants',
+            body: returnBody().slice(0, 800),
+            like: {
+                count: 28,
+                pressed: false
+            },
+            dislike: {
+                count: 13,
+                pressed: false
+            }
+        },
+        comments: returnComments()
+    })
+}
+
+
+function returnProfile() {
+    return ({
+        username: 'spooky spectre of communism',
+        name: 'Kate Granger',
+        phone: '063249024',
+        location: 'United States',
+        email: 'kate2222222@gmail.com',
+        twitter: '@comradekeyboard',
+        facebook: 'sss2232',
+        about: 'I have a profound revolutionary love for the proletariat of the US. I do not have a sense of attachment or love for the Yankee state. Hence why I am not a patriot.'
+    })
+}
+
+
+
+
+
+
+
+
+function listCategories(array: object[], property: string) {
+    let already = []
+    let result = []
+    array.forEach(object => {
+        if (!already.includes(object[property])) {
+            let o = {};
+            o[property] = object[property]
+            o['count'] = Math.ceil(Math.random() * 50)
+            result.push(o)
+        }
+        already.push(object[property])
+    })
+    return result
+}
+
+
+
+
+
+export { returnBody, returnComments, returnPostCategories, returnPosts, returnFundraiserCategories, returnFundraisers, returnCountriesMentioned, returnEventCategories, returnEvents, returnSingleEvent, returnUserDefinitions, returnProfile, listCategories }

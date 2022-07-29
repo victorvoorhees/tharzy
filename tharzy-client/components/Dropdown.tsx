@@ -1,29 +1,49 @@
-import {useState} from 'react'
 import Styles from '../styles/Dropdown.module.css'
+import {useRef, useState} from "react";
+import AngleDown from "../icons/angleDown";
 
-const r = String(Math.floor(Math.random()*1000))
+interface IProps {
+    name: string,
+    options: any[],
+    value: string | number,
+    handleChange: (e) => void
+}
 
-export default function Dropdown({name, options, selected, handleSelect}) {
-    const [active, setActive] = useState(false)
+export default function Dropdown({name, options, value, handleChange}: IProps) {
+    const [open, setOpen] = useState(false)
+
+    const dropdownRef = useRef(null)
+
+    function close(e) {
+        if (!dropdownRef.current.contains(e.target)) {
+            e.preventDefault()
+            setOpen(false)
+            document.removeEventListener('click', close)
+        }
+    }
 
     return (
         <div className={Styles.master}>
-            <input type='checkbox' name={name} id={name} defaultChecked={active} onChange={() => setActive(!active)} />
+            <input type='checkbox' name={name} id={name} checked={open} onChange={() => {
+                if (!open) {
+                    setOpen(true)
+                    setTimeout(() => document.addEventListener('click', close), 0)
+                }
+            }} />
             <label htmlFor={name}>
-                <span>{selected}</span>
-                <i className='fi fi-rr-angle-small-down'/>
+                <div>{(Number(value) < 10) && '0'}{value}</div>
+                <AngleDown />
             </label>
-            {active && (
-                <div>
-                    {options.map((option, index) => (
-                        <>
-                            <input type='radio' name={name + r} id={option} value={option} defaultChecked={option === selected} onChange={() => {
-                                handleSelect(option)
-                                setActive(false)
-                            }} key={index} />
-                            <label htmlFor={option}>{option}</label>
-                        </>
-                    ))}
+            {open && (
+                <div className={Styles.wrapper}>
+                    <div className={Styles.dropdown} ref={dropdownRef}>
+                        {options.map((option, index) => (
+                            <div key={index}>
+                                <input type='radio' name={option + name} id={option + name} value={option} onChange={handleChange} checked={option === value} />
+                                <label htmlFor={option + name}>{option}</label>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             )}
         </div>

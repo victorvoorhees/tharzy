@@ -1,19 +1,47 @@
-import InputText from '../../components/InputText'
-import InputCheckbox from '../../components/InputCheckbox'
 import Styles from '../../styles/Register.module.css'
 import {useState} from 'react'
 import Link from "next/link";
-import returnQuote from "../../utilities/quotes";
+import Check from "../../icons/check";
 
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [rememberUser, setRememberUser] = useState(false)
-
-    const [quote, setQuote] = useState(returnQuote()) /* without this, the quote changes every time the user types in email/password aka every time the component refreshes */
+    const [remember, setRemember] = useState(false)
 
     return (
-        <div className={Styles.master}>
+        <form className={Styles.master}>
+            <h1>Log in</h1>
+            <div>Don't have an account? <Link href='/register' scroll={false}><a>Sign up</a></Link></div>
+            <div className={Styles.text}>
+                <label htmlFor='email'>Email</label>
+                <input name='email' id='email' value={email} onChange={(e) => setEmail(e.target.value)} type='email' placeholder='Type email here' />
+            </div>
+            <div className={Styles.text}>
+                <label htmlFor='password'>Password</label>
+                <input name='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Type password here' />
+            </div>
+            <div className={Styles.flex}>
+                <div>
+                    <input name='remember' id='remember' type='checkbox' checked={remember} onChange={(e) => setRemember(!remember)} />
+                    <label htmlFor='remember'>
+                        <div><Check /></div>
+                        <div>Remember me</div>
+                    </label>
+                </div>
+                <Link href='/register' scroll={false}><a>Forgot password?</a></Link>
+            </div>
+            <input type='submit' value='Log in' className={`primary ${Styles.submit}`} />
+        </form>
+    )
+}
+
+
+
+
+/*
+
+
+<div className={Styles.master}>
             <form>
                 <Link href='/' scroll={false}><a className={Styles.logo}/></Link>
                 <h1>Log in.</h1>
@@ -29,12 +57,7 @@ export default function Login() {
                     <Link href='/register' scroll={false}><a>Register</a></Link>
                 </div>
             </form>
-            <div>
-                <div>
-                    <h2 className='h1'>{quote.quote}</h2>
-                    <div className='p-2'>— {quote.name}</div>
-                </div>
-            </div>
         </div>
-    )
-}
+
+
+ */

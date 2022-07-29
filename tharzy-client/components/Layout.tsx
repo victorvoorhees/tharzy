@@ -6,10 +6,10 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Nav from './Nav'
 import Footer from './Footer'
 
-const noHeight = ['/login', '/register', '/posts/add']
-const noWidth = ['/login', '/register', '/']
+const noHeight = []
+const noWidth = ['/']
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }) {
     const { asPath: url } = useRouter()
     return (
         <>

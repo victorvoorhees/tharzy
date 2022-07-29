@@ -1,121 +1,156 @@
-import Styles from '../../styles/Profile.module.css'
+
 import {useEffect, useState} from 'react'
-import Post from '../../components/Post'
-import {IEvent, IFundraiser, IPost} from '../../utilities/types'
 import {sortObject} from '../../utilities/utilities'
-import Radio from '../../components/Radio'
-import {returnEvents, returnFundraisers, returnPosts} from "../../utilities/dummy";
-import Select from "../../components/Select";
+import {returnEvents, returnFundraisers, returnPosts, returnProfile} from "../../utilities/dummy";
+import Phone from '../../icons/phone'
+import Mail from '../../icons/mail'
+import Twitter from '../../icons/twitter'
+import Fb from '../../icons/fb'
+import Styles from '../../styles/Profile.module.css'
+import Post from "../../components/Post";
+import Location from "../../icons/location";
+import Dropdown from "../../components/Dropdown";
 
-type section = 'posts' | 'fundraisers' | 'events'
-
-interface IProfile {
-    username: string,
-    details: {
-        email?: string,
-        name?: string,
-        location?: string,
-        twitter?: string,
-        facebook?: string,
-        about?: string
-    }
-}
-
-const sections: section[] = ['posts', 'fundraisers', 'events']
+const sections = ['posts', 'fundraisers', 'events']
 const sortPostsOptions = ['engagement', 'time', 'title']
 const sortFundraisersOptions = ['deadline', 'engagement', 'time', 'title']
 const sortEventsOptions = ['date', 'engagement', 'time', 'title']
 
 export default function Profile() {
-    const [profileData, setProfileData] = useState<IProfile>(null)
-    const [posts, setPosts] = useState<IPost[]>(null)
-    const [fundraisers, setFundraisers] = useState<IFundraiser[]>(null)
-    const [events, setEvents] = useState<IEvent[]>(null)
-    const [currentSection, setCurrentSection] = useState<section>('posts')
+    const [data, setData] = useState(null)
+
+    const [posts, setPosts] = useState(null)
+    const [fundraisers, setFundraisers] = useState(null)
+    const [events, setEvents] = useState(null)
+
+    const [show, setShow] = useState('posts')
 
     const [sortPosts, setSortPosts] = useState('time')
     const [sortFundraisers, setSortFundraisers] = useState('time')
     const [sortEvents, setSortEvents] = useState('time')
 
     useEffect(() => {
-        setProfileData({
-            username: 'cringe_tankie',
-            details: {
-                name: 'Kate Granger',
-                location: 'United States',
-                email: 'kate2222222@gmail.com',
-                twitter: 'https://twitter.com/comradekeyboard',
-                about: 'Carpenter, gardener, and half-baked anthropologist.   Easily distracted by things related to Burma, forests, John Coltrane, and the end of capitalism.'
-            }
-        })
-        setPosts(sortObject(returnPosts(), 'time'))
-        setFundraisers(sortObject(returnFundraisers(), 'time'))
-        setEvents(sortObject(returnEvents(), 'time'))
+        setData(returnProfile())
+        setPosts(returnPosts(10))
+        setFundraisers(returnFundraisers(10))
+        setEvents(returnEvents(10))
     }, [])
 
-    if (profileData) {
+    if (data) {
         let postsSorted = sortObject(posts, sortPosts)
-        let fundraisersSorted = sortObject(fundraisers, sortPosts)
-        let eventsSorted = sortObject(events, sortPosts)
+        let fundraisersSorted = sortObject(fundraisers, sortFundraisers)
+        let eventsSorted = sortObject(events, sortEvents)
 
         return (
             <div className={Styles.master}>
-                <div className={Styles.head}>
+                <div className={Styles.user}>
                     <div>
-                        <h1>{profileData.username}</h1>
-                        {profileData.details.name && <div>{profileData.details.name}</div>}
+                        <div>{data.username}</div>
+                        {data.name && <div>{data.name}</div>}
                     </div>
-                    {profileData.details.about && <p className='p1'>{profileData.details.about}</p>}
-                    <div>
-                        {profileData.details.location && <div className='icon' ><i className='fi fi-rs-marker'/>{profileData.details.location}</div>}
-                        {profileData.details.email && <div className='icon' ><i className='fi fi-rr-envelope'/>{profileData.details.email}</div>}
-                        {profileData.details.twitter && <a className='icon' href={profileData.details.twitter} target='_blank'><i className='fi fi-brands-twitter'/>{profileData.details.twitter}</a>}
-                        {profileData.details.facebook && <a className='icon' href={profileData.details.facebook} target='_blank'><i className='fi fi-brands-facebook'/>{profileData.details.facebook}</a>}
+                    {(data.phone && data.email && data.location) && (
+                        <div className={Styles.details}>
+                            {data.phone && (
+                                <div>
+                                    <Phone />
+                                    <div>{data.phone}</div>
+                                </div>
+                            )}
+                            {data.email && (
+                                <div>
+                                    <Mail />
+                                    <div>{data.email}</div>
+                                </div>
+                            )}
+                            {data.location && (
+                                <div>
+                                    <Location />
+                                    <div>{data.location}</div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                    {data.about && <p>{data.about}</p>}
+                    <div className={Styles.details}>
+                        {data.twitter && (
+                            <div>
+                                <Twitter />
+                                <div>{data.twitter}</div>
+                            </div>
+                        )}
+                        {data.facebook && (
+                            <div>
+                                <Fb />
+                                <div>{data.facebook}</div>
+                            </div>
+                        )}
                     </div>
-
                 </div>
-                <div className={Styles.content}>
-                    <div>
-                        <Radio name='section' options={sections} value={currentSection} handleChange={(e) => setCurrentSection(e.target.value)} style='section' />
+                <div>
+                    <div className={Styles.select}>
+                        <div>
+                            <input type='radio' name='show' id='showPosts' value='posts' onChange={(e) => setShow(e.target.value)} checked={show === 'posts'} />
+                            <label htmlFor='showPosts'>Posts</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='show' id='showFundraisers' value='fundraisers' onChange={(e) => setShow(e.target.value)} checked={show === 'fundraisers'} />
+                            <label htmlFor='showFundraisers'>Fundraisers</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='show' id='showEvents' value='events' onChange={(e) => setShow(e.target.value)} checked={show === 'events'} />
+                            <label htmlFor='showEvents'>Events</label>
+                        </div>
                     </div>
-                    {currentSection === 'posts' && (
+                    {show === 'posts' && (
                         <>
-                            <Select style='minimalist' label='Sort by' name='sortPost' options={sortPostsOptions} value={sortPosts} handleChange={(e) => setSortPosts(e.target.value)} />
+                            <div className={Styles.results}>
+                                <div>
+                                    <div>Sort by:</div>
+                                    <Dropdown name='sortPosts' options={sortPostsOptions} value={sortPosts} handleChange={(e) => setSortPosts(e.target.value)} />
+                                </div>
+                                <div>{posts.length} results.</div>
+                            </div>
                             <div className={Styles.posts}>
                                 {postsSorted.map((item, index) => (
-                                    <Post
-                                        post={item}
-                                        type='post'
-                                        key={index}
-                                    />
+                                    <div key={index}>
+                                        <Post data={item}/>
+                                    </div>
                                 ))}
                             </div>
                         </>
                     )}
-                    {currentSection === 'fundraisers' && (
+                    {show === 'fundraisers' && (
                         <>
-                            <Select style='minimalist' label='Sort by' name='sortFundraiser' options={sortFundraisersOptions} value={sortFundraisers} handleChange={(e) => setSortPosts(e.target.value)} />
-                            <div className={Styles.events}>
+                            <div className={Styles.results}>
+                                <div>
+                                    <div>Sort by:</div>
+                                    <Dropdown name='sortFundraisers' options={sortFundraisersOptions} value={sortFundraisers} handleChange={(e) => setSortFundraisers(e.target.value)} />
+                                </div>
+                                <div>{posts.length} results.</div>
+                            </div>
+                            <div className={Styles.posts}>
                                 {fundraisersSorted.map((item, index) => (
-                                    <Post
-                                        fundraiser={item}
-                                        type='fundraiser'
-                                        key={index}
-                                    />
+                                    <div key={index}>
+                                        <Post data={item}/>
+                                    </div>
                                 ))}
                             </div>
                         </>
                     )}
-                    {currentSection === 'events' && (
+                    {show === 'events' && (
                         <>
-                            <Select style='minimalist' label='Sort by' name='sortEvent' options={sortEventsOptions} value={sortEvents} handleChange={(e) => setSortPosts(e.target.value)} />
-                            <div className={Styles.events}>
+                            <div className={Styles.results}>
+                                <div>
+                                    <div>Sort by:</div>
+                                    <Dropdown name='sortEvents' options={sortEventsOptions} value={sortEvents} handleChange={(e) => setSortEvents(e.target.value)} />
+                                </div>
+                                <div>{posts.length} results.</div>
+                            </div>
+                            <div className={Styles.posts}>
                                 {eventsSorted.map((item, index) => (
-                                    <Post
-                                        event={item}
-                                        type='event'
-                                        key={index}
-                                    />
+                                    <div key={index}>
+                                        <Post data={item}/>
+                                    </div>
                                 ))}
                             </div>
                         </>

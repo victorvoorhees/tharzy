@@ -1,9 +1,10 @@
 import Styles from '../styles/Footer.module.css'
+import {useRouter} from "next/router";
 
 export default function Footer() {
     return (
         <footer className={Styles.footer}>
-            <p>Tharzy is made by <span><a href='https://twitter.com/comradekeyboard' target='_blank' className='underline'>this guy</a></span>.</p>
+            <p>© {new Date().getFullYear()} tharzy.com</p>
         </footer>
     )
 }

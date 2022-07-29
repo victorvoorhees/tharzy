@@ -1,21 +1,4 @@
-@font-face {
-  font-family: 'bureau grotesque';
-  font-weight: 400;
-  font-style: normal;
-  src: url('../asset/fonts/bureaugrotesque-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'bureau grotesque';
-  font-weight: 700;
-  font-style: normal;
-  src: url('../asset/fonts/bureaugrotesque-bold.woff2') format('woff2');
-}
-
-
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
 
 @import 'variables.css';
 
@@ -30,15 +13,13 @@
   margin: 0;
   padding: 0;
 
-  color: var(--black);
-  font-family: 'bureau grotesque', sans-serif;
-  font-weight: normal;
+  color: var(--slate-800);
+  font-family: 'open sans', sans-serif;
+  font-weight: 400;
 }
 
 button, input, select, textarea {
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   background: none;
   border: none;
   border-radius: 0;
@@ -51,10 +32,6 @@ button, input[type='submit'] {
   color: unset;  /* text color of buttons is blue by default on apple devices and this removes that */
   cursor: pointer;
   display: block;
-}
-
-input[type='radio'] {
-  display: none;
 }
 
 a {
@@ -84,14 +61,12 @@ span {
 /* FONT SIZES */
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .h7 {
-  font-family: 'bureau grotesque', sans-serif;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 1.35;
 }
 
 h1, .h1 {
-  font-size: 2.5rem;
-  font-weight: bold; /* for some fucking stupid reason, this one is needed to make the font weight bold */
+  font-size: 36px;
 }
 
 h2, .h2 {
@@ -119,7 +94,7 @@ h6, .h6 {
 }
 
 p {
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .p3 {
@@ -141,6 +116,17 @@ p {
 
 
 
+body {
+
+}
+
+
+
+
+
+
+
+
 
 /* CLASSES */
 
@@ -153,8 +139,8 @@ p {
   margin-left: auto;
   margin-right: auto;
   max-width: var(--site-max-width);
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .underline {
@@ -164,42 +150,75 @@ p {
   width: fit-content;
 }
 
+
+
+
+
 button.primary, input[type='submit'].primary {
   background-color: var(--blue-600);
   border: 1px solid var(--blue-600);
   color: var(--white);
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 button.primary:hover, input[type='submit'].primary:hover {
-  background-color: transparent;
-  color: var(--blue-600);
+  background-color: var(--blue-700);
+  border-color: var(--blue-700);
 }
 
+button.primary:active, input[type='submit'].primary:active {
+  outline: 4px solid var(--blue-200);
+}
+
+
+
+
+
 button.outline, input[type='submit'].outline {
-  border: 1px solid var(--black);
-  transition: background-color 0.2s, color 0.2s;
+  border: 1px solid var(--slate-300);
+  color: var(--blue-600);
+  transition: background-color 0.2s;
 }
 
 button.outline:hover, input[type='submit'].outline:hover {
-  background-color: var(--black);
+  background-color: var(--slate-100);
+}
+
+button.outline:active, input[type='submit'].outline:active {
+  outline: 4px solid var(--slate-200);
+}
+
+
+
+
+button.white-primary, input[type='submit'].white-primary {
+  background-color: var(--white);
+  border: 1px solid var(--white);
+  color: var(--black);
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+button.white-primary:hover, input[type='submit'].white-primary:hover {
+  background: none;
+  border-color: var(--white);
   color: var(--white);
 }
 
-button i {
-  background-color: var(--slate-200);
-  border-radius: 50%;
-  padding: 0.4rem;
+button.white-outline, input[type='submit'].white-outline {
+  background: none;
+  border: 1px solid var(--white);
+  color: var(--white);
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
-button i:hover:before {
-  color: var(--blue-600);
+button.white-outline:hover, input[type='submit'].white-outline:hover {
+  background-color: var(--white);
+  border-color: var(--white);
+  color: var(--black);
 }
 
-.icon {
-  align-items: center;
-  display: flex;
-}
+
+
 
 
 
@@ -220,14 +239,19 @@ button i:hover:before {
 
 
 
-@media (min-width: 768px) {
-  html {
-    font-size: 17px;
-  }
+
+
+p.mw-empty-elt {
+  display: none;
 }
 
-@media (min-width: 1280px) {
-  html {
-    font-size: 18px;
+
+
+
+
+@media (min-width: 768px) {
+  .fixedWidth {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }

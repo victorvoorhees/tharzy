@@ -1,46 +1,52 @@
 import {useEffect, useState} from 'react'
-import Select from '../../components/Select'
+import {useRouter} from "next/router";
+import Search from '../../components/Search'
+import Category from '../../components/Category'
+import Dropdown from '../../components/Dropdown'
 import Post from '../../components/Post'
-import Radio from '../../components/Radio'
-import Styles from '../../styles/Posts.module.css'
-import { FundraiserCategory, IFundraiser } from '../../utilities/types'
 import {sortObject} from '../../utilities/utilities'
-import Skeleton from '../../components/Skeleton'
-import InputText from '../../components/InputText'
-import Loading from "../../components/loading";
-import {returnFundraisers} from "../../utilities/dummy";
+import {returnFundraiserCategories, returnFundraisers, listCategories} from '../../utilities/dummy'
+import Styles from '../../styles/Posts.module.css'
 
-type SortOption = 'title' | 'time' | 'deadline' | 'engagement'
 
-const categories: FundraiserCategory[] = ['all', 'humanitarian', 'other', 'resistance']
-const sortOptions: SortOption[] = ['deadline', 'engagement', 'time', 'title']
+const sortOptions = ['deadline', 'engagement', 'time', 'title']
 
 export default function Fundraisers() {
-    const [data, setData] = useState<IFundraiser[]>(null)
+    const [data, setData] = useState(null)
+    const [categories, setCategories] = useState(null)
 
     const [searchFor, setSearchFor] = useState<string>('')
-    const [category, setCategory] = useState<FundraiserCategory>('all')
-    const [sortBy, setSortBy] = useState<SortOption>('deadline')
+    const [selectedCategories, setSelectedCategories] = useState(['resistance'])
+    const [sortBy, setSortBy] = useState('deadline')
+
+    const {asPath: url} = useRouter()
 
     useEffect(() => {
-        setData(returnFundraisers())
+        setData(returnFundraisers(20))
+        setCategories(returnFundraiserCategories())
+        if (localStorage.getItem('searchFromHome')) setSearchFor(localStorage.getItem('searchFromHome'))
     }, [])
 
-    function resetFilters() {
-        setSearchFor('')
-        setCategory('all')
-        setSortBy('title')
-    }
+    useEffect(() => {
+        localStorage.setItem('searchFromHome', '')
+    }, [url])
 
-    let a: JSX.Element[] = []
-    for (let i = 0; i < 9; i++) {
-        a.push(<div className={Styles.post}><Skeleton type='post' key={i} /></div>)
+    function selectCategory(e) {
+        let selected = [...selectedCategories]
+        if (selected.includes(e.target.name)) {
+            const i = selected.indexOf(e.target.name)
+            selected.splice(i, 1)
+        }
+        else {
+            selected.push(e.target.name)
+        }
+        setSelectedCategories(selected)
     }
 
     let results = data
     if (data) {
         if (searchFor.length > 0) results = results.filter(item => item.title.toLowerCase().includes(searchFor.toLowerCase()))
-        if (category !== 'all') results = results.filter(item => item.category.toLowerCase() === category.toLowerCase())
+        results = results.filter(item => selectedCategories.includes(item.category))
         // sortObject function checks type of sortBy property of first object of results array so results cannot be an empty array
         if (results.length > 0) results = sortObject(results, sortBy)
     }
@@ -48,43 +54,49 @@ export default function Fundraisers() {
     if (data) {
         return (
             <div className={Styles.master}>
-                <div>
+                <div className={Styles.filters}>
+                    <button className='primary'>Add post</button>
                     <div>
-                        <div className='h7'>Search</div>
-                        <InputText type='search' name='keyword' value={searchFor} handleChange={e => setSearchFor(e.target.value)} placeholder='Keyword?' />
+                        <div>Search</div>
+                        <Search name='search' value={searchFor} handleChange={(e) => setSearchFor(e.target.value)} />
                     </div>
-                    <div>
-                        <div className='h7'>Category</div>
-                        <Radio name='category' options={categories} value={category} handleChange={(e) => setCategory(e.target.value)} style='tags' />
+                    <div className={Styles.category}>
+                        <div>
+                            <div>Category</div>
+                            {selectedCategories.length > 0 && <span>{selectedCategories.length}</span>}
+                        </div>
+                        <Category options={categories} selected={selectedCategories} handleChange={selectCategory} />
                     </div>
                 </div>
                 {results.length > 0 ? (
                     <div>
-                        <div className={Styles.sort}>
-                            <Select style='minimalist' label='Sort by' name='sort' options={sortOptions} value={sortBy} handleChange={(e) => setSortBy(e.target.value)} />
+                        <div className={Styles.results}>
+                            <div>
+                                <div>Sort by:</div>
+                                <Dropdown name='sortBy' options={sortOptions} value={sortBy} handleChange={(e) => setSortBy(e.target.value)} />
+                            </div>
+                            <div>{results.length} results.</div>
                         </div>
-                        <div className={Styles.fundraisers}>
+                        <div className={Styles.posts}>
                             {results.map((item, index) => (
                                 <div key={index}>
-                                    <Post
-                                        fundraiser={item}
-                                        type='fundraiser'
-                                    />
+                                    <Post data={item}/>
                                 </div>
                             ))}
                         </div>
                     </div>
                 ) : (
                     <div className={Styles.nothing}>
-                        <div className='h1'>Nothing found.</div>
-                        <div className='p3'>Maybe try selecting a different filter or typing in a different keyword?</div>
+                        <img src='empty_box.svg' />
+                        <div className='h2'>No results.</div>
+                        <p className='p1'>Try selecting a different filter or typing in a different keyword.</p>
                     </div>
                 )}
             </div>
         )
     } else {
         return (
-            <Loading />
+            <div>Loading</div>
         )
     }
 }

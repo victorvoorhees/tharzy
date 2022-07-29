@@ -1,52 +1,40 @@
-const postCategoryArray = ['atrocities', 'international', 'opinion', 'other', 'resistance']
-type PostCategory = 'all' | 'atrocities' | 'resistance' | 'international' | 'opinion' | 'other'
 interface IPost {
     uploadedBy: string,
     time: number,
-    category: PostCategory,
+    category: string,
     title: string,
+    body: string,
     engagement: number,
     likes: number,
     dislikes: number,
     comments: number
 }
 
-const fundraiserCategoryArray = ['humanitarian', 'other', 'resistance']
-type FundraiserCategory = 'all' | 'humanitarian' | 'resistance' | 'other'
 interface IFundraiser {
+    deadline: number,
     uploadedBy: string,
     time: number,
-    category: FundraiserCategory,
+    category: string,
     title: string,
-    deadline: number,
+    body: string,
     engagement: number,
     likes: number,
     dislikes: number,
     comments: number
 }
 
-const eventCategoryArray = ['fundraising', 'meetup', 'other', 'protest']
-type EventCategory = 'all' | 'protest' | 'fundraising' | 'meetup' | 'other'
 interface IEvent {
     from: number,
     to: number,
+    country: string,
     uploadedBy: string,
     time: number,
-    category: EventCategory,
-    location: {
-        address: string,
-        country: string
-    }
+    category: string,
     title: string,
+    body: string,
     engagement: number,
-    like: {
-        count: number,
-        pressed: boolean
-    },
-    dislike: {
-        count: number,
-        pressed: boolean
-    },
+    likes: number,
+    dislikes: number,
     comments: number
 }
 
@@ -66,5 +54,4 @@ interface IComment {
     }
 }
 
-export type { PostCategory, IPost, FundraiserCategory, IFundraiser, EventCategory, IEvent, IComment }
-export { postCategoryArray, fundraiserCategoryArray, eventCategoryArray }
+export type { IPost, IFundraiser, IEvent, IComment }

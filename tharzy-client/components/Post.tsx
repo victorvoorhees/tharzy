@@ -1,114 +1,60 @@
 import Link from 'next/link'
-import countryFlagEmoji from 'country-flag-emoji'
-import lookup from 'country-code-lookup'
-import { setTimeLabel } from '../utilities/utilities'
+import {returnTime} from '../utilities/functions'
+import Like from '../icons/like'
+import Dislike from '../icons/dislike'
+import Comment from '../icons/comment'
+import Clock from '../icons/clock'
+import Location from '../icons/location'
+import Calendar from '../icons/calendar'
 import Styles from '../styles/Post.module.css'
-import {returnBody} from '../utilities/dummy'
-import {IEvent, IFundraiser, IPost} from "../utilities/types";
 
-interface IProps {
-    post?: IPost,
-    fundraiser?: IFundraiser,
-    event?: IEvent,
-    type: 'post' | 'fundraiser' | 'event'
-}
+export default function Post({ data, definition }: {data: any, definition?: boolean }) {
+    return (
+        <div className={Styles.post}>
+            <div className={Styles.subtitle}>
+                <div className={definition ? Styles.definitionPoster : ''}>{data.uploadedBy}</div>
+                <div>{returnTime(new Date().getTime() - data.time)}</div>
+            </div>
 
-const b = returnBody().slice(0, 200)
-
-export default function Post({ post, fundraiser, event, type }: IProps) {
-    if (type === 'post') {
-        return (
-            <div className={Styles.post}>
-                <div>
-                    <div className={Styles.subtitle}>
-                        <div>{post.category}</div>
-                        <div>{new Date(post.time).toLocaleDateString(undefined, { dateStyle: 'medium' })}</div>
-                    </div>
-                    <Link href='content'><a className='h5'>{post.title}</a></Link>
-                    <p>{b}</p>
+            {data.title && (
+                <Link href='/content'><a className={Styles.title}>{data.title}</a></Link>
+            )}
+            {data.category && (
+                <div className={Styles.category}>{data.category}</div>
+            )}
+            {data.deadline && (
+                <div className={Styles.deadline}>
+                    <Clock />
+                    <span>{returnTime(data.deadline - new Date().getTime())} left</span>
                 </div>
-                <div className={Styles.reacts}>
-                    <span className='icon'>
-                        <i className='fi fi-rr-thumbs-up' />
-                        <span>{post.likes}</span>
-                    </span>
-                    <span className='icon'>
-                        <i className='fi fi-rr-thumbs-down' />
-                        <span>{post.dislikes}</span>
-                    </span>
-                    <span className='icon'>
-                        <i className='fi fi-rs-comment' />
-                        <span>{post.comments}</span>
-                    </span>
+            )}
+            {data.country && (
+                <div className={Styles.deadline}>
+                    <Location />
+                    <span>{data.country}</span>
+                </div>
+            )}
+            {data.to && (
+                <div className={Styles.deadline}>
+                    <Calendar />
+                    <span>{new Date(data.to).toLocaleDateString(undefined, { dateStyle: 'medium' })}</span>
+                </div>
+            )}
+            <p>{data.body} {definition && <Link href='/'><a>read more</a></Link>}</p>
+            <div className={Styles.reacts}>
+                <div className='icon'>
+                    <Like />
+                    <span>{data.like}</span>
+                </div>
+                <div className='icon'>
+                    <Dislike />
+                    <span>{data.dislike}</span>
+                </div>
+                <div className='icon'>
+                    <Comment />
+                    <span>{data.comments}</span>
                 </div>
             </div>
-        )
-    }
-
-    if (type === 'fundraiser') {
-        return (
-            <div className={Styles.fundraiser}>
-                <div>
-                    <div className={Styles.subtitle}>
-                        <div>{fundraiser.category}</div>
-                        <div>{new Date(fundraiser.time).toLocaleDateString(undefined, { dateStyle: 'medium' })}</div>
-                    </div>
-                    <Link href='content'><a className='h6'>{fundraiser.title}</a></Link>
-                    <div className={Styles.deadline}>{setTimeLabel(fundraiser.deadline)} left</div>
-                </div>
-                <div className={Styles.reacts}>
-                    <span className='icon'>
-                        <i className='fi fi-rr-thumbs-up' />
-                        <span>{fundraiser.likes}</span>
-                    </span>
-                    <span className='icon'>
-                        <i className='fi fi-rr-thumbs-down' />
-                        <span>{fundraiser.dislikes}</span>
-                    </span>
-                    <span className='icon'>
-                        <i className='fi fi-rs-comment' />
-                        <span>{fundraiser.comments}</span>
-                    </span>
-                </div>
-            </div>
-        )
-    }
-
-    if (type === 'event') {
-        return (
-            <div className={Styles.event}>
-                <div>
-                    <div className='h1'>{new Date(event.from).toLocaleDateString(undefined, {day: 'numeric'})}</div>
-                    <div className='h2'>{new Date(event.from).toLocaleDateString(undefined, {month: 'short'})}</div>
-                </div>
-                <div>
-                    <div>
-                        <div className={Styles.subtitle}>
-                            <div>{event.category}</div>
-                            <div>{new Date(event.time).toLocaleDateString(undefined, { dateStyle: 'medium' })}</div>
-                        </div>
-                        <Link href='/'><a className='h6'>{event.title}</a></Link>
-                        <div className={Styles.country}>
-                            <div>{countryFlagEmoji.get(lookup.byCountry(event.location.country).iso2).emoji}</div>
-                            <div>{event.location.country}</div>
-                        </div>
-                    </div>
-                    <div className={Styles.reacts + ' ' + Styles.reactsEvent}>
-                        <span className='icon'>
-                            <i className='fi fi-rr-thumbs-up' />
-                            <span>{event.like.count}</span>
-                        </span>
-                            <span className='icon'>
-                            <i className='fi fi-rr-thumbs-down' />
-                            <span>{event.dislike.count}</span>
-                        </span>
-                            <span className='icon'>
-                            <i className='fi fi-rs-comment' />
-                            <span>{event.comments}</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+        </div>
+    )
 }

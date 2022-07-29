@@ -1,0 +1,166 @@
+.master {
+    display: grid;
+    grid-row-gap: 32px;
+    padding-bottom: 64px;
+    padding-top: 64px;
+}
+
+
+
+
+
+.master > div:first-of-type {
+    align-content: start;
+    border-bottom: 1px solid var(--slate-300);
+    display: grid;
+    grid-row-gap: 32px;
+    padding-bottom: 40px;
+}
+
+.master > div:first-of-type > div:first-of-type {
+    border-bottom: 1px solid var(--slate-300);
+    display: grid;
+    grid-row-gap: 24px;
+    padding-bottom: 32px;
+}
+
+.master > div:first-of-type > div:first-of-type > div > div:first-of-type {
+    margin-bottom: 6px;
+}
+
+.disabled {
+    opacity: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+.definitions {
+    display: grid;
+    grid-row-gap: 18px;
+}
+
+.definitions > div > div:first-of-type {
+    margin-bottom: 6px;
+}
+
+
+
+
+
+
+.nothing {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 320px;
+    text-align: center;
+}
+
+.nothing img {
+    height: 80px;
+    margin-bottom: 12px;
+    width: auto;
+}
+
+.nothing > div:first-of-type {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+
+
+
+
+
+.description {
+    display: grid;
+    grid-row-gap: 40px;
+    height: fit-content;
+}
+
+
+.description button {
+    border-radius: 12px;
+    display: block;
+    padding: 10px 12px;
+}
+
+
+
+
+
+
+.top > h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.top > div > p:not(:last-of-type) {
+    margin-bottom: 1em;
+}
+
+.top p {
+    font-size: 17px;
+}
+
+.top button {
+    margin-top: 18px;
+}
+
+
+
+
+
+
+.guest {
+    background-color: var(--slate-100);
+    padding: 24px;
+}
+
+.guest > div:first-of-type {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.guest > p {
+    margin-bottom: 20px;
+    max-width: 480px;
+}
+
+.guest > div:last-of-type > *:not(:first-of-type) {
+    margin-left: 8px;
+}
+
+.guest button {
+    border-radius: 10px;
+    padding: 8px 10px;
+}
+
+
+
+
+
+
+@media (min-width: 1024px) {
+    .master {
+        grid-column-gap: 40px;
+        grid-template-columns: 280px auto;
+    }
+
+    .master > div:first-of-type {
+        border-right: 1px solid var(--slate-300);
+        padding-right: 44px;
+
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
