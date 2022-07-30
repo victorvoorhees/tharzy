@@ -1,6 +1,6 @@
 .master {
     display: grid;
-    grid-column-gap: 36px;
+    grid-column-gap: 32px;
     grid-row-gap: 32px;
     padding-bottom: 64px;
     padding-top: 64px;
@@ -98,7 +98,7 @@
     display: grid;
     grid-row-gap: 32px;
     grid-template-columns: auto;
-    margin-top: 32px;
+    margin-top: 28px;
 }
 
 .posts > div:not(:first-of-type) {

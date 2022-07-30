@@ -27,7 +27,7 @@
 
 
 
-.master {
+.category {
     background-color: var(--slate-200);
     border-radius: 8px;
     color: var(--slate-500);
@@ -145,7 +145,7 @@
 
 .comments > div:first-of-type label {
     border: 1px solid var(--slate-300);
-    border-radius: 9px;
+    border-radius: 12px;
     cursor: pointer;
     display: block;
     padding: 8px 12px;
@@ -184,9 +184,9 @@
 }
 
 .reply button {
-    border-radius: 8px;
+    border-radius: 10px;
     margin-top: 8px;
-    padding: 0.4rem 0.6rem;
+    padding: 8px 10px;
 }
 
 .comments > div:last-of-type {
