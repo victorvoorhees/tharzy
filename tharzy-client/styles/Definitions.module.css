@@ -17,7 +17,6 @@
 .master label:before {
     content: '\2022';
     display: block;
-    font-weight: bold;
     margin-right: 8px;
     position: absolute;
     left: 0;

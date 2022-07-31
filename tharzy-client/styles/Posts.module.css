@@ -1,8 +1,8 @@
 .master {
     display: grid;
     grid-row-gap: 32px;
-    padding-bottom: 64px;
-    padding-top: 64px;
+    padding-bottom: 32px;
+    padding-top: 32px;
 }
 
 
@@ -18,7 +18,8 @@
 }
 
 .filters button {
-    border-radius: 10px;
+    border-radius: 100px;
+    font-weight: 700;
     padding: 8px;
     width: 100%;
 }
@@ -31,7 +32,7 @@
 
 .category > div:first-of-type {
     display: flex;
-    margin-bottom: 9px;
+    margin-bottom: 7px;
 }
 
 .category > div:first-of-type > div {
@@ -117,7 +118,7 @@
 }
 
 .nothing img {
-    height: 100px;
+    height: 80px;
     margin-bottom: 12px;
     width: auto;
 }
@@ -133,7 +134,7 @@
 
 @media (min-width: 768px) {
     .master {
-        grid-column-gap: 36px;
+        grid-column-gap: 40px;
         grid-template-columns: 260px auto;
     }
 

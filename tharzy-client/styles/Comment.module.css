@@ -57,6 +57,10 @@
     width: auto;
 }
 
+.reacts input {
+    display: none;
+}
+
 .reacts > div:last-of-type > label {
     border: 1px solid var(--slate-300);
     border-radius: 8px;

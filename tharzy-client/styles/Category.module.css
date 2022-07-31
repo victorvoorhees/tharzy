@@ -1,7 +1,7 @@
 .master {
     display: grid;
     grid-row-gap: 0.4rem;
-    max-height: 170px;
+    max-height: 180px;
     overflow-x: hidden;
     overflow-y: auto;
 }

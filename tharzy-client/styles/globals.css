@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
 
+@font-face {
+  font-family: 'circular';
+  font-weight: 400;
+  font-style: normal;
+  src: url("../asset/fonts/c-regular.woff2");
+}
+
+@font-face {
+  font-family: 'circular';
+  font-weight: 700;
+  font-style: normal;
+  src: url("../asset/fonts/c-bold.woff2");
+}
+
+
 @import 'variables.css';
 
 
@@ -14,7 +29,7 @@
   padding: 0;
 
   color: var(--slate-800);
-  font-family: 'open sans', sans-serif;
+  font-family: 'circular', sans-serif;
   font-weight: 400;
 }
 
