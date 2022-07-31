@@ -111,8 +111,8 @@ export default function Events() {
                 ) : (
                     <div className={Styles.nothing}>
                         <img src='empty_box.svg' />
-                        <div className='h2'>No results.</div>
-                        <p className='p1'>Try selecting a different filter or typing in a different keyword.</p>
+                        <div>No results.</div>
+                        <p>Try selecting a different filter or typing in a different keyword.</p>
                     </div>
                 )}
             </div>

@@ -1,6 +1,5 @@
 .master {
     display: grid;
-    grid-column-gap: 32px;
     grid-row-gap: 32px;
     padding-bottom: 64px;
     padding-top: 64px;
@@ -124,6 +123,8 @@
 }
 
 .nothing > div:first-of-type {
+    font-size: 28px;
+    font-weight: 700;
     margin-bottom: 12px;
 }
 
@@ -132,12 +133,13 @@
 
 @media (min-width: 768px) {
     .master {
+        grid-column-gap: 36px;
         grid-template-columns: 260px auto;
     }
 
     .filters {
         border-right: 1px solid var(--slate-300);
-        padding-right: 36px;
+        padding-right: 40px;
 
         border-bottom: none;
         padding-bottom: 0;

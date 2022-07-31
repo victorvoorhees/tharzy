@@ -175,7 +175,7 @@ button.primary:active, input[type='submit'].primary:active {
 
 
 button.outline, input[type='submit'].outline {
-  border: 1px solid var(--slate-300);
+  border: 1px solid var(--blue-600);
   color: var(--blue-600);
   transition: background-color 0.2s;
 }

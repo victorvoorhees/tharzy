@@ -14,7 +14,7 @@
     border-bottom: 1px solid var(--slate-300);
     display: grid;
     grid-row-gap: 32px;
-    padding-bottom: 40px;
+    padding-bottom: 32px;
 }
 
 .master > div:first-of-type > div:first-of-type {
@@ -87,11 +87,8 @@
     height: fit-content;
 }
 
-
-.description button {
-    border-radius: 12px;
-    display: block;
-    padding: 10px 12px;
+.description h1 {
+    font-size: 32px;
 }
 
 
@@ -100,7 +97,7 @@
 
 
 .top > h2 {
-    font-size: 28px;
+    font-size: 26px;
     margin-bottom: 12px;
 }
 
@@ -108,12 +105,11 @@
     margin-bottom: 1em;
 }
 
-.top p {
-    font-size: 17px;
-}
-
 .top button {
-    margin-top: 18px;
+    border-radius: 12px;
+    display: block;
+    margin-top: 16px;
+    padding: 10px 12px;
 }
 
 
@@ -122,12 +118,12 @@
 
 
 .guest {
-    background-color: var(--slate-100);
+    border: 1px solid var(--slate-300);
     padding: 18px 22px 22px 22px;
 }
 
 .guest > div:first-of-type {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     line-height: 1.5;
     margin-bottom: 10px;
@@ -139,7 +135,7 @@
 }
 
 .guest > div:last-of-type > *:not(:first-of-type) {
-    margin-left: 8px;
+    margin-left: 6px;
 }
 
 .guest button {
@@ -153,10 +149,25 @@
 
 
 
+
+@media (min-width: 768px) {
+    .description h1 {
+        font-size: 36px;
+    }
+
+    .top h2 {
+        font-size: 28px;
+    }
+
+    .top p {
+        font-size: 17px;
+    }
+}
+
 @media (min-width: 1024px) {
     .master {
         grid-column-gap: 40px;
-        grid-template-columns: 280px auto;
+        grid-template-columns: 290px auto;
     }
 
     .master > div:first-of-type {

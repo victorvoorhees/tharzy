@@ -123,7 +123,7 @@ export default function Encyclopedia() {
                         <h1>{definition.long}</h1>
                         <div className={Styles.top}>
                             <h2>Top definition</h2>
-                            <p>{returnBody().slice(0, 400)}</p>
+                            <p>{returnBody().slice(0, 380)}</p>
                             <Link href='wiki/userwiki' ><a><button className='outline'>View all user definitions</button></a></Link>
                         </div>
                         <div className={Styles.top}>
